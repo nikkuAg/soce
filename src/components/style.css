@@ -1,0 +1,123 @@
+i.icon:not(.extra){
+    display: none !important;
+}
+.ui.menu.navBar{
+    font-size: 1.5rem;
+    margin: 0;
+    color: white !important;
+    background-color: rgb(114, 114, 114);
+}
+.ui.menu .item{
+    color: white !important;
+}
+.ui.menu .active.item, .ui.vertical.menu .active.item{
+    font-weight: 700 !important;
+    background-color: rgb(61, 61, 61) !important;
+}
+.ui.menu :not(.active).item:hover{
+    background-color: rgb(85, 85, 85) !important;
+    color: white !important;
+}
+.navigation{
+    display: flex;
+    justify-content: center;
+}
+.ui.dropdown.icon{
+    background-color: white !important;
+}
+
+.ui.dropdown.icon>.text{
+    font-size: 2rem;
+    color: black;
+    background-color: white !important;
+    /* background-color: transparent !important; */
+}
+.ui.pointing.dropdown.mobile .dropdown.icon{
+    /* background-color: transparent !important; */
+    background-color: white !important;
+    margin: 0rem 1rem !important;
+}
+.ui.dropdown.icon>.menu.visible .item{
+    font-size: 1rem !important;
+}
+.hamburger, .ui.vertical.menu{
+    width: 100vw !important;
+}
+.ui.vertical.menu{
+    display: block !important;
+}
+.prediction .menu{
+    font-size: 1.25rem !important;
+}
+.ui.vertical.menu .item{
+    background-color: rgb(114, 114, 114) !important;
+}
+i.icon:hover:not(.extra){
+    cursor: pointer;
+}
+
+h1:first-child{
+    font-size: 4rem !important;
+    display: inline !important;
+    margin-top: 2rem !important;
+}
+.hamburgerIcon2{
+    display: none;
+}
+.footer{
+    background-color: "#F8F8F8";
+    border-top: "1px solid #E7E7E7";
+    text-align: "center";
+    padding: "20px";
+    position: "fixed";
+    left: "0";
+    bottom: "0";
+    height: "60px";
+    width: "100%";
+
+}
+
+
+@media (max-width: 610px) {
+    .heading{
+        margin: 1rem !important;
+    }
+    .navigation{
+        justify-content: space-between;
+        align-items: center;
+    }
+    .ui.menu.navBar{
+        display: none;
+    }
+    .ui.vertical.menu{
+        font-size: 1.5rem !important;
+    }
+    i.icon.hamburgerIcon{
+        display: block !important;
+        margin: 1rem !important;
+    }
+
+}
+@media (max-width: 770px){
+    .ui.menu.navBar:not(.vertical){
+        font-size: 1rem;
+    }
+    .ui.vertical.menu{
+        display: none;
+    }
+
+}
+
+@media (max-width: 330px) {
+    h1:first-child{
+        font-size: 2.5rem !important;
+        margin-top: 0.5rem !important;
+    }
+    .hamburgerIcon{
+        display: none !important;
+    }
+    .hamburgerIcon2{
+        display: block !important;
+        margin: 0.5rem !important
+    }
+}

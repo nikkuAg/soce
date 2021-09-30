@@ -1,0 +1,40 @@
+.ui.segment{
+    height: 100vh !important;
+}
+
+.collegeDetails{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem;
+}
+
+.loading{
+    margin: 2rem
+}
+.ui.celled.table{
+    width:fit-content;
+    text-align: center;
+    border: 2px solid;
+}
+
+thead{
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.05em;
+}
+
+thead>tr>th{
+    background-color: rgb(117, 117, 117) !important;
+    color: white !important;
+    border: 0.1em solid black !important;
+    
+}
+tbody>tr>td{
+    border: 0.1em solid black !important;
+    font-size: 1.3rem;
+}
+
+tbody>tr:nth-child(even)>td{
+    background-color: rgb(204, 204, 204) !important;
+}
