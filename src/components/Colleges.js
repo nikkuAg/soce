@@ -38,10 +38,8 @@ export const Colleges = () => {
         <React.Fragment>
             <MenuHeader active="colleges" />
             <div className="collegeDetails">
-                {/* <div>Error in Loading the data</div>
-                <Loader type="BallTriangle" color="black" height={80} width={80} /> */}
                 {
-                    error ? <div>Error in Loading the data</div> :
+                    error ? <div className='message'>Error in loading the data</div> :
                         loading ? <Loader className="loading" type="BallTriangle" color="black" height={80} width={80} /> :
                             <Table celled structured >
                                 <Table.Header >
