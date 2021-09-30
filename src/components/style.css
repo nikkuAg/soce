@@ -7,7 +7,6 @@ i.icon:not(.extra){
     color: white !important;
     background-color: rgb(114, 114, 114);
     width: 100% !important;
-    position: fixed !important;
 }
 .ui.menu .item{
     color: white !important;
@@ -23,7 +22,6 @@ i.icon:not(.extra){
 .navigation{
     display: flex;
     justify-content: center;
-    padding-top: 4rem;
 }
 .ui.dropdown.icon{
     background-color: white !important;

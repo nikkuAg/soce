@@ -62,6 +62,7 @@ export const Colleges = () => {
                             </Table>
                 }
             </div>
+            <br /><br /><br /><br />
             <Footer />
         </React.Fragment>
     )
