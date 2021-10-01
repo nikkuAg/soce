@@ -62,10 +62,6 @@ h1:first-child{
     display: inline !important;
     margin-top: 2rem !important;
 }
-.hamburgerIcon2{
-    display: none;
-}
-
 
 @media (max-width: 610px) {
     .heading{
@@ -101,12 +97,5 @@ h1:first-child{
     h1:first-child{
         font-size: 2.5rem !important;
         margin-top: 0.5rem !important;
-    }
-    .hamburgerIcon{
-        display: none !important;
-    }
-    .hamburgerIcon2{
-        display: block !important;
-        margin: 0.5rem !important
     }
 }

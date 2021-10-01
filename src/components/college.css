@@ -3,7 +3,7 @@
 }
 
 .collegeDetails{
-    display: flex;
+    overflow-x: scroll;
     flex-direction: column;
     align-items: center;
     margin: 2rem;
@@ -16,6 +16,7 @@
     width:fit-content;
     text-align: center;
     border: 2px solid;
+    display: block;
 }
 
 thead{
@@ -59,4 +60,39 @@ tbody>tr:nth-child(even)>td{
     line-height: normal;
     border: 0.1em solid black;
     background-color: rgb(218, 218, 218);
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+  
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+.buttons{
+      margin-left: 2rem;
+}
+
+.btn{
+    font-size: 1.3rem !important;
+    margin: 1rem !important;
+    margin-bottom: 0px !important;
+}
+.ui.primary.button.active{
+    background-color: #1c6297 !important;
+    border: 0.2rem solid black;
+}
+
+.ui.primary.button:not(.active){
+    background-color: #5aaceb !important;
+    border: 0.2rem solid black;
+}
+
+.ui.primary.button:hover{
+    background-color: #1c6297 !important;
 }
