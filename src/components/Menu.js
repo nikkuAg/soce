@@ -27,7 +27,7 @@ export const MenuHeader = (props) => {
         if (path === 'home') {
             history.push('/home');
         }
-        else if (path === 'colleges' || path === "seats") {
+        else if (path === 'colleges' || path === "seats" || path === 'prediction') {
             history.push(`/${path}/${name}`);
         }
     }
@@ -81,10 +81,10 @@ export const MenuHeader = (props) => {
                         <Dropdown text="College Predictions" pointing name="prediction">
                             <DropdownMenu>
                                 <DropdownHeader>College and Branch Prediction</DropdownHeader>
-                                <DropdownItem text="IIT Prediction" name="IIT Prediction" onClick={handleItemClick} />
-                                <DropdownItem text="IIIT Prediction" name="IIIT Prediction" onClick={handleItemClick} />
-                                <DropdownItem text="NIT Prediction" name="NIT Prediction" onClick={handleItemClick} />
-                                <DropdownItem text="GFTI Prediction" name="GFTI Prediction" onClick={handleItemClick} />
+                                <DropdownItem text="IIT Prediction" name="IIT" path="prediction" onClick={handleItemClick} />
+                                <DropdownItem text="IIIT Prediction" name="IIIT" path="prediction" onClick={handleItemClick} />
+                                <DropdownItem text="NIT Prediction" name="NIT" path="prediction" onClick={handleItemClick} />
+                                <DropdownItem text="GFTI Prediction" name="GFTI" path="prediction" onClick={handleItemClick} />
                             </DropdownMenu>
                         </Dropdown>
                     </MenuItem>
@@ -102,7 +102,8 @@ export const MenuHeader = (props) => {
                     <Menu.Item
                         name='home'
                         active={state.activeItem === 'home'}
-                        onClick={handleItemClick}>
+                        onClick={handleItemClick}
+                        path='home'>
                         Home
                     </Menu.Item>
                     <MenuItem
@@ -127,10 +128,10 @@ export const MenuHeader = (props) => {
                         <Dropdown text="College Predictions" pointing="top left" name="prediction" className="mobile prediction" style={{ display: "flex", alignItems: 'center' }} onClick={handleItemClick}>
                             <DropdownMenu>
                                 <DropdownHeader>College and Branch Prediction</DropdownHeader>
-                                <DropdownItem text="IIT Prediction" name="IIT Prediction" onClick={handleItemClick} />
-                                <DropdownItem text="IIIT Prediction" name="IIIT Prediction" onClick={handleItemClick} />
-                                <DropdownItem text="NIT Prediction" name="NIT Prediction" onClick={handleItemClick} />
-                                <DropdownItem text="GFTI Prediction" name="GFTI Prediction" onClick={handleItemClick} />
+                                <DropdownItem text="IIT Prediction" name="IIT" path="prediction" onClick={handleItemClick} />
+                                <DropdownItem text="IIIT Prediction" name="IIIT" path="prediction" onClick={handleItemClick} />
+                                <DropdownItem text="NIT Prediction" name="NIT" path="prediction" onClick={handleItemClick} />
+                                <DropdownItem text="GFTI Prediction" name="GFTI" path="prediction" onClick={handleItemClick} />
                             </DropdownMenu>
                         </Dropdown>
                     </MenuItem>
