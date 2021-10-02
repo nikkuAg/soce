@@ -1,0 +1,98 @@
+.ui.segment{
+    height: 100vh !important;
+}
+
+.collegeDetails{
+    overflow-x: scroll;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem;
+}
+
+.loading{
+    margin: 2rem
+}
+.ui.celled.table{
+    width:fit-content;
+    text-align: center;
+    border: 2px solid;
+    display: block;
+}
+
+thead{
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.05em;
+    line-height: normal;
+    /* position: sticky !important; */
+}
+.ui.table thead tr:first-child > th {
+    position: sticky !important;
+    top: 0;
+    z-index: 2;
+}
+
+thead>tr>th{
+    background-color: rgb(97, 97, 97) !important;
+    color: rgb(255, 255, 255) !important;
+    border: 0.1em solid black !important;
+    
+}
+tbody>tr>td{
+    border: 0.1em solid black !important;
+    font-size: 1.3rem;
+    font-family:'Courier New', Courier, monospace ;
+    line-height: normal;
+}
+
+tbody>tr:nth-child(even)>td{
+    background-color: rgb(218, 218, 218) !important;
+}
+
+.message{
+    color: red;
+    font-family: 'Gemunu Libre', sans-serif;
+    font-size: 3rem;
+    margin-top: 4rem;
+    padding: 1em;
+    font-weight: 700;
+    text-align: center;
+    line-height: normal;
+    border: 0.1em solid black;
+    background-color: rgb(218, 218, 218);
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+  
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+.buttons{
+      margin-left: 2rem;
+}
+
+.btn{
+    font-size: 1.3rem !important;
+    margin: 1rem !important;
+    margin-bottom: 0px !important;
+}
+.ui.primary.button.active{
+    background-color: #1c6297 !important;
+    border: 0.2rem solid black;
+}
+
+.ui.primary.button:not(.active){
+    background-color: #5aaceb !important;
+    border: 0.2rem solid black;
+}
+
+.ui.primary.button:hover{
+    background-color: #1c6297 !important;
+}
