@@ -24,11 +24,11 @@ export const MenuHeader = (props) => {
 
     const handleItemClick = (e, { name, path }) => {
         setstate({ activeItem: name });
-        if (path === 'home') {
-            history.push('/home');
-        }
-        else if (path === 'colleges' || path === "seats" || path === 'ranks') {
+        if (path === 'colleges' || path === "seats" || path === 'ranks') {
             history.push(`/${path}/${name}`);
+        }
+        else {
+            history.push(`/${path}`);
         }
     }
     function displayMenuMobile() {
@@ -91,6 +91,13 @@ export const MenuHeader = (props) => {
                             </DropdownMenu>
                         </Dropdown>
                     </MenuItem>
+                    <MenuItem
+                        name='prediction'
+                        active={state.activeItem === 'prediction'}
+                        onClick={handleItemClick}
+                        path='prediction'>
+                        SOCE Prediction
+                    </MenuItem>
                     <Menu.Item
                         name='contact us'
                         active={state.activeItem === 'contact us'}
@@ -141,6 +148,13 @@ export const MenuHeader = (props) => {
                                 <DropdownItem text="GFTIs" name="GFTI" path="ranks" onClick={handleItemClick} />
                             </DropdownMenu>
                         </Dropdown>
+                    </MenuItem>
+                    <MenuItem
+                        name='prediction'
+                        active={state.activeItem === 'prediction'}
+                        onClick={handleItemClick}
+                        path='prediction'>
+                        SOCE Prediction
                     </MenuItem>
                     <Menu.Item
                         name='contact us'
