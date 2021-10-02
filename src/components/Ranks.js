@@ -64,7 +64,7 @@ export const Ranks = ({ institutes, branches }) => {
 
     return (
         <React.Fragment>
-            <MenuHeader active="prediction" />
+            <MenuHeader active="ranks" />
             <div className="buttonRanks">
                 <div className="buttons">
                     <Button active={btnActive === "2015"} primary onClick={() => selectRound('2015')} className="btn">Year 2015</Button>

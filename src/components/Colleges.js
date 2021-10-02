@@ -32,8 +32,8 @@ export const Colleges = () => {
                     console.log('Error', error.message);
                 }
             })
-
     }, [])
+
     return (
         <React.Fragment>
             <MenuHeader active="colleges" />
@@ -42,16 +42,21 @@ export const Colleges = () => {
                 {
                     error ? <div className='message'>Error in loading the data</div> :
                         loading ? <Loader className="loading" type="BallTriangle" color="black" height={80} width={80} /> :
-                            <Table celled structured>
+                            <Table celled structured id="myTable">
                                 <Table.Header >
                                     <Table.Row>
+                                        <Table.HeaderCell>
+                                            <div className="searchField">
+                                                NIRF Rating (2019/2020/2021)
+                                                <input type="text" id="nirf" placeholder="Search NIRF..." onKeyUp={search} size={13} />
+                                            </div>
+                                        </Table.HeaderCell>
                                         <Table.HeaderCell>
                                             <div className="searchField">
                                                 Institute Code
                                                 <input type="text" id="code" placeholder="Search Code..." onKeyUp={search} size={13} />
                                             </div>
                                         </Table.HeaderCell>
-
                                         <Table.HeaderCell>
                                             <div className="searchField">
                                                 Name of Institute
@@ -60,8 +65,14 @@ export const Colleges = () => {
                                         </Table.HeaderCell>
                                         <Table.HeaderCell>
                                             <div className="searchField">
-                                                Institute Type
-                                                <input type="text" id="type" placeholder="Search Type..." onKeyUp={search} size={13} />
+                                                State
+                                                <input type="text" id="state" placeholder="Search State..." onKeyUp={search} size={13} />
+                                            </div>
+                                        </Table.HeaderCell>
+                                        <Table.HeaderCell>
+                                            <div className="searchField">
+                                                Website
+                                                <input type="text" id="website" placeholder="Search Website..." onKeyUp={search} size={13} />
                                             </div>
                                         </Table.HeaderCell>
                                     </Table.Row>
@@ -69,9 +80,11 @@ export const Colleges = () => {
                                 <Table.Body>
                                     {institutes.map(institute => (institute.category === college ?
                                         <Table.Row key={institute.id}>
+                                            <Table.Cell>{institute.nirf_19 === '' ? '-' : institute.nirf_19}/{institute.nirf_20 === '' ? '-' : institute.nirf_20}/{institute.nirf_21 === '' ? '-' : institute.nirf_21}</Table.Cell>
                                             <Table.Cell>{institute.code}</Table.Cell>
                                             <Table.Cell>{institute.name}</Table.Cell>
-                                            <Table.Cell>{institute.category}</Table.Cell>
+                                            <Table.Cell>{institute.state}</Table.Cell>
+                                            <Table.Cell><a target="_blank" href={institute.website === "" ? "#" : institute.website}>{institute.website === "" ? "-" : institute.website}</a></Table.Cell>
                                         </Table.Row>
                                         : <React.Fragment key={institute.id}></React.Fragment>
                                     ))}
@@ -79,14 +92,19 @@ export const Colleges = () => {
                                 <Table.Header >
                                     <Table.Row>
                                         <Table.HeaderCell>
+                                            NIRF Rating (2019/2020/2021)
+                                        </Table.HeaderCell>
+                                        <Table.HeaderCell>
                                             Institute Code
                                         </Table.HeaderCell>
-
                                         <Table.HeaderCell>
                                             Name of Institute
                                         </Table.HeaderCell>
                                         <Table.HeaderCell>
-                                            Institute Type
+                                            State
+                                        </Table.HeaderCell>
+                                        <Table.HeaderCell>
+                                            Website
                                         </Table.HeaderCell>
                                     </Table.Row>
                                 </Table.Header>
@@ -101,9 +119,11 @@ export const Colleges = () => {
 
 
 const search = () => {
+    let nirf = document.getElementById("nirf").value.toUpperCase()
     let institute = document.getElementById("institute").value.toUpperCase()
     let code = document.getElementById("code").value.toUpperCase()
-    let type = document.getElementById("type").value.toUpperCase()
+    let state = document.getElementById("state").value.toUpperCase()
+    let website = document.getElementById("website").value.toUpperCase()
 
 
     let table = document.getElementById('myTable');
@@ -111,7 +131,7 @@ const search = () => {
     for (var i = 1; i < tr.length; i++) {
         let td = tr[i].getElementsByTagName('td');
         if (td.length > 0) {
-            if ((td[0].innerHTML.toUpperCase().indexOf(code) > -1) && (td[1].innerHTML.toUpperCase().indexOf(institute) > -1) && (td[2].innerHTML.toUpperCase().indexOf(type) > -1)) {
+            if ((td[0].innerHTML.toUpperCase().indexOf(nirf) > -1) && (td[1].innerHTML.toUpperCase().indexOf(code) > -1) && (td[2].innerHTML.toUpperCase().indexOf(institute) > -1) && (td[2].innerHTML.toUpperCase().indexOf(state) > -1) && (td[2].innerHTML.toUpperCase().indexOf(website) > -1)) {
                 tr[i].style.display = "";
             }
             else {
