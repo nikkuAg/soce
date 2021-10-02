@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
-import { Table, Button } from 'semantic-ui-react'
+import { Table, Button, Divider } from 'semantic-ui-react'
 import Loader from 'react-loader-spinner'
 import { MenuHeader } from './Menu'
 import { Footer } from './Footer'
@@ -9,18 +9,17 @@ import './college.css'
 
 
 export const SeatMatrix = ({ institutes, branches }) => {
-    const [seats, setinstitute] = useState([])
+    const [seats, setseats] = useState([])
     const [loading, setloading] = useState(true)
     const [error, seterror] = useState(false)
     const [btnActive, setbtnActive] = useState("2020")
     const [apiurl, setapiUrl] = useState('http://localhost:8000/soce/seat_2020/')
     const { college } = useParams()
     useEffect(() => {
-        console.log("getting")
         axios.get(apiurl)
             .then(res => {
                 setloading(false)
-                setinstitute(res.data)
+                setseats(res.data)
             })
             .catch(function (error) {
                 seterror(true)
@@ -44,13 +43,15 @@ export const SeatMatrix = ({ institutes, branches }) => {
 
     return (
         <React.Fragment>
-            <MenuHeader active="colleges" />
+            <MenuHeader active="matrix" />
             <div className="buttons">
                 <Button active={btnActive === "2019"} primary onClick={() => getRequest('seat_2019', "2019")} className="btn">Year 2019</Button>
                 <Button active={btnActive === "2020"} primary onClick={() => getRequest('seat_2020', "2020")} className="btn">Year 2020</Button>
                 <Button active={btnActive === "CSAB"} primary onClick={() => getRequest('seat_csab_2020', "CSAB")} className="btn">CSAB 2020</Button>
                 <Button active={btnActive === "2021"} primary onClick={() => getRequest('seat_2021', "2021")} disabled className="btn">Year 2021</Button>
             </div>
+            <Divider />
+            <h2 className="pageHeading">{btnActive} Seat Matrix of {college}s</h2>
             <div className="collegeDetails">
                 {
                     error ? <div className='message'>Error in loading the data</div> :
@@ -128,8 +129,6 @@ const search = () => {
     let category = document.getElementById("category").value.toUpperCase()
     let quota = document.getElementById("quota").value.toUpperCase()
     let seats = document.getElementById("seats").value.toUpperCase()
-
-    console.log(institute, branch, duration, degree, pool, category, quota, seats)
 
     let table = document.getElementById('myTable');
     let tr = table.getElementsByTagName('tr');

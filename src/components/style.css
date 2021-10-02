@@ -31,10 +31,8 @@ i.icon:not(.extra){
     font-size: 2rem;
     color: black;
     background-color: white !important;
-    /* background-color: transparent !important; */
 }
 .ui.pointing.dropdown.mobile .dropdown.icon{
-    /* background-color: transparent !important; */
     background-color: white !important;
     margin: 0rem 1rem !important;
 }

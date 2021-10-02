@@ -6,7 +6,7 @@ import { Testing } from './components/testing';
 import { Home } from './components/Home';
 import { Colleges } from './components/Colleges';
 import { SeatMatrix } from './components/SeatMatrix';
-import { Prediction } from './components/Prediction';
+import { Ranks } from './components/Ranks';
 
 function App() {
 
@@ -33,7 +33,7 @@ function App() {
         <Route path="/test/:colleges" component={Testing} />
         <Route path="/colleges/:college" component={Colleges} />
         <Route path="/seats/:college" component={() => (<SeatMatrix institutes={institutes} branches={branches} />)} />
-        <Route path="/prediction/:college" component={() => (<Prediction institutes={institutes} branches={branches} />)} />
+        <Route path="/ranks/:college" component={() => (<Ranks institutes={institutes} branches={branches} />)} />
         <Redirect to="/home" />
       </Switch>
     </BrowserRouter>

@@ -37,7 +37,8 @@ export const Colleges = () => {
     return (
         <React.Fragment>
             <MenuHeader active="colleges" />
-            <div className="collegeDetails">
+            <h2 className="pageHeading">{college}s</h2>
+            <div className="collegeDetails listColleges">
                 {
                     error ? <div className='message'>Error in loading the data</div> :
                         loading ? <Loader className="loading" type="BallTriangle" color="black" height={80} width={80} /> :

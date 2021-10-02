@@ -4,11 +4,12 @@
 
 .collegeDetails{
     overflow-x: scroll;
-    flex-direction: column;
-    align-items: center;
     margin: 2rem;
 }
-
+.listColleges{
+    display: flex;
+    justify-content: center;
+}
 .loading{
     margin: 2rem
 }
@@ -16,7 +17,6 @@
     width:fit-content;
     text-align: center;
     border: 2px solid;
-    display: block;
 }
 
 thead{
@@ -75,13 +75,15 @@ th, td {
 }
 
 .buttons{
-      margin-left: 2rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .btn{
     font-size: 1.3rem !important;
     margin: 1rem !important;
-    margin-bottom: 0px !important;
+    margin-bottom: 0.5rem !important;
 }
 .ui.primary.button.active{
     background-color: #1c6297 !important;
@@ -95,4 +97,14 @@ th, td {
 
 .ui.primary.button:hover{
     background-color: #1c6297 !important;
+}
+.ui.primary.button.disabled.round{
+    display: none;
+}
+.pageHeading{
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+    font-size: 2.5rem;
+    font-weight: 500;
+    text-decoration: solid underline;
 }
