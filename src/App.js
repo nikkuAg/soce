@@ -7,6 +7,7 @@ import { Home } from './components/Home';
 import { Colleges } from './components/Colleges';
 import { SeatMatrix } from './components/SeatMatrix';
 import { Ranks } from './components/Ranks';
+import { Prediction } from './components/Prediction'
 
 function App() {
 
@@ -24,8 +25,6 @@ function App() {
         setbranch(res.data)
       })
   }, [])
-  // console.log(institutes)
-  // console.log(branches)
   return (
     <BrowserRouter>
       <Switch>
@@ -34,6 +33,8 @@ function App() {
         <Route path="/colleges/:college" component={Colleges} />
         <Route path="/seats/:college" component={() => (<SeatMatrix institutes={institutes} branches={branches} />)} />
         <Route path="/ranks/:college" component={() => (<Ranks institutes={institutes} branches={branches} />)} />
+        <Route path="/prediction" component={() => (<Prediction institutes={institutes} branches={branches} />)} />
+        <Route path="/prediction/:college" component={() => (<Prediction institutes={institutes} branches={branches} />)} />
         <Redirect to="/home" />
       </Switch>
     </BrowserRouter>

@@ -1,0 +1,211 @@
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { Table, Button } from 'semantic-ui-react'
+import Loader from 'react-loader-spinner'
+import { MenuHeader } from './Menu'
+import { Footer } from './Footer'
+import './college.css'
+
+
+export const Prediction = ({ institutes, branches, college }) => {
+    const [ranks, setranks] = useState([])
+    const [loading, setloading] = useState(true)
+    const [error, seterror] = useState(false)
+    const [btnActive, setbtnActive] = useState("2020")
+    const [roundActive, setroundActive] = useState(['1', '2', '3', '4', '5', '6'])
+    const [roundBtn, setroundBtn] = useState("1")
+    const [apiurl, setapiUrl] = useState('http://localhost:8000/soce/1_2020/')
+    useEffect(() => {
+        axios.get(apiurl)
+            .then(res => {
+                setloading(false)
+                setranks(res.data)
+            })
+            .catch(function (error) {
+                seterror(true)
+                if (error.response) {
+                    console.log(error.response.data);
+                    console.log(error.response.status);
+                    console.log(error.response.headers);
+                } else if (error.request) {
+                    console.log(error.request);
+                } else {
+                    console.log('Error', error.message);
+                }
+            })
+    }, [apiurl])
+
+    const selectRound = (year) => {
+        setbtnActive(year)
+        if (year === '2015') {
+            setroundActive(['7'])
+        }
+        else if (year === '2017' || year === '2018' || year === '2019') {
+            setroundActive(['1', '7'])
+        }
+        else if (year === '2016') {
+            setroundActive(['1', '6'])
+        }
+        else if (year === '2020') {
+            setroundActive(['1', '2', '3', '4', '5', '6'])
+        }
+        else if (year === 'csab_2020') {
+            setroundActive(['1', '2'])
+        }
+    }
+
+    const getRequest = (round) => {
+        setapiUrl(`http://localhost:8000/soce/${round}_${btnActive}/`)
+        setloading(true)
+        setroundBtn(round)
+    }
+    // var data = []
+    // useEffect(() => {
+    //     if (!loading) {
+    //         console.log('in')
+    //         if (ranks !== []) {
+    //             for (let i = 0; i < branches.length; i++) {
+    //                 if (branches[i].IIT === 'Y') {
+    //                     let test = []
+    //                     console.log('in2')
+    //                     for (let j = 0; j < institutes.length; j++) {
+    //                         if (institutes[j].category === college) {
+    //                             console.log('in3')
+    //                             let a = ranks.find(o => ((o.branch_code === branches[i].id) && (o.institute_code === institutes[j].id) && (o.category === 'General') && (o.seat_pool === 'Gender-Neutral')))
+    //                             if (a) {
+    //                                 test.push(a.opening_rank)
+    //                             }
+    //                             else {
+    //                                 test.push('-')
+    //                             }
+    //                         }
+    //                     }
+    //                     data.push(test)
+    //                 }
+    //             }
+    //         }
+    //     }
+
+    // }, [ranks])
+
+    return (
+        <React.Fragment>
+            <MenuHeader active="prediction" />
+            <div className="buttonRanks">
+                <div className="buttons">
+                    <Button active={btnActive === "2015"} primary onClick={() => selectRound('2015')} className="btn">Year 2015</Button>
+                    <Button active={btnActive === "2016"} primary onClick={() => selectRound('2016')} className="btn">Year 2016</Button>
+                    <Button active={btnActive === "2017"} primary onClick={() => selectRound('2017')} className="btn">Year 2017</Button>
+                    <Button active={btnActive === "2018"} primary onClick={() => selectRound('2018')} className="btn">Year 2018</Button>
+                    <Button active={btnActive === "2019"} primary onClick={() => selectRound('2019')} className="btn">Year 2019</Button>
+                    <Button active={btnActive === "2020"} primary onClick={() => selectRound('2020')} className="btn">Year 2020</Button>
+                    <Button active={btnActive === "CSAB"} primary onClick={() => selectRound('csab_2020')} className="btn">CSAB 2020</Button>
+                    <Button active={btnActive === "2021"} primary onClick={() => selectRound('2021')} disabled className="btn">Year 2021</Button>
+                </div>
+                <div className="buttons">
+                    <Button disabled={!roundActive.includes('1')} primary active={roundBtn === "1"} onClick={() => getRequest('1')} className="btn round">Round 1</Button>
+                    <Button disabled={!roundActive.includes('2')} primary active={roundBtn === "2"} onClick={() => getRequest('2')} className="btn round">Round 2</Button>
+                    <Button disabled={!roundActive.includes('3')} primary active={roundBtn === "3"} onClick={() => getRequest('3')} className="btn round">Round 3</Button>
+                    <Button disabled={!roundActive.includes('4')} primary active={roundBtn === "4"} onClick={() => getRequest('4')} className="btn round">Round 4</Button>
+                    <Button disabled={!roundActive.includes('5')} primary active={roundBtn === "5"} onClick={() => getRequest('5')} className="btn round">Round 5</Button>
+                    <Button disabled={!roundActive.includes('6')} primary active={roundBtn === "6"} onClick={() => getRequest('6')} className="btn round">Round 6</Button>
+                    <Button disabled={!roundActive.includes('7')} primary active={roundBtn === "7"} onClick={() => getRequest('7')} className="btn round">Round 7</Button>
+                </div>
+            </div>
+            <h2 className="pageHeading">{btnActive === 'csab_2020' ? 'CSAB' : btnActive} (Round-{roundBtn}) Opening and Closing Ranks of {college}s</h2>
+            <div className="collegeDetails">
+                {
+                    error ? <div className='message'>Error in loading the data</div> :
+                        loading ? <Loader className="loading" type="BallTriangle" color="black" height={80} width={80} /> :
+                            <Table celled structured id="myTable">
+                                <Table.Header >
+                                    <Table.Row>
+                                        <Table.HeaderCell rowSpan='2' colSpan='2'>
+                                        </Table.HeaderCell>
+                                        {institutes.map(institute => (
+                                            institute.category === college ?
+                                                <Table.HeaderCell key={institute.id}>
+                                                    {institute.code}
+                                                </Table.HeaderCell>
+                                                : <></>
+                                        ))}
+                                    </Table.Row>
+                                    <Table.Row>
+                                        {institutes.map(institute => (
+                                            institute.category === college ?
+                                                <Table.HeaderCell key={institute.id}>
+                                                    {institute.name}
+                                                </Table.HeaderCell>
+                                                : <React.Fragment key={institute.id}></React.Fragment>
+                                        ))}
+                                    </Table.Row>
+                                </Table.Header>
+                                <Table.Body>
+                                    {/* {ranks.map(rank => (institutes.find(o => o.id === rank.institute_code).category === college ?
+                                        <Table.Row key={rank.id}>
+                                            <Table.Cell>{institutes.find(o => o.id === rank.institute_code).name}</Table.Cell>
+                                            <Table.Cell>{branches.find(o => o.id === rank.branch_code).branch_name}</Table.Cell>
+                                            <Table.Cell>{rank.category}</Table.Cell>
+                                            <Table.Cell>{rank.quota}</Table.Cell>
+                                            <Table.Cell>{rank.seat_pool}</Table.Cell>
+                                            <Table.Cell>{rank.opening_rank}</Table.Cell>
+                                            <Table.Cell>{rank.closing_rank}</Table.Cell>
+                                        </Table.Row>
+                                        : <React.Fragment key={rank.id}></React.Fragment>
+                                    ))} */}
+                                    {branches.map(branch => (
+                                        branch.IIT === 'Y' ?
+                                            <Table.Row key={branch.id}>
+                                                <Table.Cell>
+                                                    {branch.code}
+                                                </Table.Cell>
+                                                <Table.Cell>
+                                                    {branch.branch_name}
+                                                </Table.Cell>
+                                                {institutes.map(institute => (
+                                                    institute.category === college ?
+                                                        ranks.find(o => ((o.branch_code === branch.id) && (o.institute_code === institute.id) && (o.category === 'General') && (o.seat_pool === 'Gender-Neutral'))) ?
+                                                            <Table.Cell>
+                                                                {ranks.find(o => ((o.branch_code === branch.id) && (o.institute_code === institute.id) && (o.category === 'General') && (o.seat_pool === 'Gender-Neutral'))).opening_rank}
+                                                            </Table.Cell>
+                                                            : <Table.Cell>-</Table.Cell>
+                                                        : <React.Fragment key={institute.id}></React.Fragment>
+                                                ))}
+                                            </Table.Row>
+                                            : <React.Fragment key={branch.id}></React.Fragment>
+                                    ))}
+                                </Table.Body>
+                            </Table>
+                }
+
+            </div>
+            <br /><br /><br /><br />
+            <Footer />
+        </React.Fragment >
+    )
+}
+
+
+const search = () => {
+    let institute = document.getElementById("institute").value.toUpperCase()
+    let branch = document.getElementById("branch").value.toUpperCase()
+    let pool = document.getElementById("pool").value.toUpperCase()
+    let category = document.getElementById("category").value.toUpperCase()
+    let quota = document.getElementById("quota").value.toUpperCase()
+    let opening = document.getElementById("opening").value.toUpperCase()
+    let closing = document.getElementById("closing").value.toUpperCase()
+
+    let table = document.getElementById('myTable');
+    let tr = table.getElementsByTagName('tr');
+    for (var i = 1; i < tr.length; i++) {
+        let td = tr[i].getElementsByTagName('td');
+        if (td.length > 0) {
+            if ((td[0].innerHTML.toUpperCase().indexOf(institute) > -1) && (td[1].innerHTML.toUpperCase().indexOf(branch) > -1) && (td[2].innerHTML.toUpperCase().indexOf(category) > -1) && (td[3].innerHTML.toUpperCase().indexOf(quota) > -1) && (td[4].innerHTML.toUpperCase().indexOf(pool) > -1) && (td[5].innerHTML.toUpperCase().indexOf(opening) > -1) && (td[6].innerHTML.toUpperCase().indexOf(closing) > -1)) {
+                tr[i].style.display = "";
+            }
+            else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+}
