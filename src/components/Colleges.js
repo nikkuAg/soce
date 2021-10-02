@@ -42,12 +42,28 @@ export const Colleges = () => {
                 {
                     error ? <div className='message'>Error in loading the data</div> :
                         loading ? <Loader className="loading" type="BallTriangle" color="black" height={80} width={80} /> :
-                            <Table celled structured >
+                            <Table celled structured>
                                 <Table.Header >
                                     <Table.Row>
-                                        <Table.HeaderCell>Institute Code</Table.HeaderCell>
-                                        <Table.HeaderCell>Name of Institute</Table.HeaderCell>
-                                        <Table.HeaderCell>Institute Type</Table.HeaderCell>
+                                        <Table.HeaderCell>
+                                            <div className="searchField">
+                                                Institute Code
+                                                <input type="text" id="code" placeholder="Search Code..." onKeyUp={search} size={13} />
+                                            </div>
+                                        </Table.HeaderCell>
+
+                                        <Table.HeaderCell>
+                                            <div className="searchField">
+                                                Name of Institute
+                                                <input type="text" id="institute" placeholder="Search Institute..." onKeyUp={search} size={13} />
+                                            </div>
+                                        </Table.HeaderCell>
+                                        <Table.HeaderCell>
+                                            <div className="searchField">
+                                                Institute Type
+                                                <input type="text" id="type" placeholder="Search Type..." onKeyUp={search} size={13} />
+                                            </div>
+                                        </Table.HeaderCell>
                                     </Table.Row>
                                 </Table.Header>
                                 <Table.Body>
@@ -60,6 +76,20 @@ export const Colleges = () => {
                                         : <React.Fragment key={institute.id}></React.Fragment>
                                     ))}
                                 </Table.Body>
+                                <Table.Header >
+                                    <Table.Row>
+                                        <Table.HeaderCell>
+                                            Institute Code
+                                        </Table.HeaderCell>
+
+                                        <Table.HeaderCell>
+                                            Name of Institute
+                                        </Table.HeaderCell>
+                                        <Table.HeaderCell>
+                                            Institute Type
+                                        </Table.HeaderCell>
+                                    </Table.Row>
+                                </Table.Header>
                             </Table>
                 }
             </div>
@@ -67,4 +97,26 @@ export const Colleges = () => {
             <Footer />
         </React.Fragment>
     )
+}
+
+
+const search = () => {
+    let institute = document.getElementById("institute").value.toUpperCase()
+    let code = document.getElementById("code").value.toUpperCase()
+    let type = document.getElementById("type").value.toUpperCase()
+
+
+    let table = document.getElementById('myTable');
+    let tr = table.getElementsByTagName('tr');
+    for (var i = 1; i < tr.length; i++) {
+        let td = tr[i].getElementsByTagName('td');
+        if (td.length > 0) {
+            if ((td[0].innerHTML.toUpperCase().indexOf(code) > -1) && (td[1].innerHTML.toUpperCase().indexOf(institute) > -1) && (td[2].innerHTML.toUpperCase().indexOf(type) > -1)) {
+                tr[i].style.display = "";
+            }
+            else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
 }

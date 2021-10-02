@@ -8,18 +8,20 @@ import { Footer } from './Footer'
 import './college.css'
 
 
-export const SeatMatrix = ({ institutes, branches }) => {
-    const [seats, setseats] = useState([])
+export const Ranks = ({ institutes, branches }) => {
+    const [ranks, setranks] = useState([])
     const [loading, setloading] = useState(true)
     const [error, seterror] = useState(false)
     const [btnActive, setbtnActive] = useState("2020")
-    const [apiurl, setapiUrl] = useState('http://localhost:8000/soce/seat_2020/')
+    const [roundActive, setroundActive] = useState(['1', '2', '3', '4', '5', '6'])
+    const [roundBtn, setroundBtn] = useState("1")
+    const [apiurl, setapiUrl] = useState('http://localhost:8000/soce/1_2020/')
     const { college } = useParams()
     useEffect(() => {
         axios.get(apiurl)
             .then(res => {
                 setloading(false)
-                setseats(res.data)
+                setranks(res.data)
             })
             .catch(function (error) {
                 seterror(true)
@@ -35,23 +37,57 @@ export const SeatMatrix = ({ institutes, branches }) => {
             })
     }, [apiurl])
 
-    const getRequest = (url, name) => {
-        setapiUrl(`http://localhost:8000/soce/${url}/`);
+    const selectRound = (year) => {
+        setbtnActive(year)
+        if (year === '2015') {
+            setroundActive(['7'])
+        }
+        else if (year === '2017' || year === '2018' || year === '2019') {
+            setroundActive(['1', '7'])
+        }
+        else if (year === '2016') {
+            setroundActive(['1', '6'])
+        }
+        else if (year === '2020') {
+            setroundActive(['1', '2', '3', '4', '5', '6'])
+        }
+        else if (year === 'csab_2020') {
+            setroundActive(['1', '2'])
+        }
+    }
+
+    const getRequest = (round) => {
+        setapiUrl(`http://localhost:8000/soce/${round}_${btnActive}/`)
         setloading(true)
-        setbtnActive(name)
+        setroundBtn(round)
     }
 
     return (
         <React.Fragment>
-            <MenuHeader active="matrix" />
-            <div className="buttons">
-                <Button active={btnActive === "2019"} primary onClick={() => getRequest('seat_2019', "2019")} className="btn">Year 2019</Button>
-                <Button active={btnActive === "2020"} primary onClick={() => getRequest('seat_2020', "2020")} className="btn">Year 2020</Button>
-                <Button active={btnActive === "CSAB"} primary onClick={() => getRequest('seat_csab_2020', "CSAB")} className="btn">CSAB 2020</Button>
-                <Button active={btnActive === "2021"} primary onClick={() => getRequest('seat_2021', "2021")} disabled className="btn">Year 2021</Button>
+            <MenuHeader active="prediction" />
+            <div className="buttonRanks">
+                <div className="buttons">
+                    <Button active={btnActive === "2015"} primary onClick={() => selectRound('2015')} className="btn">Year 2015</Button>
+                    <Button active={btnActive === "2016"} primary onClick={() => selectRound('2016')} className="btn">Year 2016</Button>
+                    <Button active={btnActive === "2017"} primary onClick={() => selectRound('2017')} className="btn">Year 2017</Button>
+                    <Button active={btnActive === "2018"} primary onClick={() => selectRound('2018')} className="btn">Year 2018</Button>
+                    <Button active={btnActive === "2019"} primary onClick={() => selectRound('2019')} className="btn">Year 2019</Button>
+                    <Button active={btnActive === "2020"} primary onClick={() => selectRound('2020')} className="btn">Year 2020</Button>
+                    <Button active={btnActive === "CSAB"} primary onClick={() => selectRound('csab_2020')} className="btn">CSAB 2020</Button>
+                    <Button active={btnActive === "2021"} primary onClick={() => selectRound('2021')} disabled className="btn">Year 2021</Button>
+                </div>
+
+                <div className="buttons">
+                    <Button disabled={!roundActive.includes('1')} primary active={roundBtn === "1"} onClick={() => getRequest('1')} className="btn round">Round 1</Button>
+                    <Button disabled={!roundActive.includes('2')} primary active={roundBtn === "2"} onClick={() => getRequest('2')} className="btn round">Round 2</Button>
+                    <Button disabled={!roundActive.includes('3')} primary active={roundBtn === "3"} onClick={() => getRequest('3')} className="btn round">Round 3</Button>
+                    <Button disabled={!roundActive.includes('4')} primary active={roundBtn === "4"} onClick={() => getRequest('4')} className="btn round">Round 4</Button>
+                    <Button disabled={!roundActive.includes('5')} primary active={roundBtn === "5"} onClick={() => getRequest('5')} className="btn round">Round 5</Button>
+                    <Button disabled={!roundActive.includes('6')} primary active={roundBtn === "6"} onClick={() => getRequest('6')} className="btn round">Round 6</Button>
+                    <Button disabled={!roundActive.includes('7')} primary active={roundBtn === "7"} onClick={() => getRequest('7')} className="btn round">Round 7</Button>
+                </div>
             </div>
-            <Divider />
-            <h2 className="pageHeading">{btnActive} Seat Matrix of {college}s</h2>
+            <h2 className="pageHeading">{btnActive === 'csab_2020' ? 'CSAB' : btnActive} (Round-{roundBtn}) Opening and Closing Ranks of {college}s</h2>
             <div className="collegeDetails">
                 {
                     error ? <div className='message'>Error in loading the data</div> :
@@ -73,24 +109,6 @@ export const SeatMatrix = ({ institutes, branches }) => {
                                         </Table.HeaderCell>
                                         <Table.HeaderCell>
                                             <div className="searchField">
-                                                Duration of Course
-                                                <input type="text" id="duration" placeholder="Search Duration..." onKeyUp={search} size={13} />
-                                            </div>
-                                        </Table.HeaderCell>
-                                        <Table.HeaderCell>
-                                            <div className="searchField">
-                                                Degree of Course
-                                                <input type="text" id="degree" placeholder="Search Degree..." onKeyUp={search} size={13} />
-                                            </div>
-                                        </Table.HeaderCell>
-                                        <Table.HeaderCell>
-                                            <div className="searchField">
-                                                Seat Pool
-                                                <input type="text" id="pool" placeholder="Search Seat Pool..." onKeyUp={search} size={13} />
-                                            </div>
-                                        </Table.HeaderCell>
-                                        <Table.HeaderCell>
-                                            <div className="searchField">
                                                 Category
                                                 <input type="text" id="category" placeholder="Search Category..." onKeyUp={search} size={13} />
                                             </div>
@@ -103,25 +121,36 @@ export const SeatMatrix = ({ institutes, branches }) => {
                                         </Table.HeaderCell>
                                         <Table.HeaderCell>
                                             <div className="searchField">
-                                                Total Seats
-                                                <input type="text" id="seats" placeholder="Search Seats..." onKeyUp={search} size={13} />
+                                                Seat Pool
+                                                <input type="text" id="pool" placeholder="Search Seat Pool..." onKeyUp={search} size={13} />
+                                            </div>
+                                        </Table.HeaderCell>
+                                        <Table.HeaderCell>
+                                            <div className="searchField">
+                                                Opening Rank
+                                                <input type="text" id="opening" placeholder="Search Opening..." onKeyUp={search} size={13} />
+                                            </div>
+                                        </Table.HeaderCell>
+                                        <Table.HeaderCell>
+                                            <div className="searchField">
+                                                Closing Rank
+                                                <input type="text" id="closing" placeholder="Search Closing..." onKeyUp={search} size={13} />
                                             </div>
                                         </Table.HeaderCell>
                                     </Table.Row>
                                 </Table.Header>
                                 <Table.Body>
-                                    {seats.map(seat => (institutes.find(o => o.id === seat.institute_code).category === college ?
-                                        <Table.Row key={seat.id}>
-                                            <Table.Cell>{institutes.find(o => o.id === seat.institute_code).name}</Table.Cell>
-                                            <Table.Cell>{branches.find(o => o.id === seat.branch_code).branch_name}</Table.Cell>
-                                            <Table.Cell>{branches.find(o => o.id === seat.branch_code).duration}</Table.Cell>
-                                            <Table.Cell>{branches.find(o => o.id === seat.branch_code).degree}</Table.Cell>
-                                            <Table.Cell>{seat.seat_pool}</Table.Cell>
-                                            <Table.Cell>{seat.category}</Table.Cell>
-                                            <Table.Cell>{seat.quota}</Table.Cell>
-                                            <Table.Cell>{seat.seats}</Table.Cell>
+                                    {ranks.map(rank => (institutes.find(o => o.id === rank.institute_code).category === college ?
+                                        <Table.Row key={rank.id}>
+                                            <Table.Cell>{institutes.find(o => o.id === rank.institute_code).name}</Table.Cell>
+                                            <Table.Cell>{branches.find(o => o.id === rank.branch_code).branch_name}</Table.Cell>
+                                            <Table.Cell>{rank.category}</Table.Cell>
+                                            <Table.Cell>{rank.quota}</Table.Cell>
+                                            <Table.Cell>{rank.seat_pool}</Table.Cell>
+                                            <Table.Cell>{rank.opening_rank}</Table.Cell>
+                                            <Table.Cell>{rank.closing_rank}</Table.Cell>
                                         </Table.Row>
-                                        : <React.Fragment key={seat.id}></React.Fragment>
+                                        : <React.Fragment key={rank.id}></React.Fragment>
                                     ))}
                                 </Table.Body>
                                 <Table.Header >
@@ -133,22 +162,19 @@ export const SeatMatrix = ({ institutes, branches }) => {
                                             Name of Branch
                                         </Table.HeaderCell>
                                         <Table.HeaderCell>
-                                            Duration of Course
-                                        </Table.HeaderCell>
-                                        <Table.HeaderCell>
-                                            Degree of Course
-                                        </Table.HeaderCell>
-                                        <Table.HeaderCell>
-                                            Seat Pool
-                                        </Table.HeaderCell>
-                                        <Table.HeaderCell>
                                             Category
                                         </Table.HeaderCell>
                                         <Table.HeaderCell>
                                             Quota
                                         </Table.HeaderCell>
                                         <Table.HeaderCell>
-                                            Total Seats
+                                            Seat Pool
+                                        </Table.HeaderCell>
+                                        <Table.HeaderCell>
+                                            Opening Rank
+                                        </Table.HeaderCell>
+                                        <Table.HeaderCell>
+                                            Closing Rank
                                         </Table.HeaderCell>
                                     </Table.Row>
                                 </Table.Header>
@@ -166,19 +192,18 @@ export const SeatMatrix = ({ institutes, branches }) => {
 const search = () => {
     let institute = document.getElementById("institute").value.toUpperCase()
     let branch = document.getElementById("branch").value.toUpperCase()
-    let duration = document.getElementById("duration").value.toUpperCase()
-    let degree = document.getElementById("degree").value.toUpperCase()
     let pool = document.getElementById("pool").value.toUpperCase()
     let category = document.getElementById("category").value.toUpperCase()
     let quota = document.getElementById("quota").value.toUpperCase()
-    let seats = document.getElementById("seats").value.toUpperCase()
+    let opening = document.getElementById("opening").value.toUpperCase()
+    let closing = document.getElementById("closing").value.toUpperCase()
 
     let table = document.getElementById('myTable');
     let tr = table.getElementsByTagName('tr');
     for (var i = 1; i < tr.length; i++) {
         let td = tr[i].getElementsByTagName('td');
         if (td.length > 0) {
-            if ((td[0].innerHTML.toUpperCase().indexOf(institute) > -1) && (td[1].innerHTML.toUpperCase().indexOf(branch) > -1) && (td[2].innerHTML.toUpperCase().indexOf(duration) > -1) && (td[3].innerHTML.toUpperCase().indexOf(degree) > -1) && (td[4].innerHTML.toUpperCase().indexOf(pool) > -1) && (td[5].innerHTML.toUpperCase().indexOf(category) > -1) && (td[6].innerHTML.toUpperCase().indexOf(quota) > -1) && (td[7].innerHTML.toUpperCase().indexOf(seats) > -1)) {
+            if ((td[0].innerHTML.toUpperCase().indexOf(institute) > -1) && (td[1].innerHTML.toUpperCase().indexOf(branch) > -1) && (td[2].innerHTML.toUpperCase().indexOf(category) > -1) && (td[3].innerHTML.toUpperCase().indexOf(quota) > -1) && (td[4].innerHTML.toUpperCase().indexOf(pool) > -1) && (td[5].innerHTML.toUpperCase().indexOf(opening) > -1) && (td[6].innerHTML.toUpperCase().indexOf(closing) > -1)) {
                 tr[i].style.display = "";
             }
             else {
