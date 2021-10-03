@@ -33,8 +33,8 @@ function App() {
 
   const [institutes, setinstitute] = useState([])
   const [branches, setbranch] = useState([])
-  const apiurl1 = "http://localhost:8000/soce/institutes/"
-  const apiurl2 = "http://localhost:8000/soce/branches/"
+  const apiurl1 = "http://mysoce.pythonanywhere.com/soce/institutes/"
+  const apiurl2 = "http://mysoce.pythonanywhere.com/soce/branches/"
   useEffect(() => {
     axios.get(apiurl1)
       .then(res => {

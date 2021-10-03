@@ -15,7 +15,7 @@ export const Ranks = ({ institutes, branches }) => {
     const [btnActive, setbtnActive] = useState("2020")
     const [roundActive, setroundActive] = useState(['1', '2', '3', '4', '5', '6'])
     const [roundBtn, setroundBtn] = useState("1")
-    const [apiurl, setapiUrl] = useState('http://localhost:8000/soce/1_2020/')
+    const [apiurl, setapiUrl] = useState('http://mysoce.pythonanywhere.com/soce/1_2020/')
     const { college } = useParams()
     useEffect(() => {
         axios.get(apiurl)
@@ -58,7 +58,7 @@ export const Ranks = ({ institutes, branches }) => {
     }
 
     const getRequest = (round) => {
-        setapiUrl(`http://localhost:8000/soce/${round}_${btnActive}/`)
+        setapiUrl(`http://mysoce.pythonanywhere.com/soce/${round}_${btnActive}/`)
         setloading(true)
         setroundBtn(round)
     }

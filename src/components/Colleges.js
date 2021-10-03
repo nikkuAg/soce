@@ -13,7 +13,7 @@ export const Colleges = () => {
     const [loading, setloading] = useState(true)
     const [error, seterror] = useState(false)
     const { college } = useParams()
-    const apiurl = "http://localhost:8000/soce/institutes/"
+    const apiurl = "http://mysoce.pythonanywhere.com/soce/institutes/"
     useEffect(() => {
         axios.get(apiurl)
             .then(res => {
