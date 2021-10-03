@@ -63,7 +63,6 @@ export const Ranks = ({ institutes, branches }) => {
         setroundBtn(round)
     }
 
-    console.log(ranks)
     return (
         <React.Fragment>
             <MenuHeader active="ranks" />
