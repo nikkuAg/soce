@@ -81,6 +81,7 @@ export const Prediction = ({ institutes, branches }) => {
     const selectRound = (x) => {
         sessionStorage.setItem('year', x)
         setbtnActive(x)
+        setloading(true)
         getData()
         if (x === '2015') {
             setroundActive(['7'])
@@ -102,7 +103,6 @@ export const Prediction = ({ institutes, branches }) => {
     const getRequest = (x) => {
         sessionStorage.setItem('round', x)
         getData()
-        console.log(x, btnActive)
         setapiUrl(`http://localhost:8000/soce/${x}_${btnActive}/`)
         setloading(true)
         setroundBtn(x)
@@ -113,29 +113,31 @@ export const Prediction = ({ institutes, branches }) => {
         <React.Fragment>
             {sessionStorage.getItem('result') === 'true' ? <>
                 <MenuHeader active="prediction" />
-                <div className="buttonRanks">
-                    <div className="buttons">
-                        <Button active={btnActive === "2015"} primary onClick={() => selectRound('2015')} className="btn">Year 2015</Button>
-                        <Button active={btnActive === "2016"} primary onClick={() => selectRound('2016')} className="btn">Year 2016</Button>
-                        <Button active={btnActive === "2017"} primary onClick={() => selectRound('2017')} className="btn">Year 2017</Button>
-                        <Button active={btnActive === "2018"} primary onClick={() => selectRound('2018')} className="btn">Year 2018</Button>
-                        <Button active={btnActive === "2019"} primary onClick={() => selectRound('2019')} className="btn">Year 2019</Button>
-                        <Button active={btnActive === "2020"} primary onClick={() => selectRound('2020')} className="btn">Year 2020</Button>
-                        <Button active={btnActive === "CSAB"} primary onClick={() => selectRound('csab_2020')} className="btn">CSAB 2020</Button>
-                        <Button active={btnActive === "2021"} primary onClick={() => selectRound('2021')} disabled className="btn">Year 2021</Button>
+                <div id="allbuttons">
+                    <div className="buttonRanks" id="prediction">
+                        <div className="buttons">
+                            <Button active={btnActive === "2015"} primary onClick={() => selectRound('2015')} className="btn">JoSSA 2015</Button>
+                            <Button active={btnActive === "2016"} primary onClick={() => selectRound('2016')} className="btn">JoSSA 2016</Button>
+                            <Button active={btnActive === "2017"} primary onClick={() => selectRound('2017')} className="btn">JoSSA 2017</Button>
+                            <Button active={btnActive === "2018"} primary onClick={() => selectRound('2018')} className="btn">JoSSA 2018</Button>
+                            <Button active={btnActive === "2019"} primary onClick={() => selectRound('2019')} className="btn">JoSSA 2019</Button>
+                            <Button active={btnActive === "2020"} primary onClick={() => selectRound('2020')} className="btn">JoSSA 2020</Button>
+                            <Button active={btnActive === "CSAB"} primary onClick={() => selectRound('csab_2020')} disabled className="btn">CSAB 2020</Button>
+                            <Button active={btnActive === "2021"} primary onClick={() => selectRound('2021')} disabled className="btn">JoSSA 2021</Button>
+                        </div>
+                        <div className="buttons">
+                            <Button disabled={!roundActive.includes('1')} primary active={roundBtn === "1"} onClick={() => getRequest('1')} className="btn round">Round 1</Button>
+                            <Button disabled={!roundActive.includes('2')} primary active={roundBtn === "2"} onClick={() => getRequest('2')} className="btn round">Round 2</Button>
+                            <Button disabled={!roundActive.includes('3')} primary active={roundBtn === "3"} onClick={() => getRequest('3')} className="btn round">Round 3</Button>
+                            <Button disabled={!roundActive.includes('4')} primary active={roundBtn === "4"} onClick={() => getRequest('4')} className="btn round">Round 4</Button>
+                            <Button disabled={!roundActive.includes('5')} primary active={roundBtn === "5"} onClick={() => getRequest('5')} className="btn round">Round 5</Button>
+                            <Button disabled={!roundActive.includes('6')} primary active={roundBtn === "6"} onClick={() => getRequest('6')} className="btn round">Round 6</Button>
+                            <Button disabled={!roundActive.includes('7')} primary active={roundBtn === "7"} onClick={() => getRequest('7')} className="btn round">Round 7</Button>
+                        </div>
                     </div>
-                    <div className="buttons">
-                        <Button disabled={!roundActive.includes('1')} primary active={roundBtn === "1"} onClick={() => getRequest('1')} className="btn round">Round 1</Button>
-                        <Button disabled={!roundActive.includes('2')} primary active={roundBtn === "2"} onClick={() => getRequest('2')} className="btn round">Round 2</Button>
-                        <Button disabled={!roundActive.includes('3')} primary active={roundBtn === "3"} onClick={() => getRequest('3')} className="btn round">Round 3</Button>
-                        <Button disabled={!roundActive.includes('4')} primary active={roundBtn === "4"} onClick={() => getRequest('4')} className="btn round">Round 4</Button>
-                        <Button disabled={!roundActive.includes('5')} primary active={roundBtn === "5"} onClick={() => getRequest('5')} className="btn round">Round 5</Button>
-                        <Button disabled={!roundActive.includes('6')} primary active={roundBtn === "6"} onClick={() => getRequest('6')} className="btn round">Round 6</Button>
-                        <Button disabled={!roundActive.includes('7')} primary active={roundBtn === "7"} onClick={() => getRequest('7')} className="btn round">Round 7</Button>
-                    </div>
+                    <Button positive onClick={() => predicit()} className="btn round" id="predict">Get Prediction</Button>
                 </div>
-                <Button primary onClick={() => predicit()} className="btn round">Predict</Button>
-                <h2 className="pageHeading">{btnActive === 'csab_2020' ? 'CSAB' : btnActive} (Round-{roundBtn}) Opening and Closing Rank SOCE Prediction</h2>
+                <h2 className="pageHeading">{btnActive === 'csab_2020' ? 'CSAB' : btnActive} (Round-{roundBtn}) Opening and Closing Rank SOCE Prediction for {college}s</h2>
                 <div className="collegeDetails">
                     {
                         error ? <div className='message'>Error in loading the data</div> :
@@ -143,21 +145,26 @@ export const Prediction = ({ institutes, branches }) => {
                                 <Table celled structured id="myTable">
                                     <Table.Header >
                                         <Table.Row>
-                                            <Table.HeaderCell rowSpan='2' colSpan='2'>
+                                            <Table.HeaderCell >
                                             </Table.HeaderCell>
-                                            {institutes.map(institute => (
+                                            {institutes.map((institute, index) => (
                                                 institute.category === college ?
-                                                    <Table.HeaderCell key={institute.id} id="institute">
+                                                    <Table.HeaderCell key={institute.id}>
                                                         {institute.code}
                                                     </Table.HeaderCell>
-                                                    : <></>
+                                                    : <React.Fragment key={institute.id}></React.Fragment>
                                             ))}
                                         </Table.Row>
                                         <Table.Row>
+                                            <Table.HeaderCell>
+                                                <div className="searchField">
+                                                    <input type="text" id="branch" placeholder="Search Branches..." onKeyUp={search} size={13} />
+                                                </div>
+                                            </Table.HeaderCell>
                                             {institutes.map(institute => (
                                                 institute.category === college ?
                                                     <Table.HeaderCell id="institute" key={institute.id}>
-                                                        {institute.name}
+                                                        {institute.display_code}
                                                     </Table.HeaderCell>
                                                     : <React.Fragment key={institute.id}></React.Fragment>
                                             ))}
@@ -169,10 +176,7 @@ export const Prediction = ({ institutes, branches }) => {
                                                 (branch.IIT === 'Y' ?
                                                     <Table.Row key={branch.id}>
                                                         <Table.Cell>
-                                                            {branch.code}
-                                                        </Table.Cell>
-                                                        <Table.Cell>
-                                                            {branch.branch_name}
+                                                            {branch.branch_code}
                                                         </Table.Cell>
                                                         {institutes.map(institute => (
                                                             institute.category === college ?
@@ -189,10 +193,7 @@ export const Prediction = ({ institutes, branches }) => {
                                                     (branch.IIIT === 'Y' ?
                                                         <Table.Row key={branch.id}>
                                                             <Table.Cell>
-                                                                {branch.code}
-                                                            </Table.Cell>
-                                                            <Table.Cell>
-                                                                {branch.branch_name}
+                                                                {branch.branch_code}
                                                             </Table.Cell>
                                                             {institutes.map(institute => (
                                                                 institute.category === college ?
@@ -209,10 +210,7 @@ export const Prediction = ({ institutes, branches }) => {
                                                         (branch.NIT === 'Y' ?
                                                             <Table.Row key={branch.id}>
                                                                 <Table.Cell>
-                                                                    {branch.code}
-                                                                </Table.Cell>
-                                                                <Table.Cell>
-                                                                    {branch.branch_name}
+                                                                    {branch.branch_code}
                                                                 </Table.Cell>
                                                                 {institutes.map(institute => (
                                                                     institute.category === college ?
@@ -229,10 +227,7 @@ export const Prediction = ({ institutes, branches }) => {
                                                             (branch.GFTI === 'Y' ?
                                                                 <Table.Row key={branch.id}>
                                                                     <Table.Cell>
-                                                                        {branch.code}
-                                                                    </Table.Cell>
-                                                                    <Table.Cell>
-                                                                        {branch.branch_name}
+                                                                        {branch.branch_code}
                                                                     </Table.Cell>
                                                                     {institutes.map(institute => (
                                                                         institute.category === college ?
@@ -261,20 +256,40 @@ export const Prediction = ({ institutes, branches }) => {
 
 
 const predicit = () => {
+    var cutoff = parseInt(sessionStorage.getItem('cutOff'))
     var tr = document.querySelectorAll("[id='data']");
     var rank = parseInt(sessionStorage.getItem('rank'))
     for (var x = 0; x < tr.length; x++) {
         var data = parseInt(tr[x].innerHTML);
-        if (rank <= Math.round(0.9 * data)) {
+        if (rank <= Math.round((1 - (cutoff / 100)) * data)) {
             tr[x].style.backgroundColor = 'green'
         }
-        else if (rank > Math.round(0.9 * data) && (rank <= Math.round(1.10 * data))) {
+        else if (rank > Math.round((1 - (cutoff / 100)) * data) && (rank <= Math.round((1 + (cutoff / 100)) * data))) {
             tr[x].style.backgroundColor = 'yellow'
         }
-        else if (rank > Math.round(1.1 * data)) {
+        else if (rank > Math.round((1 + (cutoff / 100)) * data)) {
             tr[x].style.backgroundColor = 'red'
         }
     }
 
 
+}
+
+
+const search = () => {
+    let branch = document.getElementById("branch").value.toUpperCase()
+
+    let table = document.getElementById('myTable');
+    let tr = table.getElementsByTagName('tr');
+    for (var i = 1; i < tr.length; i++) {
+        let td = tr[i].getElementsByTagName('td');
+        if (td.length > 0) {
+            if ((td[0].innerHTML.toUpperCase().indexOf(branch) > -1)) {
+                tr[i].style.display = "";
+            }
+            else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
 }

@@ -78,13 +78,11 @@ th, td {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    margin-bottom: 0.5rem;
     
 }
 .buttonRanks{
     display: flex;
-}
-.buttonRanks > div{
-    width: 50vw;
 }
 
 .btn{
@@ -94,6 +92,7 @@ th, td {
     margin-bottom: 0.2rem !important;
     width: fit-content;
     height: fit-content;
+    
 }
 .ui.primary.button.active{
     background-color: #1c6297 !important;
@@ -123,7 +122,18 @@ th, td {
     flex-direction: column;
 }
 
-/* #institute{
-    transform: rotate(90deg);
-    background-color: rgb(97, 97, 97) !important;
-} */
+
+#prediction{
+    flex-direction: column;
+}
+#allbuttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#predict{
+    margin-right: 4rem !important;
+    font-size: 2.5rem !important;
+    border-radius: 0.5rem !important;
+}

@@ -45,10 +45,10 @@ export const SeatMatrix = ({ institutes, branches }) => {
         <React.Fragment>
             <MenuHeader active="matrix" />
             <div className="buttons">
-                <Button active={btnActive === "2019"} primary onClick={() => getRequest('seat_2019', "2019")} className="btn">Year 2019</Button>
-                <Button active={btnActive === "2020"} primary onClick={() => getRequest('seat_2020', "2020")} className="btn">Year 2020</Button>
-                <Button active={btnActive === "CSAB"} primary onClick={() => getRequest('seat_csab_2020', "CSAB")} className="btn">CSAB 2020</Button>
-                <Button active={btnActive === "2021"} primary onClick={() => getRequest('seat_2021', "2021")} disabled className="btn">Year 2021</Button>
+                <Button active={btnActive === "2019"} primary onClick={() => getRequest('seat_2019', "2019")} className="btn">JoSSA 2019</Button>
+                <Button active={btnActive === "2020"} primary onClick={() => getRequest('seat_2020', "2020")} className="btn">JoSSA 2020</Button>
+                <Button active={btnActive === "CSAB"} primary onClick={() => getRequest('seat_csab_2020', "CSAB")} disabled className="btn">CSAB 2020</Button>
+                <Button active={btnActive === "2021"} primary onClick={() => getRequest('seat_2021', "2021")} disabled className="btn">JoSSA 2021</Button>
             </div>
             <Divider />
             <h2 className="pageHeading">{btnActive} Seat Matrix of {college}s</h2>

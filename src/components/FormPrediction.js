@@ -24,8 +24,8 @@ const category = [
     { key: 'ST PwD', text: 'ST PwD', value: 'ST PwD' },
 ]
 const pool = [
-    { key: 'Gender-Neutral', text: 'Male', value: 'Gender-Neutral' },
-    { key: 'Female-Only', text: 'Female', value: 'Female-Only' },
+    { key: 'Gender-Neutral', text: 'Gender Neutral', value: 'Gender-Neutral' },
+    { key: 'Female-Only', text: 'Female Only', value: 'Female-Only' },
 
 ]
 const type = [
@@ -50,6 +50,7 @@ export const FormPrediction = () => {
     let yearSave = String(sessionStorage.getItem('year'))
     let roundSave = String(sessionStorage.getItem('round'))
     let optionSave = String(sessionStorage.getItem('option'))
+    let cutOffSave = String(sessionStorage.getItem('cutOff'))
 
     const [ins, setins] = useState(insSave === "null" ? null : insSave)
     const [seat_pool, setpool] = useState(poolSave === "null" ? null : poolSave)
@@ -59,10 +60,13 @@ export const FormPrediction = () => {
     const [yearValue, sety] = useState(yearSave === "null" ? null : yearSave)
     const [roundValue, setrv] = useState(roundSave === "null" ? null : roundSave)
     const [option, seto] = useState(optionSave === "null" ? null : optionSave)
+    const [cutoff, setp] = useState(cutOffSave === "null" ? null : cutOffSave)
 
     const [change, setchange] = useState('')
 
     useEffect(() => {
+        console.log(ins, categoryValue, seat_pool, quotaValue, roundValue, yearValue, option, rank, cutoff)
+
         insSave = String(sessionStorage.getItem('ins'))
         poolSave = String(sessionStorage.getItem('pool'))
         categorySave = String(sessionStorage.getItem('category'))
@@ -71,6 +75,7 @@ export const FormPrediction = () => {
         yearSave = String(sessionStorage.getItem('year'))
         roundSave = String(sessionStorage.getItem('round'))
         optionSave = String(sessionStorage.getItem('option'))
+        cutOffSave = String(sessionStorage.getItem('cutOff'))
 
         seto(optionSave === "null" ? null : optionSave)
         setrv(roundSave === "null" ? null : roundSave)
@@ -80,11 +85,21 @@ export const FormPrediction = () => {
         setins(insSave === "null" ? null : insSave)
         setpool(poolSave === "null" ? null : poolSave)
         setcat(categorySave === "null" ? null : categorySave)
+        setp(cutOffSave === "null" ? null : cutOffSave)
 
     }, [change])
 
     useEffect(() => {
         sessionStorage.setItem('result', false)
+        sessionStorage.removeItem('ins')
+        sessionStorage.removeItem('pool')
+        sessionStorage.removeItem('category')
+        sessionStorage.removeItem('quota')
+        sessionStorage.removeItem('rank')
+        sessionStorage.removeItem('year')
+        sessionStorage.removeItem('round')
+        sessionStorage.removeItem('option')
+        sessionStorage.removeItem('cutOff')
     }, [])
 
     const history = useHistory()
@@ -131,8 +146,8 @@ export const FormPrediction = () => {
         else if (value === '2020') {
             setroundArray([{ key: '1', text: 'Round 1', value: '1' }, { key: '2', text: 'Round 2', value: '2' },
             { key: '3', text: 'Round 3', value: '3' }, { key: '4', text: 'Round 4', value: '4' },
-            { key: '5', text: 'Round 5', value: '5' }, { key: '6', text: 'Round 6', value: '6' },
-            { key: 'csab_2020', text: 'CSAB Round 1', value: 'csab_2020' }, { key: 'csab_2020', text: 'CSAB Round 2', value: 'csab_2020' },])
+            { key: '5', text: 'Round 5', value: '5' }, { key: '6', text: 'Round 6', value: '6' },])
+            // { key: 'csab_2020', text: 'CSAB Round 1', value: 'csab_2020' }, { key: 'csab_2020', text: 'CSAB Round 2', value: 'csab_2020' },])
         }
         setround(false)
         sessionStorage.setItem('year', value)
@@ -142,33 +157,37 @@ export const FormPrediction = () => {
 
     const handelC = (e, { value }) => {
         sessionStorage.setItem('category', value)
-        setchange('1')
+        setchange('3')
     }
     const handelG = (e, { value }) => {
         sessionStorage.setItem('pool', value)
-        setchange('1')
+        setchange('4')
     }
     const handelR = (e, { value }) => {
         if (value.match(/^[0-9]+$/) != null) {
             sessionStorage.setItem('rank', value)
-            setchange('1')
+            setchange('5')
         }
     }
     const handelQ = (e, { value }) => {
         sessionStorage.setItem('quota', value)
-        setchange('1')
+        setchange('6')
     }
     const handelRou = (e, { value }) => {
         sessionStorage.setItem('round', value)
-        setchange('1')
+        setchange('7')
     }
     const handelO = (e, { value }) => {
         sessionStorage.setItem('option', value)
-        setchange('1')
+        setchange('8')
+    }
+    const handelP = (e, { value }) => {
+        sessionStorage.setItem('cutOff', value)
+        setchange('9')
     }
 
     const buttonClick = () => {
-        if (ins && categoryValue && seat_pool && quotaValue && roundValue && yearValue && option && rank) {
+        if (ins && categoryValue && seat_pool && quotaValue && roundValue && yearValue && option && rank && cutoff) {
             console.log('done')
             sessionStorage.setItem("result", true)
             history.push('/result')
@@ -183,7 +202,7 @@ export const FormPrediction = () => {
             <MenuHeader active="prediction" />
             <h2 className="pageHeading">Opening and Closing Rank SOCE Prediction</h2>
             {error ? <div className='message'>{error}</div> : <></>}
-            <Form>
+            <Form id="predictionForm">
                 <Form.Group widths="equal">
                     <Form.Select
                         fluid
@@ -216,7 +235,7 @@ export const FormPrediction = () => {
                     />
                 </Form.Group>
                 <Form.Group widths='equal'>
-                    <Form.Input fluid label='Enter your Rank' placeholder={placeHolder} disabled={disable} onChange={handelR} />
+                    <Form.Input type="number" fluid label="CutOff Percentage(%)" disabled={disable} onChange={handelP} min="0" max="100" />
                     <Form.Select
                         fluid
                         label='Choose Option'
@@ -242,8 +261,9 @@ export const FormPrediction = () => {
                         onChange={handelRou}
                     />
                 </Form.Group>
+                <Form.Input type="number" fluid placeholder="Enter your Rank" label={placeHolder} disabled={disable} onChange={handelR} />
 
-                <Form.Button disabled={disable} onClick={buttonClick} >Predict</Form.Button>
+                <Form.Button disabled={disable} onClick={buttonClick} primary >Predict</Form.Button>
             </Form>
             <br /><br /><br /><br />
             <Footer />

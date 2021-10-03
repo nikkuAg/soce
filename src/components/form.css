@@ -35,3 +35,60 @@ button{
     border: 0.1em solid black;
     background-color: rgb(218, 218, 218);
 }
+
+.main{
+    margin: auto !important;
+    margin-top: 3rem !important;
+    border-radius: 5% !important;
+    background-color: rgb(136, 136, 136) !important;
+}
+
+#contact{
+   width: 25vw;
+   border: 0.2rem solid;
+   padding: 3rem;
+   background-color: rgb(190, 190, 190);
+   border-radius: 4%;
+   margin-bottom: 2rem !important;
+}
+#card{
+    display: flex;
+    flex-direction: column;
+    border: 0.2rem solid;
+    width: fit-content;
+    padding: 2.5rem;
+    font-size: 1.5rem;
+    background-color: rgb(85, 85, 85);
+    color: white;
+    border-radius: 10%;
+    margin: 5rem;
+    border: 0.2rem solid black;
+}
+p{
+    margin: 0.2rem !important;
+
+}
+
+#intro{
+    display: flex;
+    flex-direction: column;
+}
+
+#contactUs{
+    display: flex;
+    justify-content: space-around;
+}
+
+.success{
+    color: white;
+}
+#predictionForm{
+    background-color:  rgb(190, 190, 190);
+    border: 0.5rem solid black;
+    margin: 4rem !important;
+    padding: 2rem 4rem !important;
+}
+
+.ui.form .field>label{
+    margin-bottom: 1rem !important;
+}

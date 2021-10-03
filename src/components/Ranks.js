@@ -39,6 +39,7 @@ export const Ranks = ({ institutes, branches }) => {
 
     const selectRound = (year) => {
         setbtnActive(year)
+        setroundBtn("")
         if (year === '2015') {
             setroundActive(['7'])
         }
@@ -62,19 +63,20 @@ export const Ranks = ({ institutes, branches }) => {
         setroundBtn(round)
     }
 
+    console.log(ranks)
     return (
         <React.Fragment>
             <MenuHeader active="ranks" />
             <div className="buttonRanks">
                 <div className="buttons">
-                    <Button active={btnActive === "2015"} primary onClick={() => selectRound('2015')} className="btn">Year 2015</Button>
-                    <Button active={btnActive === "2016"} primary onClick={() => selectRound('2016')} className="btn">Year 2016</Button>
-                    <Button active={btnActive === "2017"} primary onClick={() => selectRound('2017')} className="btn">Year 2017</Button>
-                    <Button active={btnActive === "2018"} primary onClick={() => selectRound('2018')} className="btn">Year 2018</Button>
-                    <Button active={btnActive === "2019"} primary onClick={() => selectRound('2019')} className="btn">Year 2019</Button>
-                    <Button active={btnActive === "2020"} primary onClick={() => selectRound('2020')} className="btn">Year 2020</Button>
-                    <Button active={btnActive === "CSAB"} primary onClick={() => selectRound('csab_2020')} className="btn">CSAB 2020</Button>
-                    <Button active={btnActive === "2021"} primary onClick={() => selectRound('2021')} disabled className="btn">Year 2021</Button>
+                    <Button active={btnActive === "2015"} primary onClick={() => selectRound('2015')} className="btn">JoSSA 2015</Button>
+                    <Button active={btnActive === "2016"} primary onClick={() => selectRound('2016')} className="btn">JoSSA 2016</Button>
+                    <Button active={btnActive === "2017"} primary onClick={() => selectRound('2017')} className="btn">JoSSA 2017</Button>
+                    <Button active={btnActive === "2018"} primary onClick={() => selectRound('2018')} className="btn">JoSSA 2018</Button>
+                    <Button active={btnActive === "2019"} primary onClick={() => selectRound('2019')} className="btn">JoSSA 2019</Button>
+                    <Button active={btnActive === "2020"} primary onClick={() => selectRound('2020')} className="btn">JoSSA 2020</Button>
+                    <Button active={btnActive === "csab_2020"} primary onClick={() => selectRound('csab_2020')} disabled className="btn">CSAB 2020</Button>
+                    <Button active={btnActive === "2021"} primary onClick={() => selectRound('2021')} disabled className="btn">JoSSA 2021</Button>
                 </div>
 
                 <div className="buttons">
@@ -87,7 +89,7 @@ export const Ranks = ({ institutes, branches }) => {
                     <Button disabled={!roundActive.includes('7')} primary active={roundBtn === "7"} onClick={() => getRequest('7')} className="btn round">Round 7</Button>
                 </div>
             </div>
-            <h2 className="pageHeading">{btnActive === 'csab_2020' ? 'CSAB' : btnActive} (Round-{roundBtn}) Opening and Closing Ranks of {college}s</h2>
+            <h2 className="pageHeading">{btnActive === 'csab_2020' ? 'CSAB 2020' : `JoSSA ${btnActive}`} (Round-{roundBtn}) Opening and Closing Ranks of {college}s</h2>
             <div className="collegeDetails">
                 {
                     error ? <div className='message'>Error in loading the data</div> :
@@ -143,7 +145,7 @@ export const Ranks = ({ institutes, branches }) => {
                                     {ranks.map(rank => (institutes.find(o => o.id === rank.institute_code).category === college ?
                                         <Table.Row key={rank.id}>
                                             <Table.Cell>{institutes.find(o => o.id === rank.institute_code).name}</Table.Cell>
-                                            <Table.Cell>{branches.find(o => o.id === rank.branch_code).branch_name}</Table.Cell>
+                                            <Table.Cell>{branches.find(o => o.id === rank.branch_code).branch_code}</Table.Cell>
                                             <Table.Cell>{rank.category}</Table.Cell>
                                             <Table.Cell>{rank.quota}</Table.Cell>
                                             <Table.Cell>{rank.seat_pool}</Table.Cell>
