@@ -37,7 +37,7 @@ export const Colleges = () => {
     return (
         <React.Fragment>
             <MenuHeader active="colleges" />
-            <h2 className="pageHeading">List of participating {college}s in JoSSA</h2>
+            <h2 className="pageHeading">List of participating {college}s in JoSAA</h2>
             <div className="collegeDetails listColleges">
                 {
                     error ? <div className='message'>Error in loading the data</div> :
@@ -65,7 +65,7 @@ export const Colleges = () => {
                                         </Table.HeaderCell>
                                         <Table.HeaderCell>
                                             <div className="searchField">
-                                                NIRF Rating (2019/2020/2021)
+                                                NIRF Ranking (2019/2020/2021)
                                                 <input type="text" id="nirf" placeholder="Search NIRF..." onKeyUp={search} size={8} />
                                             </div>
                                         </Table.HeaderCell>
@@ -101,7 +101,7 @@ export const Colleges = () => {
                                             State
                                         </Table.HeaderCell>
                                         <Table.HeaderCell>
-                                            NIRF Rating (2019/2020/2021)
+                                            NIRF Ranking (2019/2020/2021)
                                         </Table.HeaderCell>
                                         <Table.HeaderCell>
                                             Website
@@ -112,7 +112,7 @@ export const Colleges = () => {
                 }
             </div>
             {college === "NIT" ?
-                <Message style={{ margin: 'auto', }}>
+                <Message style={{ margin: 'auto' }}>
                     <Message.Header>Note:</Message.Header>
                     <p>
                         College with code 232 (Indian Institute of Engineering Science and Technology) is not a NIT but has been included in NITs list for sake of simplicity

@@ -34,39 +34,25 @@ export const Contact = () => {
     return (
         <>
             <MenuHeader active="contact us" />
-            <div id="card" className="main">
-                <h2>SOCE</h2>
-                <p>Select of Colleges for Engineering</p>
-                <div>
-                    <p>Social Handels: </p>
-                    <Icon name="facebook" size="big" className="extra" />
-                    <Icon name="instagram" size="big" className="extra" />
-                    <Icon name="twitter" size="big" className="extra" />
-                </div>
-            </div>
             <div id="contactUs">
                 <div id="intro">
-                    <div id="card">
-                        <h2>Pawan Kumar Aggarwal</h2>
-                        <p>General Manager, TRAI</p>
-                        <p>Head, SOCE</p>
-                        <div>
-                            <p>Social Handels: </p>
-                            <Icon name="facebook" size="big" className="extra" />
-                            <Icon name="instagram" size="big" className="extra" />
-                            <Icon name="twitter" size="big" className="extra" />
-                        </div>
-                    </div>
                     <div id="card">
                         <h2>Divyansh Agarwal</h2>
                         <p>IIT Roorkee, Student</p>
                         <p>Web Developer, SOCE</p>
                         <div>
                             <p>Social Handels: </p>
-                            <Icon name="facebook" size="big" className="extra" />
-                            <Icon name="instagram" size="big" className="extra" />
-                            <Icon name="github" size="big" className="extra" />
+                            <a target="_blank" href="https://www.instagram.com/divyanshag_/"><Icon name="instagram" size="big" className="extra" /></a>
+                            <a target="_blank" href="https://github.com/nikkuAg"><Icon name="github" size="big" className="extra" /></a>
 
+                        </div>
+                    </div>
+                    <div id="card">
+                        <h2>Pawan Kumar Aggarwal</h2>
+                        <p>Data Manager, SOCE</p>
+                        <div>
+                            <p>Social Handels: </p>
+                            <a target="_blank" href="https://twitter.com/pk_agarwal"><Icon name="twitter" size="big" className="extra" /></a>
                         </div>
                     </div>
                 </div>

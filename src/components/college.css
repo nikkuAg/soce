@@ -83,6 +83,7 @@ th, td {
 }
 .buttonRanks{
     display: flex;
+    justify-content: space-evenly;
 }
 
 .btn{
@@ -94,6 +95,7 @@ th, td {
     height: fit-content;
     
 }
+
 .ui.primary.button.active{
     background-color: #1c6297 !important;
     border: 0.2rem solid black;
@@ -136,4 +138,17 @@ th, td {
     margin-right: 4rem !important;
     font-size: 2.5rem !important;
     border-radius: 0.5rem !important;
+}
+.ui.message{
+    font-size: 1.5rem !important;
+}
+
+.labelPrediction{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.ui.label{
+    margin-top: 1rem !important;
+    font-size: 1rem !important;
 }

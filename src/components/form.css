@@ -1,7 +1,7 @@
 .ui.form, .ui.form.fields{
-    font-size: 2rem !important;
+    font-size: 1.5rem !important;
     margin: 1rem !important;
-    margin-top: 3rem !important;
+    margin-top: 2rem !important;
 }
 .ui.form{
     display: flex;
@@ -38,7 +38,7 @@ button{
 
 .main{
     margin: auto !important;
-    margin-top: 3rem !important;
+    margin-top: 2rem !important;
     border-radius: 5% !important;
     background-color: rgb(136, 136, 136) !important;
 }
@@ -48,7 +48,7 @@ button{
    border: 0.2rem solid;
    padding: 3rem;
    background-color: rgb(190, 190, 190);
-   border-radius: 4%;
+   border-radius: 2rem;
    margin-bottom: 2rem !important;
 }
 #card{
@@ -60,7 +60,7 @@ button{
     font-size: 1.5rem;
     background-color: rgb(85, 85, 85);
     color: white;
-    border-radius: 10%;
+    border-radius: 2rem;
     margin: 5rem;
     border: 0.2rem solid black;
 }
@@ -91,4 +91,17 @@ p{
 
 .ui.form .field>label{
     margin-bottom: 1rem !important;
+}
+
+#cutOff{
+    display: flex !important;
+    justify-content: center !important;
+}
+
+#cutOff > .label{
+    font-size: 2rem!important;
+    text-align: center !important;
+    display: flex !important;
+    align-items: center !important;
+
 }

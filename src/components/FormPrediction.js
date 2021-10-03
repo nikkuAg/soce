@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { MenuHeader } from './Menu'
 import './form.css'
-import { Form } from 'semantic-ui-react'
+import { Form, Label } from 'semantic-ui-react'
 import { Footer } from './Footer'
 import { useHistory } from 'react-router';
 
@@ -87,6 +87,10 @@ export const FormPrediction = () => {
         setcat(categorySave === "null" ? null : categorySave)
         setp(cutOffSave === "null" ? null : cutOffSave)
 
+
+        var value = document.getElementById("cut").value
+        sessionStorage.setItem('cutOff', value)
+
     }, [change])
 
     useEffect(() => {
@@ -116,12 +120,12 @@ export const FormPrediction = () => {
             setquota([{ key: 'AI', text: 'AI', value: 'AI' }])
         }
         else if (value === "NIT") {
-            setquota([{ key: 'HS', text: 'Home State', value: 'HS' }, { key: 'OS', text: 'Other State', value: 'OS' },
-            { key: 'AP', text: 'Quota for NIT Warangal', value: 'AP' }, { key: 'GO', text: 'Quota for NIT GOA', value: 'GO' }])
+            setquota([{ key: 'HS', text: 'HS', value: 'HS' }, { key: 'OS', text: 'OS', value: 'OS' },
+            { key: 'AP', text: 'AP', value: 'AP' }, { key: 'GO', text: 'GO', value: 'GO' }, { key: 'LA', text: 'LA', value: 'LA' }, { key: 'JK', text: 'JK', value: 'JK' }])
         }
         else if (value === "GFTI") {
-            setquota([{ key: 'AI', text: 'AI', value: 'AI' }, { key: 'HS', text: 'Home State', value: 'HS' },
-            { key: 'OS', text: 'Other State', value: 'OS' }])
+            setquota([{ key: 'AI', text: 'AI', value: 'AI' }, { key: 'HS', text: 'HS', value: 'HS' },
+            { key: 'OS', text: 'OS', value: 'OS' }])
         }
         if (value === "IIT") {
             setplaceHolder("Enter your JEE Advance Rank...")
@@ -235,7 +239,7 @@ export const FormPrediction = () => {
                     />
                 </Form.Group>
                 <Form.Group widths='equal'>
-                    <Form.Input type="number" fluid label="CutOff Percentage(%)" disabled={disable} onChange={handelP} min="0" max="100" />
+                    <Form.Input type="number" fluid placeholder="Enter your Rank" label={placeHolder} disabled={disable} onChange={handelR} />
                     <Form.Select
                         fluid
                         label='Choose Option'
@@ -261,8 +265,10 @@ export const FormPrediction = () => {
                         onChange={handelRou}
                     />
                 </Form.Group>
-                <Form.Input type="number" fluid placeholder="Enter your Rank" label={placeHolder} disabled={disable} onChange={handelR} />
-
+                <Form.Group width="equal" id="cutOff">
+                    <Form.Input id="cut" defaultValue={10} type="number" fluid label="Variation in CutOff Percentage(%)" disabled={disable} onChange={handelP} min="0" max="100" />
+                    <Label tag>Helps you to predict if there is some variation in cut-offs.</Label>
+                </Form.Group>
                 <Form.Button disabled={disable} onClick={buttonClick} primary >Predict</Form.Button>
             </Form>
             <br /><br /><br /><br />

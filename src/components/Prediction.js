@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Table, Button } from 'semantic-ui-react'
+import { Table, Button, Label } from 'semantic-ui-react'
 import { Redirect } from 'react-router-dom';
 import Loader from 'react-loader-spinner'
 import { MenuHeader } from './Menu'
@@ -107,6 +107,10 @@ export const Prediction = ({ institutes, branches }) => {
         setloading(true)
         setroundBtn(x)
     }
+    useEffect(() => {
+        if (!loading)
+            document.getElementById("labelDiv").style.display = 'none'
+    }, [loading])
 
 
     return (
@@ -126,71 +130,61 @@ export const Prediction = ({ institutes, branches }) => {
                             <Button active={btnActive === "2021"} primary onClick={() => selectRound('2021')} disabled className="btn">JoSSA 2021</Button>
                         </div>
                         <div className="buttons">
-                            <Button disabled={!roundActive.includes('1')} primary active={roundBtn === "1"} onClick={() => getRequest('1')} className="btn round">Round 1</Button>
-                            <Button disabled={!roundActive.includes('2')} primary active={roundBtn === "2"} onClick={() => getRequest('2')} className="btn round">Round 2</Button>
-                            <Button disabled={!roundActive.includes('3')} primary active={roundBtn === "3"} onClick={() => getRequest('3')} className="btn round">Round 3</Button>
-                            <Button disabled={!roundActive.includes('4')} primary active={roundBtn === "4"} onClick={() => getRequest('4')} className="btn round">Round 4</Button>
-                            <Button disabled={!roundActive.includes('5')} primary active={roundBtn === "5"} onClick={() => getRequest('5')} className="btn round">Round 5</Button>
-                            <Button disabled={!roundActive.includes('6')} primary active={roundBtn === "6"} onClick={() => getRequest('6')} className="btn round">Round 6</Button>
-                            <Button disabled={!roundActive.includes('7')} primary active={roundBtn === "7"} onClick={() => getRequest('7')} className="btn round">Round 7</Button>
+                            <Button disabled={!roundActive.includes('1')} primary color="violet" id="round" active={roundBtn === "1"} onClick={() => getRequest('1')} className="btn round">Round 1</Button>
+                            <Button disabled={!roundActive.includes('2')} primary color="violet" id="round" active={roundBtn === "2"} onClick={() => getRequest('2')} className="btn round">Round 2</Button>
+                            <Button disabled={!roundActive.includes('3')} primary color="violet" id="round" active={roundBtn === "3"} onClick={() => getRequest('3')} className="btn round">Round 3</Button>
+                            <Button disabled={!roundActive.includes('4')} primary color="violet" id="round" active={roundBtn === "4"} onClick={() => getRequest('4')} className="btn round">Round 4</Button>
+                            <Button disabled={!roundActive.includes('5')} primary color="violet" id="round" active={roundBtn === "5"} onClick={() => getRequest('5')} className="btn round">Round 5</Button>
+                            <Button disabled={!roundActive.includes('6')} primary color="violet" id="round" active={roundBtn === "6"} onClick={() => getRequest('6')} className="btn round">Round 6</Button>
+                            <Button disabled={!roundActive.includes('7')} primary color="violet" id="round" active={roundBtn === "7"} onClick={() => getRequest('7')} className="btn round">Round 7</Button>
                         </div>
                     </div>
                     <Button positive onClick={() => predicit()} className="btn round" id="predict">Get Prediction</Button>
+
                 </div>
-                <h2 className="pageHeading">{btnActive === 'csab_2020' ? 'CSAB' : btnActive} (Round-{roundBtn}) Opening and Closing Rank SOCE Prediction for {college}s</h2>
+                <h2 className="pageHeading">SOCE Prediction based on {btnActive === 'csab_2020' ? 'CSAB' : btnActive} (Round-{roundBtn}) {option === "opening_rank" ? "Opening Rank" : "Closing Rank"} (+/- {sessionStorage.getItem('cutOff')}% variations.)</h2>
                 <div className="collegeDetails">
                     {
                         error ? <div className='message'>Error in loading the data</div> :
                             loading ? <Loader className="loading" type="BallTriangle" color="black" height={80} width={80} /> :
-                                <Table celled structured id="myTable">
-                                    <Table.Header >
-                                        <Table.Row>
-                                            <Table.HeaderCell >
-                                            </Table.HeaderCell>
-                                            {institutes.map((institute, index) => (
-                                                institute.category === college ?
-                                                    <Table.HeaderCell key={institute.id}>
-                                                        {institute.code}
-                                                    </Table.HeaderCell>
-                                                    : <React.Fragment key={institute.id}></React.Fragment>
-                                            ))}
-                                        </Table.Row>
-                                        <Table.Row>
-                                            <Table.HeaderCell>
-                                                <div className="searchField">
-                                                    <input type="text" id="branch" placeholder="Search Branches..." onKeyUp={search} size={13} />
-                                                </div>
-                                            </Table.HeaderCell>
-                                            {institutes.map(institute => (
-                                                institute.category === college ?
-                                                    <Table.HeaderCell id="institute" key={institute.id}>
-                                                        {institute.display_code}
-                                                    </Table.HeaderCell>
-                                                    : <React.Fragment key={institute.id}></React.Fragment>
-                                            ))}
-                                        </Table.Row>
-                                    </Table.Header>
-                                    <Table.Body>
-                                        {branches.map(branch => (
-                                            college === 'IIT' ?
-                                                (branch.IIT === 'Y' ?
-                                                    <Table.Row key={branch.id}>
-                                                        <Table.Cell>
-                                                            {branch.branch_code}
-                                                        </Table.Cell>
-                                                        {institutes.map(institute => (
-                                                            institute.category === college ?
-                                                                ranks.find(o => ((o.branch_code === branch.id) && (o.institute_code === institute.id) && (o.category === category) && (o.seat_pool === pool) && (o.quota === quota))) ?
-                                                                    <Table.Cell key={institute.id} id="data">
-                                                                        {option === 'opening_rank' ? ranks.find(o => ((o.branch_code === branch.id) && (o.institute_code === institute.id) && (o.category === category) && (o.seat_pool === pool) && (o.quota === quota))).opening_rank : ranks.find(o => ((o.branch_code === branch.id) && (o.institute_code === institute.id) && (o.category === category) && (o.seat_pool === pool) && (o.quota === quota))).closing_rank}
-                                                                    </Table.Cell>
-                                                                    : <Table.Cell key={institute.id} id="test">-</Table.Cell>
-                                                                : <React.Fragment key={institute.id}></React.Fragment>
-                                                        ))}
-                                                    </Table.Row>
-                                                    : <React.Fragment key={branch.id}></React.Fragment>
-                                                ) : college === 'IIIT' ?
-                                                    (branch.IIIT === 'Y' ?
+                                <>
+                                    <div id="labelDiv">
+                                        <Label pointing="below" color="red">You will not get this branch</Label>
+                                        <Label pointing="below" color="yellow">You may get this branch</Label>
+                                        <Label pointing="below" color="green">You will  get this branch</Label>
+                                    </div>
+                                    <Table celled structured id="myTable">
+                                        <Table.Header >
+                                            <Table.Row>
+                                                <Table.HeaderCell >
+                                                </Table.HeaderCell>
+                                                {institutes.map((institute, index) => (
+                                                    institute.category === college ?
+                                                        <Table.HeaderCell key={institute.id}>
+                                                            {institute.code}
+                                                        </Table.HeaderCell>
+                                                        : <React.Fragment key={institute.id}></React.Fragment>
+                                                ))}
+                                            </Table.Row>
+                                            <Table.Row>
+                                                <Table.HeaderCell>
+                                                    <div className="searchField">
+                                                        <input type="text" id="branch" placeholder="Search Branches..." onKeyUp={search} size={13} />
+                                                    </div>
+                                                </Table.HeaderCell>
+                                                {institutes.map(institute => (
+                                                    institute.category === college ?
+                                                        <Table.HeaderCell id="institute" key={institute.id}>
+                                                            {institute.display_code}
+                                                        </Table.HeaderCell>
+                                                        : <React.Fragment key={institute.id}></React.Fragment>
+                                                ))}
+                                            </Table.Row>
+                                        </Table.Header>
+                                        <Table.Body>
+                                            {branches.map(branch => (
+                                                college === 'IIT' ?
+                                                    (branch.IIT === 'Y' ?
                                                         <Table.Row key={branch.id}>
                                                             <Table.Cell>
                                                                 {branch.branch_code}
@@ -206,8 +200,8 @@ export const Prediction = ({ institutes, branches }) => {
                                                             ))}
                                                         </Table.Row>
                                                         : <React.Fragment key={branch.id}></React.Fragment>
-                                                    ) : college === 'NIT' ?
-                                                        (branch.NIT === 'Y' ?
+                                                    ) : college === 'IIIT' ?
+                                                        (branch.IIIT === 'Y' ?
                                                             <Table.Row key={branch.id}>
                                                                 <Table.Cell>
                                                                     {branch.branch_code}
@@ -223,8 +217,8 @@ export const Prediction = ({ institutes, branches }) => {
                                                                 ))}
                                                             </Table.Row>
                                                             : <React.Fragment key={branch.id}></React.Fragment>
-                                                        ) : college === 'GFTI' ?
-                                                            (branch.GFTI === 'Y' ?
+                                                        ) : college === 'NIT' ?
+                                                            (branch.NIT === 'Y' ?
                                                                 <Table.Row key={branch.id}>
                                                                     <Table.Cell>
                                                                         {branch.branch_code}
@@ -240,9 +234,27 @@ export const Prediction = ({ institutes, branches }) => {
                                                                     ))}
                                                                 </Table.Row>
                                                                 : <React.Fragment key={branch.id}></React.Fragment>
-                                                            ) : <></>))}
-                                    </Table.Body>
-                                </Table>
+                                                            ) : college === 'GFTI' ?
+                                                                (branch.GFTI === 'Y' ?
+                                                                    <Table.Row key={branch.id}>
+                                                                        <Table.Cell>
+                                                                            {branch.branch_code}
+                                                                        </Table.Cell>
+                                                                        {institutes.map(institute => (
+                                                                            institute.category === college ?
+                                                                                ranks.find(o => ((o.branch_code === branch.id) && (o.institute_code === institute.id) && (o.category === category) && (o.seat_pool === pool) && (o.quota === quota))) ?
+                                                                                    <Table.Cell key={institute.id} id="data">
+                                                                                        {option === 'opening_rank' ? ranks.find(o => ((o.branch_code === branch.id) && (o.institute_code === institute.id) && (o.category === category) && (o.seat_pool === pool) && (o.quota === quota))).opening_rank : ranks.find(o => ((o.branch_code === branch.id) && (o.institute_code === institute.id) && (o.category === category) && (o.seat_pool === pool) && (o.quota === quota))).closing_rank}
+                                                                                    </Table.Cell>
+                                                                                    : <Table.Cell key={institute.id} id="test">-</Table.Cell>
+                                                                                : <React.Fragment key={institute.id}></React.Fragment>
+                                                                        ))}
+                                                                    </Table.Row>
+                                                                    : <React.Fragment key={branch.id}></React.Fragment>
+                                                                ) : <></>))}
+                                        </Table.Body>
+                                    </Table>
+                                </>
                     }
 
                 </div>
@@ -256,6 +268,7 @@ export const Prediction = ({ institutes, branches }) => {
 
 
 const predicit = () => {
+    document.getElementById("labelDiv").style.display = 'block'
     var cutoff = parseInt(sessionStorage.getItem('cutOff'))
     var tr = document.querySelectorAll("[id='data']");
     var rank = parseInt(sessionStorage.getItem('rank'))
