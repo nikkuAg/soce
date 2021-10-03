@@ -2,7 +2,6 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import 'semantic-ui-css/semantic.min.css';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
-import { Testing } from './components/testing';
 import { Home } from './components/Home';
 import { Colleges } from './components/Colleges';
 import { SeatMatrix } from './components/SeatMatrix';
@@ -50,7 +49,6 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route path="/home" component={Home} />
-        <Route path="/test/:colleges" component={Testing} />
         <Route path="/colleges/:college" component={Colleges} />
         <Route path="/seats/:college" component={() => (<SeatMatrix institutes={institutes} branches={branches} />)} />
         <Route path="/ranks/:college" component={() => (<Ranks institutes={institutes} branches={branches} />)} />
