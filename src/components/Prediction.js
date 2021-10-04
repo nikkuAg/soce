@@ -149,7 +149,7 @@ export const Prediction = ({ institutes, branches }) => {
                                 <>
                                     <div id="labelDiv">
                                         <Label color="red">Very Low Probablity in getting this branch</Label>
-                                        <Label color="yellow">Moderate probablity in getting this branch</Label>
+                                        <Label color="yellow">High probbablity in case cutoff varies within the given limit</Label>
                                         <Label color="green">Very High probablity in getting this branch</Label>
                                     </div>
                                     <Table celled structured id="myTable">
