@@ -177,3 +177,7 @@ th, td {
     background-color:green !important;
     color: white;
 }
+
+#labelDiv > .ui.label{
+    width: 20vw;
+}
