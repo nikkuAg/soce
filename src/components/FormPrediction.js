@@ -65,8 +65,6 @@ export const FormPrediction = () => {
     const [change, setchange] = useState('')
 
     useEffect(() => {
-        console.log(ins, categoryValue, seat_pool, quotaValue, roundValue, yearValue, option, rank, cutoff)
-
         insSave = String(sessionStorage.getItem('ins'))
         poolSave = String(sessionStorage.getItem('pool'))
         categorySave = String(sessionStorage.getItem('category'))
@@ -192,7 +190,6 @@ export const FormPrediction = () => {
 
     const buttonClick = () => {
         if (ins && categoryValue && seat_pool && quotaValue && roundValue && yearValue && option && rank && cutoff) {
-            console.log('done')
             sessionStorage.setItem("result", true)
             history.push('/result')
         }

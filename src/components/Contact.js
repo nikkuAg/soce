@@ -16,7 +16,6 @@ export const Contact = () => {
         emailjs.sendForm('service_c1uzcef', 'template_xk9l1uj', e.target, 'user_HLiALyhyOPQsarOxLxtZn')
             .then(res => {
                 setsuccess(true)
-                console.log(res)
                 document.getElementById("clear").value = ""
                 document.getElementById("clear1").value = ""
                 document.getElementById("clear2").value = ""

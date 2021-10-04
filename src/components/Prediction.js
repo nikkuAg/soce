@@ -148,9 +148,9 @@ export const Prediction = ({ institutes, branches }) => {
                             loading ? <Loader className="loading" type="BallTriangle" color="black" height={80} width={80} /> :
                                 <>
                                     <div id="labelDiv">
-                                        <Label color="red">You will not get this branch</Label>
-                                        <Label color="yellow">You may get this branch</Label>
-                                        <Label color="green">You will  get this branch</Label>
+                                        <Label color="red">Very Low Probablity in getting this branch</Label>
+                                        <Label color="yellow">Moderate probablity in getting this branch</Label>
+                                        <Label color="green">Very High probablity in getting this branch</Label>
                                     </div>
                                     <Table celled structured id="myTable">
                                         <Table.Header >
