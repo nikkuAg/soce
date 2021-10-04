@@ -48,6 +48,9 @@ export const MenuHeader = (props) => {
     return (
         <React.Fragment>
             <div>
+                <div class="useLaptop">
+                    <marquee><p>**Kindly use this site on desktop for better experience**</p></marquee>
+                </div>
                 <Menu className="navBar" borderless>
                     <MenuItem
                         name='home'
@@ -144,7 +147,7 @@ export const MenuHeader = (props) => {
                         </Dropdown>
                     </MenuItem>
                     <MenuItem active={state.activeItem === 'ranks'}>
-                        <Dropdown text="Opening and Closing Ranks" pointing="top left" name="ranks" className="mobile prediction" style={{ display: "flex", alignItems: 'center' }} onClick={handleItemClick}>
+                        <Dropdown text="Opening and Closing Ranks" pointing name="ranks" className="mobile prediction" style={{ display: "flex", alignItems: 'center' }} onClick={handleItemClick}>
                             <DropdownMenu>
                                 <DropdownItem text="IITs" name="IIT" path="ranks" onClick={handleItemClick} />
                                 <DropdownItem text="IIITs" name="IIIT" path="ranks" onClick={handleItemClick} />
@@ -176,7 +179,7 @@ export const MenuHeader = (props) => {
                 {props.set ? <h1 className="heading" style={{ fontFamily: "'Pacifico', cursive" }} >SOCE</h1> : <></>}
                 <Icon name="align justify" size="big" onClick={displayMenuMobile} className="hamburgerIcon" />
             </div>
-        </React.Fragment>
+        </React.Fragment >
     )
 }
 

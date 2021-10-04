@@ -152,3 +152,12 @@ th, td {
     margin-top: 1rem !important;
     font-size: 1rem !important;
 }
+#round{
+    background-color: rgb(171, 103, 226) !important;
+}
+#round:hover{
+    background-color: rgb(96, 30, 149) !important;
+}
+#round.active{
+    background-color: rgb(96, 30, 149) !important;
+}

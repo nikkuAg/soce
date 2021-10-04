@@ -44,7 +44,8 @@ button{
 }
 
 #contact{
-   width: 25vw;
+   width: fit-content;
+   height: fit-content;
    border: 0.2rem solid;
    padding: 3rem;
    background-color: rgb(190, 190, 190);
@@ -76,7 +77,8 @@ p{
 
 #contactUs{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .success{
@@ -84,9 +86,10 @@ p{
 }
 #predictionForm{
     background-color:  rgb(190, 190, 190);
-    border: 0.5rem solid black;
-    margin: 4rem !important;
-    padding: 2rem 4rem !important;
+    border: 0.4rem solid black;
+    margin: 2rem !important;
+    padding: 1rem 4rem !important;
+    border-radius: 2rem !important;
 }
 
 .ui.form .field>label{
@@ -105,4 +108,20 @@ p{
     align-items: center !important;
     margin: 1rem !important;
     margin-top: 2.7rem !important;
+
+}
+
+
+@media (max-width: 1050px){
+    #contactUs{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 700px){
+    #card{
+        padding: 1.5rem !important;
+    }
 }

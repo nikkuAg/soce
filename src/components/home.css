@@ -7,10 +7,12 @@
     text-align: center;
     margin-top: 1.5em;
     font-weight: 300;
+    padding: 0.5rem;
 }
 .fullform{
     font-size: 3rem;
     font-weight: 500;
+    line-height: normal;
 }
 
 @media (max-width: 770px) {

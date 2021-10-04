@@ -61,6 +61,13 @@ h1:first-child{
     margin-top: 2rem !important;
 }
 
+.useLaptop{
+    display: none;
+    color: red;
+    font-size: 1.5rem;
+    padding: 1rem;
+}
+
 @media (max-width: 610px) {
     .heading{
         margin: 1rem !important;
@@ -78,6 +85,9 @@ h1:first-child{
     i.icon.hamburgerIcon{
         display: block !important;
         margin: 1rem !important;
+    }
+    .useLaptop{
+        display: block;
     }
 
 }

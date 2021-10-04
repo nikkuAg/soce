@@ -65,7 +65,8 @@ export const Ranks = ({ institutes, branches }) => {
 
     return (
         <React.Fragment>
-            <MenuHeader active="ranks" />
+            <MenuHeader active="ranks" set={false} />
+            <h2 className="pageHeading">{btnActive === 'csab_2020' ? 'CSAB 2020' : `JoSSA ${btnActive}`} (Round-{roundBtn}) Opening and Closing Ranks of {college}s</h2>
             <div className="buttonRanks">
                 <div className="buttons">
                     <Button active={btnActive === "2015"} primary onClick={() => selectRound('2015')} className="btn">JoSSA 2015</Button>
@@ -77,16 +78,15 @@ export const Ranks = ({ institutes, branches }) => {
                     <Button active={btnActive === "2021"} primary onClick={() => selectRound('2021')} disabled className="btn">JoSSA 2021</Button>
                 </div>
                 <div className="buttons">
-                    <Button disabled={!roundActive.includes('1')} primary color="violet" active={roundBtn === "1"} onClick={() => getRequest('1')} className="btn round">Round 1</Button>
-                    <Button disabled={!roundActive.includes('2')} primary color="violet" active={roundBtn === "2"} onClick={() => getRequest('2')} className="btn round">Round 2</Button>
-                    <Button disabled={!roundActive.includes('3')} primary color="violet" active={roundBtn === "3"} onClick={() => getRequest('3')} className="btn round">Round 3</Button>
-                    <Button disabled={!roundActive.includes('4')} primary color="violet" active={roundBtn === "4"} onClick={() => getRequest('4')} className="btn round">Round 4</Button>
-                    <Button disabled={!roundActive.includes('5')} primary color="violet" active={roundBtn === "5"} onClick={() => getRequest('5')} className="btn round">Round 5</Button>
-                    <Button disabled={!roundActive.includes('6')} primary color="violet" active={roundBtn === "6"} onClick={() => getRequest('6')} className="btn round">Round 6</Button>
-                    <Button disabled={!roundActive.includes('7')} primary color="violet" active={roundBtn === "7"} onClick={() => getRequest('7')} className="btn round">Round 7</Button>
+                    <Button disabled={!roundActive.includes('1')} primary id="roundx" active={roundBtn === "1"} onClick={() => getRequest('1')} className="btn round">Round 1</Button>
+                    <Button disabled={!roundActive.includes('2')} primary id="round" active={roundBtn === "2"} onClick={() => getRequest('2')} className="btn round">Round 2</Button>
+                    <Button disabled={!roundActive.includes('3')} primary id="round" active={roundBtn === "3"} onClick={() => getRequest('3')} className="btn round">Round 3</Button>
+                    <Button disabled={!roundActive.includes('4')} primary id="round" active={roundBtn === "4"} onClick={() => getRequest('4')} className="btn round">Round 4</Button>
+                    <Button disabled={!roundActive.includes('5')} primary id="round" active={roundBtn === "5"} onClick={() => getRequest('5')} className="btn round">Round 5</Button>
+                    <Button disabled={!roundActive.includes('6')} primary id="round" active={roundBtn === "6"} onClick={() => getRequest('6')} className="btn round">Round 6</Button>
+                    <Button disabled={!roundActive.includes('7')} primary id="round" active={roundBtn === "7"} onClick={() => getRequest('7')} className="btn round">Round 7</Button>
                 </div>
             </div>
-            <h2 className="pageHeading">{btnActive === 'csab_2020' ? 'CSAB 2020' : `JoSSA ${btnActive}`} (Round-{roundBtn}) Opening and Closing Ranks of {college}s</h2>
             <div className="collegeDetails">
                 {
                     error ? <div className='message'>Error in loading the data</div> :

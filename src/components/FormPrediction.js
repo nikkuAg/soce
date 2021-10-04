@@ -203,9 +203,8 @@ export const FormPrediction = () => {
 
     return (
         <>
-            <MenuHeader active="prediction" />
+            <MenuHeader active="prediction" set={false} />
             <h2 className="pageHeading">Opening and Closing Rank SOCE Prediction</h2>
-            {error ? <div className='message'>{error}</div> : <></>}
             <Form id="predictionForm">
                 <Form.Group widths="equal">
                     <Form.Select
@@ -269,8 +268,9 @@ export const FormPrediction = () => {
                     <Form.Input id="cut" defaultValue={10} type="number" fluid label="Variation in CutOff Percentage(%)" disabled={disable} onChange={handelP} min="0" max="100" />
                     <Label tag>Helps you to predict if there is some variation in cut-offs.</Label>
                 </Form.Group>
-                <Form.Button disabled={disable} onClick={buttonClick} primary >Predict</Form.Button>
+                <Form.Button disabled={disable} onClick={buttonClick} primary >Submit</Form.Button>
             </Form>
+            {error ? <div className='message'>{error}</div> : <></>}
             <br /><br /><br /><br />
             <Footer />
         </>

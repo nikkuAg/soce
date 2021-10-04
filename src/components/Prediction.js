@@ -116,7 +116,8 @@ export const Prediction = ({ institutes, branches }) => {
     return (
         <React.Fragment>
             {sessionStorage.getItem('result') === 'true' ? <>
-                <MenuHeader active="prediction" />
+                <MenuHeader active="prediction" set={false} />
+                <h2 className="pageHeading">SOCE Prediction for {college}s based on {btnActive === 'csab_2020' ? 'CSAB' : btnActive} (Round-{roundBtn}) {option === "opening_rank" ? "Opening Rank" : "Closing Rank"} with (+/- {sessionStorage.getItem('cutOff')}% variations)</h2>
                 <div id="allbuttons">
                     <div className="buttonRanks" id="prediction">
                         <div className="buttons">
@@ -129,46 +130,34 @@ export const Prediction = ({ institutes, branches }) => {
                             <Button active={btnActive === "2021"} primary onClick={() => selectRound('2021')} disabled className="btn">JoSSA 2021</Button>
                         </div>
                         <div className="buttons">
-                            <Button disabled={!roundActive.includes('1')} primary color="violet" id="round" active={roundBtn === "1"} onClick={() => getRequest('1')} className="btn round">Round 1</Button>
-                            <Button disabled={!roundActive.includes('2')} primary color="violet" id="round" active={roundBtn === "2"} onClick={() => getRequest('2')} className="btn round">Round 2</Button>
-                            <Button disabled={!roundActive.includes('3')} primary color="violet" id="round" active={roundBtn === "3"} onClick={() => getRequest('3')} className="btn round">Round 3</Button>
-                            <Button disabled={!roundActive.includes('4')} primary color="violet" id="round" active={roundBtn === "4"} onClick={() => getRequest('4')} className="btn round">Round 4</Button>
-                            <Button disabled={!roundActive.includes('5')} primary color="violet" id="round" active={roundBtn === "5"} onClick={() => getRequest('5')} className="btn round">Round 5</Button>
-                            <Button disabled={!roundActive.includes('6')} primary color="violet" id="round" active={roundBtn === "6"} onClick={() => getRequest('6')} className="btn round">Round 6</Button>
-                            <Button disabled={!roundActive.includes('7')} primary color="violet" id="round" active={roundBtn === "7"} onClick={() => getRequest('7')} className="btn round">Round 7</Button>
+                            <Button disabled={!roundActive.includes('1')} primary id="round" active={roundBtn === "1"} onClick={() => getRequest('1')} className="btn round">Round 1</Button>
+                            <Button disabled={!roundActive.includes('2')} primary id="round" active={roundBtn === "2"} onClick={() => getRequest('2')} className="btn round">Round 2</Button>
+                            <Button disabled={!roundActive.includes('3')} primary id="round" active={roundBtn === "3"} onClick={() => getRequest('3')} className="btn round">Round 3</Button>
+                            <Button disabled={!roundActive.includes('4')} primary id="round" active={roundBtn === "4"} onClick={() => getRequest('4')} className="btn round">Round 4</Button>
+                            <Button disabled={!roundActive.includes('5')} primary id="round" active={roundBtn === "5"} onClick={() => getRequest('5')} className="btn round">Round 5</Button>
+                            <Button disabled={!roundActive.includes('6')} primary id="round" active={roundBtn === "6"} onClick={() => getRequest('6')} className="btn round">Round 6</Button>
+                            <Button disabled={!roundActive.includes('7')} primary id="round" active={roundBtn === "7"} onClick={() => getRequest('7')} className="btn round">Round 7</Button>
                         </div>
                     </div>
-                    <Button positive onClick={() => predicit()} className="btn round" id="predict">Get Prediction</Button>
+                    <Button positive onClick={() => predicit()} className="btn round" id="predict">Click to Get Prediction</Button>
 
                 </div>
-                <h2 className="pageHeading">SOCE Prediction based on {btnActive === 'csab_2020' ? 'CSAB' : btnActive} (Round-{roundBtn}) {option === "opening_rank" ? "Opening Rank" : "Closing Rank"} (+/- {sessionStorage.getItem('cutOff')}% variations.)</h2>
                 <div className="collegeDetails">
                     {
                         error ? <div className='message'>Error in loading the data</div> :
                             loading ? <Loader className="loading" type="BallTriangle" color="black" height={80} width={80} /> :
                                 <>
                                     <div id="labelDiv">
-                                        <Label pointing="below" color="red">You will not get this branch</Label>
-                                        <Label pointing="below" color="yellow">You may get this branch</Label>
-                                        <Label pointing="below" color="green">You will  get this branch</Label>
+                                        <Label color="red">You will not get this branch</Label>
+                                        <Label color="yellow">You may get this branch</Label>
+                                        <Label color="green">You will  get this branch</Label>
                                     </div>
                                     <Table celled structured id="myTable">
                                         <Table.Header >
                                             <Table.Row>
-                                                <Table.HeaderCell >
-                                                </Table.HeaderCell>
-                                                {institutes.map((institute, index) => (
-                                                    institute.category === college ?
-                                                        <Table.HeaderCell key={institute.id}>
-                                                            {institute.code}
-                                                        </Table.HeaderCell>
-                                                        : <React.Fragment key={institute.id}></React.Fragment>
-                                                ))}
-                                            </Table.Row>
-                                            <Table.Row>
                                                 <Table.HeaderCell>
                                                     <div className="searchField">
-                                                        <input type="text" id="branch" placeholder="Search" onKeyUp={search} size={8} />
+                                                        <input type="text" id="branch" placeholder="Search Branch" onKeyUp={search} size={10} />
                                                     </div>
                                                 </Table.HeaderCell>
                                                 {institutes.map(institute => (

@@ -36,7 +36,7 @@ export const Colleges = () => {
 
     return (
         <React.Fragment>
-            <MenuHeader active="colleges" />
+            <MenuHeader active="colleges" set={false} />
             <h2 className="pageHeading">List of participating {college}s in JoSAA</h2>
             <div className="collegeDetails listColleges">
                 {
