@@ -66,7 +66,7 @@ export const Ranks = ({ institutes, branches }) => {
     return (
         <React.Fragment>
             <MenuHeader active="ranks" set={false} />
-            <h2 className="pageHeading">{btnActive === 'csab_2020' ? 'CSAB 2020' : `JoSSA ${btnActive}`} (Round-{roundBtn}) Opening and Closing Ranks of {college}s</h2>
+            <h2 className="pageHeading">{btnActive === 'csab_2020' ? 'CSAB 2020' : `JoSAA ${btnActive}`} (Round-{roundBtn}) Opening and Closing Ranks of {college}s</h2>
             <div className="buttonRanks">
                 <div className="buttons">
                     <Button active={btnActive === "2015"} primary onClick={() => selectRound('2015')} className="btn">JoSSA 2015</Button>
