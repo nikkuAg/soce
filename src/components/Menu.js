@@ -75,10 +75,10 @@ export const MenuHeader = (props) => {
                         active={state.activeItem === 'matrix'}>
                         <Dropdown text="Seat Matrix" pointing name="matrix">
                             <DropdownMenu>
-                                <DropdownItem text="IIT Seat Matrix" name="IIT" path="seats" onClick={handleItemClick} />
-                                <DropdownItem text="IIIT Seat Matrix" name="IIIT" path="seats" onClick={handleItemClick} />
-                                <DropdownItem text="NIT Seat Matrix" name="NIT" path="seats" onClick={handleItemClick} />
-                                <DropdownItem text="GFTI Seat Matrix" name="GFTI" path="seats" onClick={handleItemClick} />
+                                <DropdownItem text="IITs Seat Matrix" name="IIT" path="seats" onClick={handleItemClick} />
+                                <DropdownItem text="IIITs Seat Matrix" name="IIIT" path="seats" onClick={handleItemClick} />
+                                <DropdownItem text="NITs Seat Matrix" name="NIT" path="seats" onClick={handleItemClick} />
+                                <DropdownItem text="GFTIs Seat Matrix" name="GFTI" path="seats" onClick={handleItemClick} />
                             </DropdownMenu>
                         </Dropdown>
                     </MenuItem>
@@ -139,10 +139,10 @@ export const MenuHeader = (props) => {
                     >
                         <Dropdown text="Seat Matrix" pointing className="mobile" style={{ display: 'flex', alignItems: 'center' }}>
                             <DropdownMenu>
-                                <DropdownItem text="IIT Seat Matrix" name="IIT" path="seats" onClick={handleItemClick} />
-                                <DropdownItem text="IIIT Seat Matrix" name="IIIT" path="seats" onClick={handleItemClick} />
-                                <DropdownItem text="NIT Seat Matrix" name="NIT" path="seats" onClick={handleItemClick} />
-                                <DropdownItem text="GFTI Seat Matrix" name="GFTI" path="seats" onClick={handleItemClick} />
+                                <DropdownItem text="IITs Seat Matrix" name="IIT" path="seats" onClick={handleItemClick} />
+                                <DropdownItem text="IIITs Seat Matrix" name="IIIT" path="seats" onClick={handleItemClick} />
+                                <DropdownItem text="NITs Seat Matrix" name="NIT" path="seats" onClick={handleItemClick} />
+                                <DropdownItem text="GFTIs Seat Matrix" name="GFTI" path="seats" onClick={handleItemClick} />
                             </DropdownMenu>
                         </Dropdown>
                     </MenuItem>

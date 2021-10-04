@@ -148,9 +148,10 @@ export const Prediction = ({ institutes, branches }) => {
                             loading ? <Loader className="loading" type="BallTriangle" color="black" height={80} width={80} /> :
                                 <>
                                     <div id="labelDiv">
-                                        <Label id="low">Very Low Probablity in getting this branch</Label>
-                                        <Label id="probable">High probbablity in case cutoff varies within the given limit</Label>
-                                        <Label id="high">Very High probablity in getting this branch</Label>
+                                        <Label id="low">Very Low Probablity for getting this branch</Label>
+                                        <Label id="probableO">Probable to get this branch if cutoff rank increases by {sessionStorage.getItem('cutOff')}%</Label>
+                                        <Label id="probableY">Probable to get this branch even if cutoff rank decreases by {sessionStorage.getItem('cutOff')}%</Label>
+                                        <Label id="high">Very High probablity for getting this branch</Label>
                                     </div>
                                     <Table celled structured id="myTable">
                                         <Table.Header >
@@ -265,8 +266,11 @@ const predicit = () => {
         if (rank <= Math.round((1 - (cutoff / 100)) * data)) {
             tr[x].style.backgroundColor = 'green'
         }
-        else if (rank > Math.round((1 - (cutoff / 100)) * data) && (rank <= Math.round((1 + (cutoff / 100)) * data))) {
+        else if ((rank > Math.round((1 - (cutoff / 100)) * data)) && (rank <= Math.round(data))) {
             tr[x].style.backgroundColor = 'yellow'
+        }
+        else if (rank > Math.round(data) && rank <= Math.round((1 + (cutoff / 100)) * data)) {
+            tr[x].style.backgroundColor = 'orange'
         }
         else if (rank > Math.round((1 + (cutoff / 100)) * data)) {
             tr[x].style.backgroundColor = 'red'

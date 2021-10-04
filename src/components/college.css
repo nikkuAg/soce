@@ -161,8 +161,12 @@ th, td {
 #round.active{
     background-color: rgb(96, 30, 149) !important;
 }
-#probable{
+#probableY{
     background-color:yellow !important;
+    color: black;
+}
+#probableO{
+    background-color:orange !important;
     color: black;
 }
 #low{

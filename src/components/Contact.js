@@ -37,7 +37,7 @@ export const Contact = () => {
                 <div id="intro">
                     <div id="card">
                         <h2>Divyansh Agarwal</h2>
-                        <p>IIT Roorkee, Student</p>
+                        <p>2<sup>nd</sup>&nbsp;&nbsp;year Student, IIT Roorkee</p>
                         <p>Web Developer, SOCE</p>
                         <div>
                             <p>Social Handles: </p>
