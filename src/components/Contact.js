@@ -40,7 +40,7 @@ export const Contact = () => {
                         <p>IIT Roorkee, Student</p>
                         <p>Web Developer, SOCE</p>
                         <div>
-                            <p>Social Handels: </p>
+                            <p>Social Handles: </p>
                             <a target="_blank" href="https://www.instagram.com/divyanshag_/"><Icon name="instagram" size="big" className="extra" /></a>
                             <a target="_blank" href="https://github.com/nikkuAg"><Icon name="github" size="big" className="extra" /></a>
 
@@ -50,7 +50,7 @@ export const Contact = () => {
                         <h2>Pawan Kumar Aggarwal</h2>
                         <p>Data Manager, SOCE</p>
                         <div>
-                            <p>Social Handels: </p>
+                            <p>Social Handles: </p>
                             <a target="_blank" href="https://twitter.com/pk_agarwal"><Icon name="twitter" size="big" className="extra" /></a>
                         </div>
                     </div>
