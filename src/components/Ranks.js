@@ -78,7 +78,7 @@ export const Ranks = ({ institutes, branches }) => {
                     <Button active={btnActive === "2021"} primary onClick={() => selectRound('2021')} disabled className="btn">JoSSA 2021</Button>
                 </div>
                 <div className="buttons">
-                    <Button disabled={!roundActive.includes('1')} primary id="roundx" active={roundBtn === "1"} onClick={() => getRequest('1')} className="btn round">Round 1</Button>
+                    <Button disabled={!roundActive.includes('1')} primary id="round" active={roundBtn === "1"} onClick={() => getRequest('1')} className="btn round">Round 1</Button>
                     <Button disabled={!roundActive.includes('2')} primary id="round" active={roundBtn === "2"} onClick={() => getRequest('2')} className="btn round">Round 2</Button>
                     <Button disabled={!roundActive.includes('3')} primary id="round" active={roundBtn === "3"} onClick={() => getRequest('3')} className="btn round">Round 3</Button>
                     <Button disabled={!roundActive.includes('4')} primary id="round" active={roundBtn === "4"} onClick={() => getRequest('4')} className="btn round">Round 4</Button>
