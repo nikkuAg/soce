@@ -66,16 +66,16 @@ export const Ranks = ({ institutes, branches }) => {
     return (
         <React.Fragment>
             <MenuHeader active="ranks" set={false} />
-            <h2 className="pageHeading">{btnActive === 'csab_2020' ? 'CSAB 2020' : `JoSSA ${btnActive}`} (Round-{roundBtn}) Opening and Closing Ranks of {college}s</h2>
+            <h2 className="pageHeading">{btnActive === 'csab_2020' ? 'CSAB 2020' : `JoSAA ${btnActive}`} (Round-{roundBtn}) Opening and Closing Ranks of {college}s</h2>
             <div className="buttonRanks">
                 <div className="buttons">
-                    <Button active={btnActive === "2015"} primary onClick={() => selectRound('2015')} className="btn">JoSSA 2015</Button>
-                    <Button active={btnActive === "2016"} primary onClick={() => selectRound('2016')} className="btn">JoSSA 2016</Button>
-                    <Button active={btnActive === "2017"} primary onClick={() => selectRound('2017')} className="btn">JoSSA 2017</Button>
-                    <Button active={btnActive === "2018"} primary onClick={() => selectRound('2018')} className="btn">JoSSA 2018</Button>
-                    <Button active={btnActive === "2019"} primary onClick={() => selectRound('2019')} className="btn">JoSSA 2019</Button>
-                    <Button active={btnActive === "2020"} primary onClick={() => selectRound('2020')} className="btn">JoSSA 2020</Button>
-                    <Button active={btnActive === "2021"} primary onClick={() => selectRound('2021')} disabled className="btn">JoSSA 2021</Button>
+                    <Button active={btnActive === "2015"} primary onClick={() => selectRound('2015')} className="btn">JoSAA 2015</Button>
+                    <Button active={btnActive === "2016"} primary onClick={() => selectRound('2016')} className="btn">JoSAA 2016</Button>
+                    <Button active={btnActive === "2017"} primary onClick={() => selectRound('2017')} className="btn">JoSAA 2017</Button>
+                    <Button active={btnActive === "2018"} primary onClick={() => selectRound('2018')} className="btn">JoSAA 2018</Button>
+                    <Button active={btnActive === "2019"} primary onClick={() => selectRound('2019')} className="btn">JoSAA 2019</Button>
+                    <Button active={btnActive === "2020"} primary onClick={() => selectRound('2020')} className="btn">JoSAA 2020</Button>
+                    <Button active={btnActive === "2021"} primary onClick={() => selectRound('2021')} disabled className="btn">JoSAA 2021</Button>
                 </div>
                 <div className="buttons">
                     <Button disabled={!roundActive.includes('1')} primary id="round" active={roundBtn === "1"} onClick={() => getRequest('1')} className="btn round">Round 1</Button>

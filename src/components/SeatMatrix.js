@@ -46,9 +46,9 @@ export const SeatMatrix = ({ institutes, branches }) => {
             <MenuHeader active="matrix" set={false} />
             <h2 className="pageHeading">{btnActive} Seat Matrix of {college}s</h2>
             <div className="buttons">
-                <Button active={btnActive === "2019"} primary onClick={() => getRequest('seat_2019', "2019")} className="btn">JoSSA 2019</Button>
-                <Button active={btnActive === "2020"} primary onClick={() => getRequest('seat_2020', "2020")} className="btn">JoSSA 2020</Button>
-                <Button active={btnActive === "2021"} primary onClick={() => getRequest('seat_2021', "2021")} disabled className="btn">JoSSA 2021</Button>
+                <Button active={btnActive === "2019"} primary onClick={() => getRequest('seat_2019', "2019")} className="btn">JoSAA 2019</Button>
+                <Button active={btnActive === "2020"} primary onClick={() => getRequest('seat_2020', "2020")} className="btn">JoSAA 2020</Button>
+                <Button active={btnActive === "2021"} primary onClick={() => getRequest('seat_2021', "2021")} disabled className="btn">JoSAA 2021</Button>
             </div>
             <div className="collegeDetails">
                 {
