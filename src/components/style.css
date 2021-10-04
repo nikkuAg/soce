@@ -54,7 +54,6 @@ i.icon:not(.extra){
 i.icon:hover:not(.extra){
     cursor: pointer;
 }
-
 h1:first-child{
     font-size: 4rem !important;
     display: inline !important;
@@ -91,9 +90,18 @@ h1:first-child{
     }
 
 }
-@media (max-width: 770px){
+@media (max-width: 1100px){
     .ui.menu.navBar:not(.vertical){
         font-size: 1rem;
+    }
+    .ui.vertical.menu{
+        display: none;
+    }
+
+}
+@media (max-width: 750px){
+    .ui.menu.navBar:not(.vertical){
+        font-size: 0.5rem;
     }
     .ui.vertical.menu{
         display: none;

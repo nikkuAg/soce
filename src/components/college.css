@@ -161,3 +161,15 @@ th, td {
 #round.active{
     background-color: rgb(96, 30, 149) !important;
 }
+#probable{
+    background-color:yellow !important;
+    color: black;
+}
+#low{
+    background-color:red !important;
+    color: black;
+}
+#high{
+    background-color:green !important;
+    color: white;
+}

@@ -139,7 +139,7 @@ export const Prediction = ({ institutes, branches }) => {
                             <Button disabled={!roundActive.includes('7')} primary id="round" active={roundBtn === "7"} onClick={() => getRequest('7')} className="btn round">Round 7</Button>
                         </div>
                     </div>
-                    <Button positive onClick={() => predicit()} className="btn round" id="predict">Click to Get Prediction</Button>
+                    <Button disabled={loading} positive onClick={() => predicit()} className="btn round" id="predict">Click to Get Prediction</Button>
 
                 </div>
                 <div className="collegeDetails">
@@ -148,9 +148,9 @@ export const Prediction = ({ institutes, branches }) => {
                             loading ? <Loader className="loading" type="BallTriangle" color="black" height={80} width={80} /> :
                                 <>
                                     <div id="labelDiv">
-                                        <Label color="red">Very Low Probablity in getting this branch</Label>
-                                        <Label color="yellow">High probbablity in case cutoff varies within the given limit</Label>
-                                        <Label color="green">Very High probablity in getting this branch</Label>
+                                        <Label id="low">Very Low Probablity in getting this branch</Label>
+                                        <Label id="probable">High probbablity in case cutoff varies within the given limit</Label>
+                                        <Label id="high">Very High probablity in getting this branch</Label>
                                     </div>
                                     <Table celled structured id="myTable">
                                         <Table.Header >
