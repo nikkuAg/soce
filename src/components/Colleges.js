@@ -48,31 +48,31 @@ export const Colleges = () => {
                                         <Table.HeaderCell>
                                             <div className="searchField">
                                                 Institute Code
-                                                <input type="text" id="code" placeholder="Search Code..." onKeyUp={search} size={13} />
+                                                <input type="text" id="code" placeholder="Search" onKeyUp={search} size={3} />
                                             </div>
                                         </Table.HeaderCell>
                                         <Table.HeaderCell>
                                             <div className="searchField">
                                                 Name of Institute
-                                                <input type="text" id="institute" placeholder="Search Institute..." onKeyUp={search} size={13} />
+                                                <input type="text" id="institute" placeholder="Search" onKeyUp={search} size={8} />
                                             </div>
                                         </Table.HeaderCell>
                                         <Table.HeaderCell>
                                             <div className="searchField">
                                                 State
-                                                <input type="text" id="state" placeholder="Search State..." onKeyUp={search} size={13} />
+                                                <input type="text" id="state" placeholder="Search" onKeyUp={search} size={8} />
                                             </div>
                                         </Table.HeaderCell>
                                         <Table.HeaderCell>
                                             <div className="searchField">
                                                 NIRF Ranking (2019/2020/2021)
-                                                <input type="text" id="nirf" placeholder="Search NIRF..." onKeyUp={search} size={8} />
+                                                <input type="text" id="nirf" placeholder="Search" onKeyUp={search} size={4} />
                                             </div>
                                         </Table.HeaderCell>
                                         <Table.HeaderCell>
                                             <div className="searchField">
                                                 Website
-                                                <input type="text" id="website" placeholder="Search Website..." onKeyUp={search} size={13} />
+                                                <input type="text" id="website" placeholder="Search" onKeyUp={search} size={8} />
                                             </div>
                                         </Table.HeaderCell>
                                     </Table.Row>

@@ -1,7 +1,7 @@
 .ui.form, .ui.form.fields{
     font-size: 1.5rem !important;
     margin: 1rem !important;
-    margin-top: 2rem !important;
+    margin-top: 1rem !important;
 }
 .ui.form{
     display: flex;
@@ -10,7 +10,7 @@
 }
 .ui.form .fields.equal.width{
     margin: 1rem !important;
-    margin-bottom: 2rem !important;
+    margin-bottom: 1rem !important;
 }
 
 .ui.form .field:last-child{
@@ -99,9 +99,10 @@ p{
 }
 
 #cutOff > .label{
-    font-size: 2rem!important;
+    font-size: 1.5rem!important;
     text-align: center !important;
     display: flex !important;
     align-items: center !important;
-
+    margin: 1rem !important;
+    margin-top: 2.7rem !important;
 }

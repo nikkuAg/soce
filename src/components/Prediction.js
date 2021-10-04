@@ -126,7 +126,6 @@ export const Prediction = ({ institutes, branches }) => {
                             <Button active={btnActive === "2018"} primary onClick={() => selectRound('2018')} className="btn">JoSSA 2018</Button>
                             <Button active={btnActive === "2019"} primary onClick={() => selectRound('2019')} className="btn">JoSSA 2019</Button>
                             <Button active={btnActive === "2020"} primary onClick={() => selectRound('2020')} className="btn">JoSSA 2020</Button>
-                            <Button active={btnActive === "CSAB"} primary onClick={() => selectRound('csab_2020')} disabled className="btn">CSAB 2020</Button>
                             <Button active={btnActive === "2021"} primary onClick={() => selectRound('2021')} disabled className="btn">JoSSA 2021</Button>
                         </div>
                         <div className="buttons">
@@ -169,7 +168,7 @@ export const Prediction = ({ institutes, branches }) => {
                                             <Table.Row>
                                                 <Table.HeaderCell>
                                                     <div className="searchField">
-                                                        <input type="text" id="branch" placeholder="Search Branches..." onKeyUp={search} size={13} />
+                                                        <input type="text" id="branch" placeholder="Search" onKeyUp={search} size={8} />
                                                     </div>
                                                 </Table.HeaderCell>
                                                 {institutes.map(institute => (

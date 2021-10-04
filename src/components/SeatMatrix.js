@@ -47,7 +47,6 @@ export const SeatMatrix = ({ institutes, branches }) => {
             <div className="buttons">
                 <Button active={btnActive === "2019"} primary onClick={() => getRequest('seat_2019', "2019")} className="btn">JoSSA 2019</Button>
                 <Button active={btnActive === "2020"} primary onClick={() => getRequest('seat_2020', "2020")} className="btn">JoSSA 2020</Button>
-                <Button active={btnActive === "CSAB"} primary onClick={() => getRequest('seat_csab_2020', "CSAB")} disabled className="btn">CSAB 2020</Button>
                 <Button active={btnActive === "2021"} primary onClick={() => getRequest('seat_2021', "2021")} disabled className="btn">JoSSA 2021</Button>
             </div>
             <Divider />
@@ -62,49 +61,49 @@ export const SeatMatrix = ({ institutes, branches }) => {
                                         <Table.HeaderCell>
                                             <div className="searchField">
                                                 Name of Institute
-                                                <input type="text" id="institute" placeholder="Search Institute..." onKeyUp={search} size={13} />
+                                                <input type="text" id="institute" placeholder="Search" onKeyUp={search} size={7} />
                                             </div>
                                         </Table.HeaderCell>
                                         <Table.HeaderCell>
                                             <div className="searchField">
                                                 Name of Branch
-                                                <input type="text" id="branch" placeholder="Search Branch..." onKeyUp={search} size={13} />
+                                                <input type="text" id="branch" placeholder="Search" onKeyUp={search} size={7} />
                                             </div>
                                         </Table.HeaderCell>
                                         <Table.HeaderCell>
                                             <div className="searchField">
                                                 Duration of Course
-                                                <input type="text" id="duration" placeholder="Search Duration..." onKeyUp={search} size={13} />
+                                                <input type="text" id="duration" placeholder="Search" onKeyUp={search} size={2} />
                                             </div>
                                         </Table.HeaderCell>
                                         <Table.HeaderCell>
                                             <div className="searchField">
                                                 Degree of Course
-                                                <input type="text" id="degree" placeholder="Search Degree..." onKeyUp={search} size={13} />
+                                                <input type="text" id="degree" placeholder="Search" onKeyUp={search} size={7} />
                                             </div>
                                         </Table.HeaderCell>
                                         <Table.HeaderCell>
                                             <div className="searchField">
                                                 Seat Pool
-                                                <input type="text" id="pool" placeholder="Search Seat Pool..." onKeyUp={search} size={13} />
+                                                <input type="text" id="pool" placeholder="Search" onKeyUp={search} size={7} />
                                             </div>
                                         </Table.HeaderCell>
                                         <Table.HeaderCell>
                                             <div className="searchField">
                                                 Category
-                                                <input type="text" id="category" placeholder="Search Category..." onKeyUp={search} size={13} />
+                                                <input type="text" id="category" placeholder="Search" onKeyUp={search} size={3} />
                                             </div>
                                         </Table.HeaderCell>
                                         <Table.HeaderCell>
                                             <div className="searchField">
                                                 Quota
-                                                <input type="text" id="quota" placeholder="Search Quota..." onKeyUp={search} size={13} />
+                                                <input type="text" id="quota" placeholder="Search" onKeyUp={search} size={2} />
                                             </div>
                                         </Table.HeaderCell>
                                         <Table.HeaderCell>
                                             <div className="searchField">
                                                 Total Seats
-                                                <input type="text" id="seats" placeholder="Search Seats..." onKeyUp={search} size={13} />
+                                                <input type="text" id="seats" placeholder="Search" onKeyUp={search} size={5} />
                                             </div>
                                         </Table.HeaderCell>
                                     </Table.Row>

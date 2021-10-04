@@ -128,9 +128,9 @@ export const FormPrediction = () => {
             { key: 'OS', text: 'OS', value: 'OS' }])
         }
         if (value === "IIT") {
-            setplaceHolder("Enter your JEE Advance Rank...")
+            setplaceHolder("Enter your JEE (ADVANCE) Rank")
         } else {
-            setplaceHolder("Enter your JEE Mains Rank...")
+            setplaceHolder("Enter your JEE (MAINS) Rank")
         }
         setdisable(false)
         sessionStorage.setItem('ins', value)
