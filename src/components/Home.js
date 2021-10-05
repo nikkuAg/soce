@@ -30,7 +30,7 @@ export const Home = () => {
                     <p id="individual"> This website has been designed to help the Engineering aspirants and their parents to know about
                         the previous years’ cut-off Rank for various colleges and branches so that they can take an informed
                         decision to choose best college and branch according to the rank secured in the exam.For better
-                        understanding click on <a href="/how_to_use"><em>‘How to use’</em></a>
+                        understanding click on <a href="#/how_to_use"><em>‘How to use’</em></a>
                     </p>
                 </div>
             </div>
@@ -48,7 +48,7 @@ export const Home = () => {
                     <li id="individual">Also get the prediction by selecting an expected variation in previous years’ opening/ closing rank (in terms of %)</li>
                     <li id="individual">For the sake of simplicity some minor modifications in the opening/ closing rank has been incorporated in the website. <span id="click" onClick={() => (setpopUp(true))} >Click</span> to get details. </li>
                     <li id="individual">Developed by an IIT Roorkee student for the benefit of public</li>
-                    <li id="individual">New features can be added as per the requirement. Kindly send your feedback/ suggestions as per the link given on <a href="/contact_us"><em>‘Contact Us’</em></a></li>
+                    <li id="individual">New features can be added as per the requirement. Kindly send your feedback/ suggestions as per the link given on <a href="#/contact_us"><em>‘Contact Us’</em></a></li>
                 </ul>
                 <Popup show={popUp} close={setpopUp} />
             </div>

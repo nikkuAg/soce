@@ -14,7 +14,7 @@ export const Use = () => {
                         How to Use SOCE Prediction:
                     </h3>
                     <ul>
-                        <li id="individual">For prediction based on previous years’ opening as well as closing rank click <a href="/prediction"><em>‘SOCE Prediction’</em></a> and then <em>‘Default Prediction’</em>. </li>
+                        <li id="individual">For prediction based on previous years’ opening as well as closing rank click <a href="#/prediction"><em>‘SOCE Prediction’</em></a> and then <em>‘Default Prediction’</em>. </li>
                         <li id="individual">Fill all the desired details and click <em>‘Submit’</em></li>
                         <li id="individual">Click <em>‘Click to Get Prediction’</em> on next page</li>
                         <li id="individual">Now it will highlight all previous years’ cutoff in different colour. Your prediction based on colour coding is as follows:</li>
