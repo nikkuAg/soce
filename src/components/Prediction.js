@@ -36,7 +36,7 @@ export const Prediction = ({ institutes, branches }) => {
     const [btnActive, setbtnActive] = useState(year)
     const [roundActive, setroundActive] = useState(['1', '2', '3', '4', '5', '6'])
     const [roundBtn, setroundBtn] = useState(round)
-    const [apiurl, setapiUrl] = useState(`http://mysoce.pythonanywhere.com/soce/${round}_${year}/`)
+    const [apiurl, setapiUrl] = useState(`https://mysoce.pythonanywhere.com/soce/${round}_${year}/`)
     useEffect(() => {
         selectRound(String(year))
         axios.get(apiurl)
@@ -103,7 +103,7 @@ export const Prediction = ({ institutes, branches }) => {
     const getRequest = (x) => {
         sessionStorage.setItem('round', x)
         getData()
-        setapiUrl(`http://mysoce.pythonanywhere.com/soce/${x}_${btnActive}/`)
+        setapiUrl(`https://mysoce.pythonanywhere.com/soce/${x}_${btnActive}/`)
         setloading(true)
         setroundBtn(x)
     }
