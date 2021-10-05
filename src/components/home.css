@@ -14,12 +14,6 @@
     font-weight: 500;
     line-height: normal;
 }
-#video{
-    width: fit-content;
-    margin: auto;
-    margin-top: 3rem;
-    border: 0.2rem solid;
-}
 #frame2{
     display: none;
 }
@@ -148,7 +142,6 @@ li:first-child{
 .howToUse{
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
 }
 #video{
     margin-right: 0.8rem;
@@ -189,6 +182,13 @@ li:first-child{
 @media (max-width: 610px){
     .headingFull{
         font-size: 1.5em;
+    }
+    .howToUse{
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    #video{
+        margin-right: 0px;
     }
 }
 

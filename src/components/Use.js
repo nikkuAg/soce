@@ -24,7 +24,7 @@ export const Use = () => {
                             <li id="individual">Probable to get the branch/ college highlighted in <span id="orange">ORANGE</span> colour in case cut-off of current year is increases from the previous year’s cut-off by the % variation mentioned by you </li>
                             <li id="individual">Probable to get the branch/ college highlighted in <span id="yellow">YELLOW</span> colour even in case cut-off of current year is decreases from the previous year’s cut-off by the % variation mentioned by you </li>
                         </ul>
-                        <li id="individual">You can refer following Video for further help</li>
+                        <li id="individual">You can refer to the video for further help</li>
                     </ul>
                 </div>
 

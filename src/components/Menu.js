@@ -163,7 +163,7 @@ export const MenuHeader = (props) => {
                         </Dropdown>
                     </MenuItem>
                     <MenuItem active={state.activeItem === 'ranks'}>
-                        <Dropdown text="Opening and Closing Ranks" pointing name="ranks" className="mobile prediction" style={{ display: "flex", alignItems: 'center' }} onClick={handleItemClick}>
+                        <Dropdown text="Opening and Closing Ranks" pointing name="ranks" className="mobile prediction" style={{ display: "flex", alignItems: 'center' }}>
                             <DropdownMenu>
                                 <DropdownItem text="IITs" name="IIT" path="ranks" onClick={handleItemClick} />
                                 <DropdownItem text="IIITs" name="IIIT" path="ranks" onClick={handleItemClick} />
@@ -174,7 +174,7 @@ export const MenuHeader = (props) => {
                     </MenuItem>
                     <MenuItem
                         active={state.activeItem === 'prediction'}>
-                        <Dropdown text="SOCE Prediction" pointing="top left" name="prediction" className="mobile prediction" style={{ display: "flex", alignItems: 'center' }} onClick={handleItemClick}>
+                        <Dropdown text="SOCE Prediction" pointing="top left" name="prediction" className="mobile prediction" style={{ display: "flex", alignItems: 'center' }}>
                             <DropdownMenu>
                                 <DropdownItem text="Default Prediction" name="prediction" path="prediction" onClick={handleItemClick} />
                                 <DropdownItem text="Customize Prediction" disabled onClick={handleItemClick} />
