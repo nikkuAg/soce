@@ -63,7 +63,6 @@ export const Contact = () => {
                     <Button type="submit" primary>Send</Button>
                 </Form>
             </div>
-            <br /><br /><br /><br />
             <Footer />
         </>
     )

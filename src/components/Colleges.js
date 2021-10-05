@@ -119,7 +119,6 @@ export const Colleges = () => {
                     </p>
                 </Message>
                 : <></>}
-            <br /><br /><br /><br />
             <Footer />
         </React.Fragment>
     )

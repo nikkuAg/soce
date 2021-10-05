@@ -247,7 +247,6 @@ export const Prediction = ({ institutes, branches }) => {
                     }
 
                 </div>
-                <br /><br /><br /><br />
                 <Footer />
             </> : <Redirect to="/prediction" />
             }

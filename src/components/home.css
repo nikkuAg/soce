@@ -67,6 +67,7 @@ li:first-child{
     margin: 0.2rem;
     padding: 0.5rem;
     font-family: 'Roboto Mono', monospace;
+    text-align: justify;
 }
 #individual2{
     font-size: 0.9rem;
@@ -78,21 +79,27 @@ li:first-child{
     padding: 0.2rem;
     border-radius: 0.2rem;
     background-color: green;
+    color: white;
+    line-height: 2em;
 }
 #yellow{
     padding: 0.2rem;
     border-radius: 0.2rem;
     background-color: yellow;
+    line-height: 2em;
 }
 #red{
     padding: 0.2rem;
     border-radius: 0.2rem;
     background-color: red;
+    line-height: 2em;
+    color: white;
 }
 #orange{
     padding: 0.2rem;
     border-radius: 0.2rem;
     background-color: orange;
+    line-height: 2em;
 }
 #popOut{
     position: fixed;
@@ -132,6 +139,15 @@ li:first-child{
     text-decoration: underline;
     color: rgb(99, 99, 189);
     cursor: pointer;
+}
+
+.howToUse{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#video{
+    margin-right: 0.8rem;
 }
 
 @media (max-width: 1100px){

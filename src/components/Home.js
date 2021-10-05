@@ -24,12 +24,13 @@ export const Home = () => {
                         JEE (Mains) and JEE (Advance) Over…
                     </h3>
                     <p id="individual">Now it’s time to choose best college and branch according to your rank in the exams… but how?
-                        Here is the solution…
+                    </p>
+                    <p id="individual"> Here is the solution…
                     </p>
                     <p id="individual"> This website has been designed to help the Engineering aspirants and their parents to know about
                         the previous years’ cut-off Rank for various colleges and branches so that they can take an informed
                         decision to choose best college and branch according to the rank secured in the exam.For better
-                        understanding click on ‘How to use’
+                        understanding click on <a href="/how_to_use"><em>‘How to use’</em></a>
                     </p>
                 </div>
             </div>
@@ -47,7 +48,7 @@ export const Home = () => {
                     <li id="individual">Also get the prediction by selecting an expected variation in previous years’ opening/ closing rank (in terms of %)</li>
                     <li id="individual">For the sake of simplicity some minor modifications in the opening/ closing rank has been incorporated in the website. <span id="click" onClick={() => (setpopUp(true))} >Click</span> to get details. </li>
                     <li id="individual">Developed by an IIT Roorkee student for the benefit of public</li>
-                    <li id="individual">New features can be added as per the requirement. Kindly send your feedback/ suggestions as per the link given on ‘Contact Us’  </li>
+                    <li id="individual">New features can be added as per the requirement. Kindly send your feedback/ suggestions as per the link given on <a href="/contact_us"><em>‘Contact Us’</em></a></li>
                 </ul>
                 <Popup show={popUp} close={setpopUp} />
             </div>
@@ -59,7 +60,6 @@ export const Home = () => {
                     This website uses various relevant data available in open domain. Though utmost care has been taken while preparing this website, however it is advised to refer official websites before taking any decision regarding selection of college and branch based on the information available on this website. We will not be responsible for any mistake and inconformity in the information available on this website.
                 </p>
             </div>
-            <br /><br /><br />
             <Footer />
         </React.Fragment >
     )

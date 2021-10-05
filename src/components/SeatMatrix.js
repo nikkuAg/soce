@@ -154,7 +154,6 @@ export const SeatMatrix = ({ institutes, branches }) => {
                 }
 
             </div>
-            <br /><br /><br /><br />
             <Footer />
         </React.Fragment >
     )

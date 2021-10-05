@@ -278,7 +278,6 @@ export const FormPrediction = () => {
                 <Form.Button disabled={disable} onClick={buttonClick} primary >Submit</Form.Button>
             </Form>
             {error ? <div className='message'>{error}</div> : <></>}
-            <br /><br /><br /><br />
             <Footer />
         </>
     )

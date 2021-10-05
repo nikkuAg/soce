@@ -116,7 +116,7 @@ export const MenuHeader = (props) => {
                         name='contact us'
                         active={state.activeItem === 'contact us'}
                         onClick={handleItemClick}
-                        path="contact"
+                        path="contact_us"
                     >
                         Contact Us
                     </Menu.Item>
@@ -185,7 +185,7 @@ export const MenuHeader = (props) => {
                         name='contact us'
                         active={state.activeItem === 'contact us'}
                         onClick={handleItemClick}
-                        path="contact"
+                        path="contact_us"
                     >
                         Contact Us
                     </Menu.Item>

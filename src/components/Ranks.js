@@ -181,7 +181,6 @@ export const Ranks = ({ institutes, branches }) => {
                 }
 
             </div>
-            <br /><br /><br /><br />
             <Footer />
         </React.Fragment >
     )
