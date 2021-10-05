@@ -9,6 +9,7 @@ import { Ranks } from './components/Ranks';
 import { FormPrediction } from './components/FormPrediction';
 import { Prediction } from './components/Prediction';
 import { Contact } from './components/Contact';
+import { Use } from './components/Use';
 
 
 
@@ -55,6 +56,7 @@ function App() {
         <Route path="/prediction" component={() => (<FormPrediction />)} />
         <Route path="/result" component={() => (<Prediction institutes={institutes} branches={branches} college={ins} pool={seat_pool} category={categoryValue} myRank={rank} quota={quotaValue} year={yearValue} round={roundValue} option={option} />)} />
         <Route path="/contact" component={Contact} />
+        <Route path="/how_to_use" component={Use} />
         <Redirect to="/home" />
       </Switch>
     </BrowserRouter>

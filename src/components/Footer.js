@@ -19,7 +19,7 @@ export const Footer = () => {
 
     return (
         <div style={style}>
-            Copyright <Icon name="copyright outline" size="small" className="extra" />@SOCE.
+            Copyright <Icon name="copyright outline" size="small" className="extra" />GoSOCE.
             All Rights are Reserved.
         </div>
     )

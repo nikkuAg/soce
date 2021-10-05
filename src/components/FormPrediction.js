@@ -189,9 +189,19 @@ export const FormPrediction = () => {
     }
 
     const buttonClick = () => {
-        if (ins && categoryValue && seat_pool && quotaValue && roundValue && yearValue && option && rank && cutoff) {
-            sessionStorage.setItem("result", true)
-            history.push('/result')
+        if (ins && categoryValue && seat_pool && quotaValue && roundValue && yearValue && option) {
+            if (rank && rank > '0') {
+                if (cutoff && cutoff >= '0' && cutoff <= '100') {
+                    sessionStorage.setItem("result", true)
+                    history.push('/result')
+                }
+                else {
+                    seterror("Please Enter Correct Variation in Cutoff")
+                }
+            }
+            else {
+                seterror("Please Enter Correct Rank")
+            }
         }
         else {
             seterror("Please Enter in all the Fields")
@@ -235,7 +245,7 @@ export const FormPrediction = () => {
                     />
                 </Form.Group>
                 <Form.Group widths='equal'>
-                    <Form.Input type="number" fluid placeholder="Enter your Rank" label={placeHolder} disabled={disable} onChange={handelR} />
+                    <Form.Input type="number" fluid placeholder="Enter your Rank" label={placeHolder} disabled={disable} onChange={handelR} min='0' />
                     <Form.Select
                         fluid
                         label='Choose Option'
@@ -262,7 +272,7 @@ export const FormPrediction = () => {
                     />
                 </Form.Group>
                 <Form.Group width="equal" id="cutOff">
-                    <Form.Input id="cut" defaultValue={10} type="number" fluid label="Variation in CutOff Percentage(%)" disabled={disable} onChange={handelP} min="0" max="100" />
+                    <Form.Input type="number" id="cut" defaultValue={10} fluid label="Variation in CutOff Percentage(%)" disabled={disable} onChange={handelP} max="100" />
                     <Label tag>Helps you to predict if there is some variation in cut-offs.</Label>
                 </Form.Group>
                 <Form.Button disabled={disable} onClick={buttonClick} primary >Submit</Form.Button>

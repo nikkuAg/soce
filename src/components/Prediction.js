@@ -148,10 +148,10 @@ export const Prediction = ({ institutes, branches }) => {
                             loading ? <Loader className="loading" type="BallTriangle" color="black" height={80} width={80} /> :
                                 <>
                                     <div id="labelDiv">
-                                        <Label id="low">Very Low Probablity for getting this branch</Label>
-                                        <Label id="probableO">Probable to get this branch if cutoff rank increases by {sessionStorage.getItem('cutOff')}%</Label>
-                                        <Label id="probableY">Probable to get this branch even if cutoff rank decreases by {sessionStorage.getItem('cutOff')}%</Label>
-                                        <Label id="high">Very High probablity for getting this branch</Label>
+                                        <Label id="low" className={sessionStorage.getItem('cutOff') !== '0' ? "chnageWidth" : ""}>Very Low Probability for getting this branch</Label>
+                                        <Label id="probableO" className={sessionStorage.getItem('cutOff') === '0' ? "removeLable" : ""} >Probable to get this branch if cutoff rank increases by {sessionStorage.getItem('cutOff')}%</Label>
+                                        <Label id="probableY" className={sessionStorage.getItem('cutOff') === '0' ? "removeLable" : ""} >Probable to get this branch even if cutoff rank decreases by {sessionStorage.getItem('cutOff')}%</Label>
+                                        <Label id="high" className={sessionStorage.getItem('cutOff') !== '0' ? "chnageWidth" : ""}>Very High Probability for getting this branch</Label>
                                     </div>
                                     <Table celled structured id="myTable">
                                         <Table.Header >

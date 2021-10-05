@@ -61,6 +61,14 @@ export const MenuHeader = (props) => {
                         Home
                     </MenuItem>
                     <MenuItem
+                        name='use'
+                        active={state.activeItem === 'use'}
+                        path='how_to_use'
+                        onClick={handleItemClick}
+                    >
+                        How to Use
+                    </MenuItem>
+                    <MenuItem
                         active={state.activeItem === 'colleges'}>
                         <Dropdown text="List of Colleges" pointing name="colleges">
                             <DropdownMenu>
@@ -124,6 +132,14 @@ export const MenuHeader = (props) => {
                         Home
                     </MenuItem>
                     <MenuItem
+                        name='use'
+                        active={state.activeItem === 'use'}
+                        path='how_to_use'
+                        onClick={handleItemClick}
+                    >
+                        How to Use
+                    </MenuItem>
+                    <MenuItem
                         active={state.activeItem === 'colleges'}>
                         <Dropdown text="List of Colleges" pointing className="mobile" style={{ display: 'flex', alignItems: 'center' }}>
                             <DropdownMenu>
@@ -176,7 +192,7 @@ export const MenuHeader = (props) => {
                 </Menu>
             </div>
             <div className="navigation">
-                {props.set ? <h1 className="heading" style={{ fontFamily: "'Pacifico', cursive" }} >SOCE</h1> : <></>}
+                {props.set ? <h2 className="heading" style={{ fontFamily: "'Pacifico', cursive" }} >GoSOCE</h2> : <></>}
                 <Icon name="align justify" size="big" onClick={displayMenuMobile} className="hamburgerIcon" />
             </div>
         </React.Fragment >

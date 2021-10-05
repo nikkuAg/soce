@@ -164,20 +164,31 @@ th, td {
 #probableY{
     background-color:yellow !important;
     color: black;
+    font-weight: bold;
 }
 #probableO{
     background-color:orange !important;
     color: black;
+    font-weight: bold;
 }
 #low{
     background-color:red !important;
-    color: black;
+    color: white;
+    font-weight: bold;
 }
 #high{
     background-color:green !important;
     color: white;
+    font-weight: bold;
 }
 
 #labelDiv > .ui.label{
-    width: 20vw;
+    max-width: 20vw;
+}
+
+.removeLable{
+    display: none !important;
+}
+.changeWidth{
+    max-width: 50vw;
 }
