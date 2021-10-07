@@ -49,7 +49,7 @@ export const MenuHeader = (props) => {
         <React.Fragment>
             <div>
                 <div class="useLaptop">
-                    <marquee><p>**Kindly use this site on desktop for better experience**</p></marquee>
+                    <marquee><p>**Kindly use this site on Desktop/Laptop for better experience**</p></marquee>
                 </div>
                 <Menu className="navBar" borderless>
                     <MenuItem

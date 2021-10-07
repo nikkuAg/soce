@@ -192,3 +192,9 @@ th, td {
 .changeWidth{
     max-width: 50vw;
 }
+
+@media (max-width: 610px){
+    .mobileRemove{
+        display: none;
+    }
+}

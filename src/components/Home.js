@@ -15,7 +15,7 @@ export const Home = () => {
                     <h3>Recent Updates</h3>
                     <marquee direction="up" height="250" scrollamount="2">
                         <ul>
-                            <li>You can view GoSOCE on mobile but in landscape mode.</li>
+                            <li>You can view the site on mobile but use landscape mode for better experience.</li>
                             <li>Seat Matrix of 2021 will be updated soon</li>
                         </ul>
                     </marquee>

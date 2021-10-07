@@ -141,7 +141,8 @@ li:first-child{
 
 .howToUse{
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column-reverse;
+    align-items: center;
 }
 #video{
     margin-right: 0.8rem;

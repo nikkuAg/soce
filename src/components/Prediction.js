@@ -158,7 +158,7 @@ export const Prediction = ({ institutes, branches }) => {
                                             <Table.Row>
                                                 <Table.HeaderCell>
                                                     <div className="searchField">
-                                                        <input type="text" id="branch" placeholder="Search Branch" onKeyUp={search} size={10} />
+                                                        <input type="text" className="mobileRemove" id="branch" placeholder="Search Branch" onKeyUp={search} size={10} />
                                                     </div>
                                                 </Table.HeaderCell>
                                                 {institutes.map(institute => (

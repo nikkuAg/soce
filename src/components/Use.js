@@ -19,10 +19,10 @@ export const Use = () => {
                         <li id="individual">Click <em>‘Click to Get Prediction’</em> on next page</li>
                         <li id="individual">Now it will highlight all previous years’ cutoff in different colour. Your prediction based on colour coding is as follows:</li>
                         <ul>
-                            <li id="individual">Very <strong>High</strong> probability for getting the branch/ college highlighted in <span id="green" >GREEN</span> colour as cut-off of previous year is higher than your rank</li>
-                            <li id="individual">Very <strong>Low</strong> probability for getting the branch/ college highlighted in <span id="red" >RED</span> colour as cut-off of previous year is lower than your rank</li>
-                            <li id="individual">Probable to get the branch/ college highlighted in <span id="orange">ORANGE</span> colour in case cut-off of current year is increases from the previous year’s cut-off by the % variation mentioned by you </li>
-                            <li id="individual">Probable to get the branch/ college highlighted in <span id="yellow">YELLOW</span> colour even in case cut-off of current year is decreases from the previous year’s cut-off by the % variation mentioned by you </li>
+                            <li id="individual">Very <strong>High</strong> probability for getting the branch/ college highlighted in <span id="green" >GREEN</span> colour even in case cut-off of current year is decreases from the previous year’s cut-off by % figure filled by you under ‘Variation in CutOff Percentage(%)’</li>
+                            <li id="individual">Very <strong>Low</strong> probability for getting the branch/ college highlighted in <span id="red" >RED</span> colour as your rank is higher than the cut-off of previous year by % figure filled by you under ‘Variation in CutOff Percentage(%)’</li>
+                            <li id="individual">Probable to get the branch/ college highlighted in <span id="orange">ORANGE</span> colour in case cut-off of current year increases from the previous year’s cut-off by % figure filled by you under ‘Variation in CutOff Percentage(%)’</li>
+                            <li id="individual">Probable to get the branch/ college highlighted in <span id="yellow">YELLOW</span> colour even in case cut-off of current year decreases from the previous year’s cut-off by % figure filled by you under ‘Variation in CutOff Percentage(%)’</li>
                         </ul>
                         <li id="individual">You can refer to the video for further help</li>
                     </ul>

@@ -97,43 +97,43 @@ export const Ranks = ({ institutes, branches }) => {
                                         <Table.HeaderCell>
                                             <div className="searchField">
                                                 Name of Institute
-                                                <input type="text" id="institute" placeholder="Search" onKeyUp={search} size={8} />
+                                                <input type="text" className="mobileRemove" id="institute" placeholder="Search" onKeyUp={search} size={8} />
                                             </div>
                                         </Table.HeaderCell>
                                         <Table.HeaderCell>
                                             <div className="searchField">
                                                 Name of Branch
-                                                <input type="text" id="branch" placeholder="Search" onKeyUp={search} size={8} />
+                                                <input type="text" className="mobileRemove" id="branch" placeholder="Search" onKeyUp={search} size={8} />
                                             </div>
                                         </Table.HeaderCell>
                                         <Table.HeaderCell>
                                             <div className="searchField">
                                                 Category
-                                                <input type="text" id="category" placeholder="Search" onKeyUp={search} size={4} />
+                                                <input type="text" className="mobileRemove" id="category" placeholder="Search" onKeyUp={search} size={4} />
                                             </div>
                                         </Table.HeaderCell>
                                         <Table.HeaderCell>
                                             <div className="searchField">
                                                 Quota
-                                                <input type="text" id="quota" placeholder="Search" onKeyUp={search} size={3} />
+                                                <input type="text" className="mobileRemove" id="quota" placeholder="Search" onKeyUp={search} size={3} />
                                             </div>
                                         </Table.HeaderCell>
                                         <Table.HeaderCell>
                                             <div className="searchField">
                                                 Seat Pool
-                                                <input type="text" id="pool" placeholder="Search" onKeyUp={search} size={5} />
+                                                <input type="text" className="mobileRemove" id="pool" placeholder="Search" onKeyUp={search} size={5} />
                                             </div>
                                         </Table.HeaderCell>
                                         <Table.HeaderCell>
                                             <div className="searchField">
                                                 Opening Rank
-                                                <input type="text" id="opening" placeholder="Search" onKeyUp={search} size={4} />
+                                                <input type="text" className="mobileRemove" id="opening" placeholder="Search" onKeyUp={search} size={4} />
                                             </div>
                                         </Table.HeaderCell>
                                         <Table.HeaderCell>
                                             <div className="searchField">
                                                 Closing Rank
-                                                <input type="text" id="closing" placeholder="Search" onKeyUp={search} size={4} />
+                                                <input type="text" className="mobileRemove" id="closing" placeholder="Search" onKeyUp={search} size={4} />
                                             </div>
                                         </Table.HeaderCell>
                                     </Table.Row>
