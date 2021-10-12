@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Table, Button, Label } from 'semantic-ui-react'
+import { Table, Button, Label, Form } from 'semantic-ui-react'
 import { Redirect } from 'react-router-dom';
 import Loader from 'react-loader-spinner'
 import { MenuHeader } from './Menu'
@@ -9,6 +9,15 @@ import './college.css'
 
 
 export const Prediction = ({ institutes, branches }) => {
+
+    const yearO = [
+        { key: "2015", text: "JoSAA 2015", value: "2015" },
+        { key: "2016", text: "JoSAA 2016", value: "2016" },
+        { key: "2017", text: "JoSAA 2017", value: "2017" },
+        { key: "2018", text: "JoSAA 2018", value: "2018" },
+        { key: "2019", text: "JoSAA 2019", value: "2019" },
+        { key: "2020", text: "JoSAA 2020", value: "2020" },
+    ]
 
 
     let insSave = String(sessionStorage.getItem('ins'))
@@ -28,6 +37,7 @@ export const Prediction = ({ institutes, branches }) => {
     const [year, sety] = useState(yearSave === "null" ? "" : yearSave)
     const [round, setrn] = useState(roundSave === "null" ? "" : roundSave)
     const [option, seto] = useState(optionSave === "null" ? "" : optionSave)
+    const [yearA, setyearA] = useState(year)
 
 
     const [ranks, setranks] = useState([])
@@ -80,23 +90,22 @@ export const Prediction = ({ institutes, branches }) => {
 
     const selectRound = (x) => {
         sessionStorage.setItem('year', x)
-        setbtnActive(x)
-        setloading(true)
+        setyearA(x)
         getData()
         if (x === '2015') {
-            setroundActive(['7'])
+            setroundActive([{ key: '7', text: '7', value: '7' }])
         }
         else if (x === '2017' || x === '2018' || x === '2019') {
-            setroundActive(['1', '7'])
+            setroundActive([{ key: '1', text: '1', value: '1' }, { key: '7', text: '7', value: '7' }])
         }
         else if (x === '2016') {
-            setroundActive(['1', '6'])
+            setroundActive([{ key: '1', text: '1', value: '1' }, { key: '6', text: '6', value: '6' }])
         }
         else if (x === '2020') {
-            setroundActive(['1', '2', '3', '4', '5', '6'])
+            setroundActive([{ key: '1', text: '1', value: '1' }, { key: '2', text: '2', value: '2' }, { key: '3', text: '3', value: '3' }, { key: '4', text: '4', value: '4' }, { key: '5', text: '5', value: '5' }, { key: '6', text: '6', value: '6' }])
         }
         else if (x === 'csab_2020') {
-            setroundActive(['1', '2'])
+            setroundActive([{ key: '1', text: '1', value: '1' }, { key: '2', text: '2', value: '2' }])
         }
     }
 
@@ -105,6 +114,7 @@ export const Prediction = ({ institutes, branches }) => {
         getData()
         setapiUrl(`https://mysoce.pythonanywhere.com/soce/${x}_${btnActive}/`)
         setloading(true)
+        setbtnActive(yearA)
         setroundBtn(x)
     }
     useEffect(() => {
@@ -117,28 +127,31 @@ export const Prediction = ({ institutes, branches }) => {
         <React.Fragment>
             {sessionStorage.getItem('result') === 'true' ? <>
                 <MenuHeader active="prediction" set={false} />
-                <h2 className="pageHeading">SOCE Prediction for {college}s based on {btnActive === 'csab_2020' ? 'CSAB' : btnActive} (Round-{roundBtn}) {option === "opening_rank" ? "Opening Rank" : "Closing Rank"} with (+/- {sessionStorage.getItem('cutOff')}% variations)</h2>
+                <h2 className="pageHeading">SOCE Prediction for <span id="collegeId">{college}s</span> based on <span id="collegeId">{btnActive === 'csab_2020' ? 'CSAB' : btnActive} (Round-{roundBtn}) {option === "opening_rank" ? "Opening Rank" : "Closing Rank"}</span> (with +/- <span id="collegeId">{sessionStorage.getItem('cutOff')}%</span> variations)</h2>
                 <div id="allbuttons">
-                    <div className="buttonRanks" id="prediction">
-                        <div className="buttons">
-                            <Button active={btnActive === "2015"} primary onClick={() => selectRound('2015')} className="btn">JoSAA 2015</Button>
-                            <Button active={btnActive === "2016"} primary onClick={() => selectRound('2016')} className="btn">JoSAA 2016</Button>
-                            <Button active={btnActive === "2017"} primary onClick={() => selectRound('2017')} className="btn">JoSAA 2017</Button>
-                            <Button active={btnActive === "2018"} primary onClick={() => selectRound('2018')} className="btn">JoSAA 2018</Button>
-                            <Button active={btnActive === "2019"} primary onClick={() => selectRound('2019')} className="btn">JoSAA 2019</Button>
-                            <Button active={btnActive === "2020"} primary onClick={() => selectRound('2020')} className="btn">JoSAA 2020</Button>
-                            <Button active={btnActive === "2021"} primary onClick={() => selectRound('2021')} disabled className="btn">JoSAA 2021</Button>
-                        </div>
-                        <div className="buttons">
-                            <Button disabled={!roundActive.includes('1')} primary id="round" active={roundBtn === "1"} onClick={() => getRequest('1')} className="btn round">Round 1</Button>
-                            <Button disabled={!roundActive.includes('2')} primary id="round" active={roundBtn === "2"} onClick={() => getRequest('2')} className="btn round">Round 2</Button>
-                            <Button disabled={!roundActive.includes('3')} primary id="round" active={roundBtn === "3"} onClick={() => getRequest('3')} className="btn round">Round 3</Button>
-                            <Button disabled={!roundActive.includes('4')} primary id="round" active={roundBtn === "4"} onClick={() => getRequest('4')} className="btn round">Round 4</Button>
-                            <Button disabled={!roundActive.includes('5')} primary id="round" active={roundBtn === "5"} onClick={() => getRequest('5')} className="btn round">Round 5</Button>
-                            <Button disabled={!roundActive.includes('6')} primary id="round" active={roundBtn === "6"} onClick={() => getRequest('6')} className="btn round">Round 6</Button>
-                            <Button disabled={!roundActive.includes('7')} primary id="round" active={roundBtn === "7"} onClick={() => getRequest('7')} className="btn round">Round 7</Button>
-                        </div>
-                    </div>
+                    <Form>
+                        <Form.Group className="buttonRanks">
+                            <Label id="rankLabel">Change Year and Round</Label>
+                            <Form.Select
+                                fluid
+                                id="rankButton"
+                                options={yearO.reverse()}
+                                placeholder='Change Year'
+                                onChange={(e, { value }) => {
+                                    selectRound(value)
+                                }}
+                            />
+                            <Form.Select
+                                fluid
+                                id="rankButton"
+                                options={roundActive}
+                                placeholder='Change Round'
+                                onChange={(e, { value }) => {
+                                    getRequest(value)
+                                }}
+                            />
+                        </Form.Group>
+                    </Form>
                     <Button disabled={loading} positive onClick={() => predicit()} className="btn round" id="predict">Click to Get Prediction</Button>
 
                 </div>
@@ -175,7 +188,7 @@ export const Prediction = ({ institutes, branches }) => {
                                                 college === 'IIT' ?
                                                     (branch.IIT === 'Y' ?
                                                         <Table.Row key={branch.id}>
-                                                            <Table.Cell>
+                                                            <Table.Cell id="myCell2">
                                                                 {branch.branch_code}
                                                             </Table.Cell>
                                                             {institutes.map(institute => (
@@ -192,7 +205,7 @@ export const Prediction = ({ institutes, branches }) => {
                                                     ) : college === 'IIIT' ?
                                                         (branch.IIIT === 'Y' ?
                                                             <Table.Row key={branch.id}>
-                                                                <Table.Cell>
+                                                                <Table.Cell id="myCell2">
                                                                     {branch.branch_code}
                                                                 </Table.Cell>
                                                                 {institutes.map(institute => (
@@ -209,7 +222,7 @@ export const Prediction = ({ institutes, branches }) => {
                                                         ) : college === 'NIT' ?
                                                             (branch.NIT === 'Y' ?
                                                                 <Table.Row key={branch.id}>
-                                                                    <Table.Cell>
+                                                                    <Table.Cell id="myCell2">
                                                                         {branch.branch_code}
                                                                     </Table.Cell>
                                                                     {institutes.map(institute => (
@@ -226,7 +239,7 @@ export const Prediction = ({ institutes, branches }) => {
                                                             ) : college === 'GFTI' ?
                                                                 (branch.GFTI === 'Y' ?
                                                                     <Table.Row key={branch.id}>
-                                                                        <Table.Cell>
+                                                                        <Table.Cell id="myCell2">
                                                                             {branch.branch_code}
                                                                         </Table.Cell>
                                                                         {institutes.map(institute => (

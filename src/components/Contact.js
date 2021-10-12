@@ -32,7 +32,7 @@ export const Contact = () => {
 
     return (
         <>
-            <MenuHeader active="contact us" />
+            <MenuHeader active="contact us" set={false} />
             <div id="contactUs">
                 <div id="intro">
                     <div id="card">

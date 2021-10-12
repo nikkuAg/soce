@@ -49,7 +49,7 @@ export const MenuHeader = (props) => {
         <React.Fragment>
             <div>
                 <div class="useLaptop">
-                    <marquee><p>**Kindly use this site on Desktop/Laptop for better experience**</p></marquee>
+                    <marquee><p>**Kindly use this site on Desktop/Laptop or Landscape view on mobile for better experience**</p></marquee>
                 </div>
                 <Menu className="navBar" borderless>
                     <MenuItem
@@ -61,32 +61,11 @@ export const MenuHeader = (props) => {
                         Home
                     </MenuItem>
                     <MenuItem
-                        name='use'
-                        active={state.activeItem === 'use'}
-                        path='how_to_use'
-                        onClick={handleItemClick}
-                    >
-                        How to Use
-                    </MenuItem>
-                    <MenuItem
-                        active={state.activeItem === 'colleges'}>
-                        <Dropdown text="List of Colleges" pointing name="colleges">
+                        active={state.activeItem === 'prediction'}>
+                        <Dropdown text="SOCE Prediction" pointing name="prediction">
                             <DropdownMenu>
-                                <DropdownItem text="IITs" name="IIT" path="colleges" onClick={handleItemClick} />
-                                <DropdownItem text="IIITs" name="IIIT" path="colleges" onClick={handleItemClick} />
-                                <DropdownItem text="NITs" name="NIT" path="colleges" onClick={handleItemClick} />
-                                <DropdownItem text="GFTIs" name="GFTI" path="colleges" onClick={handleItemClick} />
-                            </DropdownMenu>
-                        </Dropdown>
-                    </MenuItem>
-                    <MenuItem
-                        active={state.activeItem === 'matrix'}>
-                        <Dropdown text="Seat Matrix" pointing name="matrix">
-                            <DropdownMenu>
-                                <DropdownItem text="IITs Seat Matrix" name="IIT" path="seats" onClick={handleItemClick} />
-                                <DropdownItem text="IIITs Seat Matrix" name="IIIT" path="seats" onClick={handleItemClick} />
-                                <DropdownItem text="NITs Seat Matrix" name="NIT" path="seats" onClick={handleItemClick} />
-                                <DropdownItem text="GFTIs Seat Matrix" name="GFTI" path="seats" onClick={handleItemClick} />
+                                <DropdownItem text="Default Prediction" name="prediction" path="prediction" onClick={handleItemClick} />
+                                <DropdownItem text="Customize Prediction" disabled onClick={handleItemClick} />
                             </DropdownMenu>
                         </Dropdown>
                     </MenuItem>
@@ -102,15 +81,34 @@ export const MenuHeader = (props) => {
                         </Dropdown>
                     </MenuItem>
                     <MenuItem
-                        active={state.activeItem === 'prediction'}>
-                        <Dropdown text="SOCE Prediction" pointing name="prediction">
+                        active={state.activeItem === 'matrix'}>
+                        <Dropdown text="Seat Matrix" pointing name="matrix">
                             <DropdownMenu>
-                                <DropdownItem text="Default Prediction" name="prediction" path="prediction" onClick={handleItemClick} />
-                                <DropdownItem text="Customize Prediction" disabled onClick={handleItemClick} />
+                                <DropdownItem text="IITs Seat Matrix" name="IIT" path="seats" onClick={handleItemClick} />
+                                <DropdownItem text="IIITs Seat Matrix" name="IIIT" path="seats" onClick={handleItemClick} />
+                                <DropdownItem text="NITs Seat Matrix" name="NIT" path="seats" onClick={handleItemClick} />
+                                <DropdownItem text="GFTIs Seat Matrix" name="GFTI" path="seats" onClick={handleItemClick} />
                             </DropdownMenu>
                         </Dropdown>
-
-
+                    </MenuItem>
+                    <MenuItem
+                        active={state.activeItem === 'colleges'}>
+                        <Dropdown text="List of Colleges" pointing name="colleges">
+                            <DropdownMenu>
+                                <DropdownItem text="IITs" name="IIT" path="colleges" onClick={handleItemClick} />
+                                <DropdownItem text="IIITs" name="IIIT" path="colleges" onClick={handleItemClick} />
+                                <DropdownItem text="NITs" name="NIT" path="colleges" onClick={handleItemClick} />
+                                <DropdownItem text="GFTIs" name="GFTI" path="colleges" onClick={handleItemClick} />
+                            </DropdownMenu>
+                        </Dropdown>
+                    </MenuItem>
+                    <MenuItem
+                        name='use'
+                        active={state.activeItem === 'use'}
+                        path='how_to_use'
+                        onClick={handleItemClick}
+                    >
+                        How to Use
                     </MenuItem>
                     <Menu.Item
                         name='contact us'
@@ -122,6 +120,10 @@ export const MenuHeader = (props) => {
                     </Menu.Item>
                 </Menu>
             </div>
+            <div className="navigation">
+                {props.set ? <h2 className="heading" style={{ fontFamily: "'Pacifico', cursive" }} >GoSOCE</h2> : <></>}
+                <Icon name="align justify" size="big" onClick={displayMenuMobile} className="hamburgerIcon" />
+            </div>
             <div className="hamburger">
                 <Menu vertical borderless className="navBar">
                     <MenuItem
@@ -132,21 +134,21 @@ export const MenuHeader = (props) => {
                         Home
                     </MenuItem>
                     <MenuItem
-                        name='use'
-                        active={state.activeItem === 'use'}
-                        path='how_to_use'
-                        onClick={handleItemClick}
-                    >
-                        How to Use
-                    </MenuItem>
-                    <MenuItem
-                        active={state.activeItem === 'colleges'}>
-                        <Dropdown text="List of Colleges" pointing className="mobile" style={{ display: 'flex', alignItems: 'center' }}>
+                        active={state.activeItem === 'prediction'}>
+                        <Dropdown text="SOCE Prediction" pointing="top left" name="prediction" className="mobile prediction" style={{ display: "flex", alignItems: 'center' }}>
                             <DropdownMenu>
-                                <DropdownItem text="IITs" name="IIT" path="colleges" onClick={handleItemClick} />
-                                <DropdownItem text="IIITs" name="IIIT" path="colleges" onClick={handleItemClick} />
-                                <DropdownItem text="NITs" name="NIT" path="colleges" onClick={handleItemClick} />
-                                <DropdownItem text="GFTIs" name="GFTI" path="colleges" onClick={handleItemClick} />
+                                <DropdownItem text="Default Prediction" name="prediction" path="prediction" onClick={handleItemClick} />
+                                <DropdownItem text="Customize Prediction" disabled onClick={handleItemClick} />
+                            </DropdownMenu>
+                        </Dropdown>
+                    </MenuItem>
+                    <MenuItem active={state.activeItem === 'ranks'}>
+                        <Dropdown text="Opening and Closing Ranks" pointing name="ranks" className="mobile prediction" style={{ display: "flex", alignItems: 'center' }}>
+                            <DropdownMenu>
+                                <DropdownItem text="IITs" name="IIT" path="ranks" onClick={handleItemClick} />
+                                <DropdownItem text="IIITs" name="IIIT" path="ranks" onClick={handleItemClick} />
+                                <DropdownItem text="NITs" name="NIT" path="ranks" onClick={handleItemClick} />
+                                <DropdownItem text="GFTIs" name="GFTI" path="ranks" onClick={handleItemClick} />
                             </DropdownMenu>
                         </Dropdown>
                     </MenuItem>
@@ -162,24 +164,24 @@ export const MenuHeader = (props) => {
                             </DropdownMenu>
                         </Dropdown>
                     </MenuItem>
-                    <MenuItem active={state.activeItem === 'ranks'}>
-                        <Dropdown text="Opening and Closing Ranks" pointing name="ranks" className="mobile prediction" style={{ display: "flex", alignItems: 'center' }}>
+                    <MenuItem
+                        active={state.activeItem === 'colleges'}>
+                        <Dropdown text="List of Colleges" pointing className="mobile" style={{ display: 'flex', alignItems: 'center' }}>
                             <DropdownMenu>
-                                <DropdownItem text="IITs" name="IIT" path="ranks" onClick={handleItemClick} />
-                                <DropdownItem text="IIITs" name="IIIT" path="ranks" onClick={handleItemClick} />
-                                <DropdownItem text="NITs" name="NIT" path="ranks" onClick={handleItemClick} />
-                                <DropdownItem text="GFTIs" name="GFTI" path="ranks" onClick={handleItemClick} />
+                                <DropdownItem text="IITs" name="IIT" path="colleges" onClick={handleItemClick} />
+                                <DropdownItem text="IIITs" name="IIIT" path="colleges" onClick={handleItemClick} />
+                                <DropdownItem text="NITs" name="NIT" path="colleges" onClick={handleItemClick} />
+                                <DropdownItem text="GFTIs" name="GFTI" path="colleges" onClick={handleItemClick} />
                             </DropdownMenu>
                         </Dropdown>
                     </MenuItem>
                     <MenuItem
-                        active={state.activeItem === 'prediction'}>
-                        <Dropdown text="SOCE Prediction" pointing="top left" name="prediction" className="mobile prediction" style={{ display: "flex", alignItems: 'center' }}>
-                            <DropdownMenu>
-                                <DropdownItem text="Default Prediction" name="prediction" path="prediction" onClick={handleItemClick} />
-                                <DropdownItem text="Customize Prediction" disabled onClick={handleItemClick} />
-                            </DropdownMenu>
-                        </Dropdown>
+                        name='use'
+                        active={state.activeItem === 'use'}
+                        path='how_to_use'
+                        onClick={handleItemClick}
+                    >
+                        How to Use
                     </MenuItem>
                     <Menu.Item
                         name='contact us'
@@ -190,10 +192,6 @@ export const MenuHeader = (props) => {
                         Contact Us
                     </Menu.Item>
                 </Menu>
-            </div>
-            <div className="navigation">
-                {props.set ? <h2 className="heading" style={{ fontFamily: "'Pacifico', cursive" }} >GoSOCE</h2> : <></>}
-                <Icon name="align justify" size="big" onClick={displayMenuMobile} className="hamburgerIcon" />
             </div>
         </React.Fragment >
     )

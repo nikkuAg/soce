@@ -5,6 +5,7 @@
 .collegeDetails{
     overflow-x: scroll;
     margin: 2rem;
+    margin-top: 0.5rem;
 }
 .listColleges{
     display: flex;
@@ -36,17 +37,21 @@ thead>tr>th{
     background-color: rgb(97, 97, 97) !important;
     color: rgb(255, 255, 255) !important;
     border: 0.1em solid black !important;
-    
+    padding: 0.6rem 1rem !important;
 }
 tbody>tr>td{
     border: 0.1em solid black !important;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    padding: 0.5rem !important;
     font-family: 'Gemunu Libre', sans-serif;
     line-height: normal;
 }
 
 tbody>tr:nth-child(even)>td{
-    background-color: rgb(218, 218, 218);
+    background-color: rgba(255, 184, 85, 0.6);
+}
+tbody>tr:nth-child(odd)>td{
+    background-color: #f3fffe !important;
 }
 
 .message{
@@ -68,7 +73,9 @@ table {
     width: 100%;
     border: 1px solid #ddd;
 }
-  
+#myTable{
+    margin: auto;
+}
 th, td {
     text-align: left;
     padding: 8px;
@@ -79,11 +86,33 @@ th, td {
     justify-content: center;
     flex-wrap: wrap;
     margin-bottom: 0.5rem;
-    
 }
 .buttonRanks{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
+}
+#rankButton{
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    min-height: fit-content !important;
+    margin: 0.2em;
+}
+#rankButton>i{
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    
+}
+.ui.tag.label::after{
+    position: relative !important;
+}
+#rankLabel{
+    background-color: rgba(255, 184, 85) !important;
+    margin: 0px !important;
+    width: fit-content;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+    margin-bottom: 0.2em;
 }
 
 .btn{
@@ -130,13 +159,12 @@ th, td {
 }
 #allbuttons{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: space-around;
 }
 
 #predict{
-    margin-right: 4rem !important;
-    font-size: 2.5rem !important;
+    /* margin-right: 4rem !important; */
+    font-size: 1.5rem !important;
     border-radius: 0.5rem !important;
 }
 .ui.message{
@@ -192,9 +220,33 @@ th, td {
 .changeWidth{
     max-width: 50vw;
 }
+input{
+    font-size: 1rem
+}
+#collegeId{
+    color: red;
+}
+#myCell2{
+    max-width: 30em;
+}
+#myCell1{
+    max-width: 20em;
+}
+#myCell3{
+    width: 8em;
+}
+#myCell4{
+    max-width: 15em
+}
+/* #myCell{
+    max-width: 
+} */
 
-@media (max-width: 610px){
+@media (max-width: 640px){
     .mobileRemove{
         display: none;
+    }
+    .buttonRanks{
+        flex-direction: column !important;
     }
 }

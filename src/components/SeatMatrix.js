@@ -44,7 +44,7 @@ export const SeatMatrix = ({ institutes, branches }) => {
     return (
         <React.Fragment>
             <MenuHeader active="matrix" set={false} />
-            <h2 className="pageHeading">{btnActive} Seat Matrix of {college}s</h2>
+            <h2 className="pageHeading">Seat Matrix of <span id="collegeId">{college}s</span> for Year <span id="collegeId">{btnActive}</span></h2>
             <div className="buttons">
                 <Button active={btnActive === "2019"} primary onClick={() => getRequest('seat_2019', "2019")} className="btn">JoSAA 2019</Button>
                 <Button active={btnActive === "2020"} primary onClick={() => getRequest('seat_2020', "2020")} className="btn">JoSAA 2020</Button>
@@ -57,10 +57,10 @@ export const SeatMatrix = ({ institutes, branches }) => {
                             <Table celled structured id="myTable">
                                 <Table.Header >
                                     <Table.Row>
-                                        <Table.HeaderCell>
+                                        <Table.HeaderCell >
                                             <div className="searchField">
                                                 Name of Institute
-                                                <input type="text" className="mobileRemove" id="institute" placeholder="Search" onKeyUp={search} size={7} />
+                                                <input type="text" className="mobileRemove" id="institute" placeholder="Search" onKeyUp={search} size={10} />
                                             </div>
                                         </Table.HeaderCell>
                                         <Table.HeaderCell>
@@ -110,10 +110,10 @@ export const SeatMatrix = ({ institutes, branches }) => {
                                 <Table.Body>
                                     {seats.map(seat => (institutes.find(o => o.id === seat.institute_code).category === college ?
                                         <Table.Row key={seat.id}>
-                                            <Table.Cell>{institutes.find(o => o.id === seat.institute_code).name}</Table.Cell>
-                                            <Table.Cell>{branches.find(o => o.id === seat.branch_code).branch_name}</Table.Cell>
-                                            <Table.Cell>{branches.find(o => o.id === seat.branch_code).duration}</Table.Cell>
-                                            <Table.Cell>{branches.find(o => o.id === seat.branch_code).degree}</Table.Cell>
+                                            <Table.Cell id="myCell1">{institutes.find(o => o.id === seat.institute_code).name}</Table.Cell>
+                                            <Table.Cell id="myCell2">{branches.find(o => o.id === seat.branch_code).branch_name}</Table.Cell>
+                                            <Table.Cell id="myCell3">{branches.find(o => o.id === seat.branch_code).duration}</Table.Cell>
+                                            <Table.Cell id="myCell4">{branches.find(o => o.id === seat.branch_code).degree}</Table.Cell>
                                             <Table.Cell>{seat.seat_pool}</Table.Cell>
                                             <Table.Cell>{seat.category}</Table.Cell>
                                             <Table.Cell>{seat.quota}</Table.Cell>

@@ -37,7 +37,7 @@ export const Colleges = () => {
     return (
         <React.Fragment>
             <MenuHeader active="colleges" set={false} />
-            <h2 className="pageHeading">List of Participating {college}s in JoSAA</h2>
+            <h2 className="pageHeading">List of Participating <span id="collegeId">{college}s</span> in JoSAA</h2>
             <div className="collegeDetails listColleges">
                 {
                     error ? <div className='message'>Error in loading the data</div> :
@@ -65,7 +65,7 @@ export const Colleges = () => {
                                         </Table.HeaderCell>
                                         <Table.HeaderCell>
                                             <div className="searchField">
-                                                NIRF Ranking (2019/2020/2021)
+                                                NIRF Ranking in 2019/2020/2021
                                                 <input type="text" className="mobileRemove" id="nirf" placeholder="Search" onKeyUp={search} size={4} />
                                             </div>
                                         </Table.HeaderCell>

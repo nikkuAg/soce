@@ -7,9 +7,11 @@ export const Footer = () => {
     const style = {
         backgroundColor: "#F8F8F8",
         borderTop: "1px solid #E7E7E7",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
         textAlign: "center",
-        padding: "20px",
-        height: "60px",
+        height: "40px",
         width: "100%",
         fontSize: '1.2rem',
     }

@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
-import { Table, Button, Divider } from 'semantic-ui-react'
+import { Table, Form, Label } from 'semantic-ui-react'
 import Loader from 'react-loader-spinner'
 import { MenuHeader } from './Menu'
 import { Footer } from './Footer'
@@ -9,10 +9,22 @@ import './college.css'
 
 
 export const Ranks = ({ institutes, branches }) => {
+
+    const year = [
+        { key: "2015", text: "JoSAA 2015", value: "2015" },
+        { key: "2016", text: "JoSAA 2016", value: "2016" },
+        { key: "2017", text: "JoSAA 2017", value: "2017" },
+        { key: "2018", text: "JoSAA 2018", value: "2018" },
+        { key: "2019", text: "JoSAA 2019", value: "2019" },
+        { key: "2020", text: "JoSAA 2020", value: "2020" },
+    ]
+
+
     const [ranks, setranks] = useState([])
     const [loading, setloading] = useState(true)
     const [error, seterror] = useState(false)
     const [btnActive, setbtnActive] = useState("2020")
+    const [yearA, setyearA] = useState("2020")
     const [roundActive, setroundActive] = useState(['1', '2', '3', '4', '5', '6'])
     const [roundBtn, setroundBtn] = useState("1")
     const [apiurl, setapiUrl] = useState('https://mysoce.pythonanywhere.com/soce/1_2020/')
@@ -38,22 +50,21 @@ export const Ranks = ({ institutes, branches }) => {
     }, [apiurl])
 
     const selectRound = (year) => {
-        setbtnActive(year)
-        setroundBtn("")
+        setyearA(year)
         if (year === '2015') {
-            setroundActive(['7'])
+            setroundActive([{ key: '7', text: '7', value: '7' }])
         }
         else if (year === '2017' || year === '2018' || year === '2019') {
-            setroundActive(['1', '7'])
+            setroundActive([{ key: '1', text: '1', value: '1' }, { key: '7', text: '7', value: '7' }])
         }
         else if (year === '2016') {
-            setroundActive(['1', '6'])
+            setroundActive([{ key: '1', text: '1', value: '1' }, { key: '6', text: '6', value: '6' }])
         }
         else if (year === '2020') {
-            setroundActive(['1', '2', '3', '4', '5', '6'])
+            setroundActive([{ key: '1', text: '1', value: '1' }, { key: '2', text: '2', value: '2' }, { key: '3', text: '3', value: '3' }, { key: '4', text: '4', value: '4' }, { key: '5', text: '5', value: '5' }, { key: '6', text: '6', value: '6' }])
         }
         else if (year === 'csab_2020') {
-            setroundActive(['1', '2'])
+            setroundActive([{ key: '1', text: '1', value: '1' }, { key: '2', text: '2', value: '2' }])
         }
     }
 
@@ -61,32 +72,36 @@ export const Ranks = ({ institutes, branches }) => {
         setapiUrl(`https://mysoce.pythonanywhere.com/soce/${round}_${btnActive}/`)
         setloading(true)
         setroundBtn(round)
+        setbtnActive(yearA)
     }
 
     return (
         <React.Fragment>
             <MenuHeader active="ranks" set={false} />
-            <h2 className="pageHeading">{btnActive === 'csab_2020' ? 'CSAB 2020' : `JoSAA ${btnActive}`} (Round-{roundBtn}) Opening and Closing Ranks of {college}s</h2>
-            <div className="buttonRanks">
-                <div className="buttons">
-                    <Button active={btnActive === "2015"} primary onClick={() => selectRound('2015')} className="btn">JoSAA 2015</Button>
-                    <Button active={btnActive === "2016"} primary onClick={() => selectRound('2016')} className="btn">JoSAA 2016</Button>
-                    <Button active={btnActive === "2017"} primary onClick={() => selectRound('2017')} className="btn">JoSAA 2017</Button>
-                    <Button active={btnActive === "2018"} primary onClick={() => selectRound('2018')} className="btn">JoSAA 2018</Button>
-                    <Button active={btnActive === "2019"} primary onClick={() => selectRound('2019')} className="btn">JoSAA 2019</Button>
-                    <Button active={btnActive === "2020"} primary onClick={() => selectRound('2020')} className="btn">JoSAA 2020</Button>
-                    <Button active={btnActive === "2021"} primary onClick={() => selectRound('2021')} disabled className="btn">JoSAA 2021</Button>
-                </div>
-                <div className="buttons">
-                    <Button disabled={!roundActive.includes('1')} primary id="round" active={roundBtn === "1"} onClick={() => getRequest('1')} className="btn round">Round 1</Button>
-                    <Button disabled={!roundActive.includes('2')} primary id="round" active={roundBtn === "2"} onClick={() => getRequest('2')} className="btn round">Round 2</Button>
-                    <Button disabled={!roundActive.includes('3')} primary id="round" active={roundBtn === "3"} onClick={() => getRequest('3')} className="btn round">Round 3</Button>
-                    <Button disabled={!roundActive.includes('4')} primary id="round" active={roundBtn === "4"} onClick={() => getRequest('4')} className="btn round">Round 4</Button>
-                    <Button disabled={!roundActive.includes('5')} primary id="round" active={roundBtn === "5"} onClick={() => getRequest('5')} className="btn round">Round 5</Button>
-                    <Button disabled={!roundActive.includes('6')} primary id="round" active={roundBtn === "6"} onClick={() => getRequest('6')} className="btn round">Round 6</Button>
-                    <Button disabled={!roundActive.includes('7')} primary id="round" active={roundBtn === "7"} onClick={() => getRequest('7')} className="btn round">Round 7</Button>
-                </div>
-            </div>
+            <h2 className="pageHeading">Opening and Closing Ranks of <span id="collegeId">{college}s</span> for <span id="collegeId">{btnActive === 'csab_2020' ? 'CSAB 2020' : `JoSAA ${btnActive}`} (Round-{roundBtn})</span></h2>
+            <Form>
+                <Form.Group className="buttonRanks">
+                    <Label id="rankLabel">Change Year and Round</Label>
+                    <Form.Select
+                        fluid
+                        id="rankButton"
+                        options={year.reverse()}
+                        placeholder='Change Year'
+                        onChange={(e, { value }) => {
+                            selectRound(value)
+                        }}
+                    />
+                    <Form.Select
+                        fluid
+                        id="rankButton"
+                        options={roundActive}
+                        placeholder='Change Round'
+                        onChange={(e, { value }) => {
+                            getRequest(value)
+                        }}
+                    />
+                </Form.Group>
+            </Form>
             <div className="collegeDetails">
                 {
                     error ? <div className='message'>Error in loading the data</div> :
@@ -141,11 +156,11 @@ export const Ranks = ({ institutes, branches }) => {
                                 <Table.Body>
                                     {ranks.map(rank => (institutes.find(o => o.id === rank.institute_code).category === college ?
                                         <Table.Row key={rank.id}>
-                                            <Table.Cell>{institutes.find(o => o.id === rank.institute_code).name}</Table.Cell>
-                                            <Table.Cell>{branches.find(o => o.id === rank.branch_code).branch_code}</Table.Cell>
+                                            <Table.Cell id="myCell1">{institutes.find(o => o.id === rank.institute_code).name}</Table.Cell>
+                                            <Table.Cell id="myCell2">{branches.find(o => o.id === rank.branch_code).branch_code}</Table.Cell>
                                             <Table.Cell>{rank.category}</Table.Cell>
                                             <Table.Cell>{rank.quota}</Table.Cell>
-                                            <Table.Cell>{rank.seat_pool}</Table.Cell>
+                                            <Table.Cell id="myCell3">{rank.seat_pool}</Table.Cell>
                                             <Table.Cell>{rank.opening_rank}</Table.Cell>
                                             <Table.Cell>{rank.closing_rank}</Table.Cell>
                                         </Table.Row>

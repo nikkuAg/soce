@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import { Footer } from './Footer'
 import './home.css'
 import { MenuHeader } from './Menu'
@@ -6,6 +7,17 @@ import { Popup } from './Popup'
 
 export const Home = () => {
     const [popUp, setpopUp] = useState(false)
+    const [update, setupdate] = useState([])
+    const [loading, setloading] = useState(true)
+    const api = "https://mysoce.pythonanywhere.com/soce/update/"
+    useEffect(() => {
+        axios.get(api)
+            .then(res => {
+                setupdate(res.data.reverse())
+                setloading(false)
+            })
+    }, [api])
+
     return (
         <React.Fragment>
             <MenuHeader active='home' set={false} />
@@ -13,12 +25,15 @@ export const Home = () => {
             <div id="content">
                 <div id="updates">
                     <h3>Recent Updates</h3>
-                    <marquee direction="up" height="250" scrollamount="2">
-                        <ul>
-                            <li>You can view the site on mobile but use landscape mode for better experience.</li>
-                            <li>Seat Matrix of 2021 will be updated soon</li>
-                        </ul>
-                    </marquee>
+                    {loading ? <></> :
+                        <marquee direction="up" height="250" scrollamount="2">
+                            <ul type="square" id="ulText">
+                                {update.map(text => (
+                                    <li key={text.id}>{text.text}</li>
+                                ))}
+                            </ul>
+                        </marquee>
+                    }
                 </div>
                 <div id="pragraph">
                     <h3 id="individual">
