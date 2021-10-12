@@ -112,7 +112,7 @@ export const Prediction = ({ institutes, branches }) => {
     const getRequest = (x) => {
         sessionStorage.setItem('round', x)
         getData()
-        setapiUrl(`https://mysoce.pythonanywhere.com/soce/${x}_${btnActive}/`)
+        setapiUrl(`https://mysoce.pythonanywhere.com/soce/${x}_${yearA}/`)
         setloading(true)
         setbtnActive(yearA)
         setroundBtn(x)

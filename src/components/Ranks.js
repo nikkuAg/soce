@@ -69,7 +69,7 @@ export const Ranks = ({ institutes, branches }) => {
     }
 
     const getRequest = (round) => {
-        setapiUrl(`https://mysoce.pythonanywhere.com/soce/${round}_${btnActive}/`)
+        setapiUrl(`https://mysoce.pythonanywhere.com/soce/${round}_${yearA}/`)
         setloading(true)
         setroundBtn(round)
         setbtnActive(yearA)
