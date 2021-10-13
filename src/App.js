@@ -48,7 +48,7 @@ function App() {
   }, [])
   return (
     <BrowserRouter>
-      <HashRouter>
+      <Switch>
         <Route path="/home" component={Home} />
         <Route path="/colleges/:college" component={Colleges} />
         <Route path="/seats/:college" component={() => (<SeatMatrix institutes={institutes} branches={branches} />)} />
@@ -58,7 +58,7 @@ function App() {
         <Route path="/contact_us" component={Contact} />
         <Route path="/how_to_use" component={Use} />
         <Redirect to="/home" />
-      </HashRouter>
+      </Switch>
     </BrowserRouter>
   )
 }
