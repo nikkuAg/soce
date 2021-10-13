@@ -47,11 +47,11 @@ tbody>tr>td{
     line-height: normal;
 }
 
-tbody>tr:nth-of-type(even)>td{
+tbody>tr:nth-of-type(even){
     background-color: rgba(255, 184, 85, 0.6);
 }
-tbody>tr:nth-of-type(odd)>td{
-    background-color: #f3fffe !important;
+tbody>tr:nth-of-type(odd){
+    background-color: #f3fffe;
 }
 
 .message{
@@ -253,7 +253,7 @@ tbody>tr:nth-of-type(even){
     background-color: rgba(255, 184, 85, 0.6);
 }
 tbody>tr:nth-of-type(odd){
-    background-color: #f3fffe !important;
+    background-color: #f3fffe;
 }
 
 }
