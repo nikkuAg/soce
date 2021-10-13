@@ -34,7 +34,7 @@ thead{
 }
 
 thead>tr>th{
-    background-color: rgb(97, 97, 97) !important;
+    background-color: rgb(0, 0, 133) !important;
     color: rgb(255, 255, 255) !important;
     border: 0.1em solid black !important;
     padding: 0.6rem 1rem !important;
@@ -46,9 +46,11 @@ tbody>tr>td{
     font-family: 'Gemunu Libre', sans-serif;
     line-height: normal;
 }
-
+#website{
+    color: brown;
+}
 tbody>tr:nth-of-type(even){
-    background-color: rgba(255, 184, 85, 0.6);
+    background-color: rgba(184, 184, 255, 0.5);
 }
 tbody>tr:nth-of-type(odd){
     background-color: #f3fffe;

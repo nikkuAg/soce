@@ -84,7 +84,7 @@ export const Colleges = () => {
                                             <Table.Cell>{institute.name}</Table.Cell>
                                             <Table.Cell>{institute.state}</Table.Cell>
                                             <Table.Cell>{institute.nirf_19 === '' ? '-' : institute.nirf_19}/{institute.nirf_20 === '' ? '-' : institute.nirf_20}/{institute.nirf_21 === '' ? '-' : institute.nirf_21}</Table.Cell>
-                                            <Table.Cell><a target="_blank" href={institute.website === "" ? "#" : institute.website}>{institute.website === "" ? "-" : institute.website}</a></Table.Cell>
+                                            <Table.Cell><a id="website" target="_blank" href={institute.website === "" ? "#" : institute.website}>{institute.website === "" ? "-" : institute.website}</a></Table.Cell>
                                         </Table.Row>
                                         : <React.Fragment key={institute.id}></React.Fragment>
                                     ))}

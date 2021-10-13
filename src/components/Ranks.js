@@ -55,12 +55,9 @@ export const Ranks = ({ institutes, branches }) => {
             setroundActive([{ key: '7', text: '7', value: '7' }])
         }
         else if (year === '2017' || year === '2018' || year === '2019') {
-            setroundActive([{ key: '1', text: '1', value: '1' }, { key: '7', text: '7', value: '7' }])
+            setroundActive([{ key: '1', text: '1', value: '1' }, { key: '2', text: '2', value: '2' }, { key: '3', text: '3', value: '3' }, { key: '4', text: '4', value: '4' }, { key: '5', text: '5', value: '5' }, { key: '6', text: '6', value: '6' }, { key: '7', text: '7', value: '7' }])
         }
-        else if (year === '2016') {
-            setroundActive([{ key: '1', text: '1', value: '1' }, { key: '6', text: '6', value: '6' }])
-        }
-        else if (year === '2020') {
+        else if (year === '2020' || year === '2016') {
             setroundActive([{ key: '1', text: '1', value: '1' }, { key: '2', text: '2', value: '2' }, { key: '3', text: '3', value: '3' }, { key: '4', text: '4', value: '4' }, { key: '5', text: '5', value: '5' }, { key: '6', text: '6', value: '6' }])
         }
         else if (year === 'csab_2020') {

@@ -1,12 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
 .headingFirst{
     font-size: 1.5em;
 }
 .headingFull{
-    font-family: 'Pacifico', cursive;
+    font-family: 'Lobster', cursive;
     font-size: 3em;
     text-align: center;
     margin-top: 1.5rem;
-    font-weight: 300;
+    font-weight: 100;
     padding: 0.5rem;
 }
 .fullform{
@@ -23,7 +25,6 @@
 #frame3:hover{
     cursor: pointer;
 }
-
 #content{
     display: flex;
     justify-content: space-evenly;
@@ -112,11 +113,9 @@ li:first-child{
     z-index: 1;
     overflow-y: auto;
 }
-
 #popOut::-webkit-scrollbar {
     display: none;
-  }
-
+}
 #inner{
     display: flex;
     flex-direction: column;
@@ -160,7 +159,6 @@ li:first-child{
     }
 
 }
-
 @media (max-width: 770px) {
     .headingFull{
         font-size: 2em;
@@ -195,7 +193,6 @@ li:first-child{
         margin-right: 0px;
     }
 }
-
 @media (max-width: 340px){
     #frame1{
         display: none;
