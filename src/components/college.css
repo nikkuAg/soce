@@ -251,12 +251,13 @@ input{
         max-width: 100%;
     }
 
-tbody>tr:nth-of-type(even){
-    background-color: rgba(255, 184, 85, 0.6);
-}
-tbody>tr:nth-of-type(odd){
-    background-color: #f3fffe;
-}
+    tbody>tr:nth-of-type(even){
+        background-color: rgba(184, 184, 255, 0.5);
+    }
+    tbody>tr:nth-of-type(odd){
+        background-color: #f3fffe;
+    }
+    
 
 }
 @media (max-width: 640px){

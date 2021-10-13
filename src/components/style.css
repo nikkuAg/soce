@@ -21,7 +21,6 @@ i.icon:not(.extra){
     background-color: #e6fffd !important;
 }
 .ui.menu :not(.active).item:hover{
-    /* background-color: rgb(0, 0, 255, 0.5) !important; */
     color: black !important;
 }
 .navigation{

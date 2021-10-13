@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import 'semantic-ui-css/semantic.min.css';
-import { BrowserRouter, Route, Switch, HashRouter, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route, HashRouter, Redirect } from 'react-router-dom';
 import { Home } from './components/Home';
 import { Colleges } from './components/Colleges';
 import { SeatMatrix } from './components/SeatMatrix';
@@ -10,6 +10,7 @@ import { FormPrediction } from './components/FormPrediction';
 import { Prediction } from './components/Prediction';
 import { Contact } from './components/Contact';
 import { Use } from './components/Use';
+import { FormTrend } from './components/FormTrend';
 
 
 
@@ -54,6 +55,7 @@ function App() {
         <Route path="/seats/:college" component={() => (<SeatMatrix institutes={institutes} branches={branches} />)} />
         <Route path="/ranks/:college" component={() => (<Ranks institutes={institutes} branches={branches} />)} />
         <Route path="/prediction" component={() => (<FormPrediction />)} />
+        <Route path="/trend" component={() => (<FormTrend institutes={institutes} branches={branches} />)} />
         <Route path="/result" component={() => (<Prediction institutes={institutes} branches={branches} college={ins} pool={seat_pool} category={categoryValue} myRank={rank} quota={quotaValue} year={yearValue} round={roundValue} option={option} />)} />
         <Route path="/contact_us" component={Contact} />
         <Route path="/how_to_use" component={Use} />
