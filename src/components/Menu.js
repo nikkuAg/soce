@@ -65,6 +65,7 @@ export const MenuHeader = (props) => {
                         <Dropdown text="SOCE Prediction" pointing name="prediction">
                             <DropdownMenu>
                                 <DropdownItem text="Default Prediction" name="prediction" path="prediction" onClick={handleItemClick} />
+                                {/* <DropdownItem text="Trend" name="prediction" path="trend" onClick={handleItemClick} /> */}
                                 <DropdownItem text="Customize Prediction" disabled onClick={handleItemClick} />
                             </DropdownMenu>
                         </Dropdown>
@@ -135,9 +136,10 @@ export const MenuHeader = (props) => {
                     </MenuItem>
                     <MenuItem
                         active={state.activeItem === 'prediction'}>
-                        <Dropdown text="SOCE Prediction" pointing="top left" name="prediction" className="mobile prediction" style={{ display: "flex", alignItems: 'center' }}>
+                        <Dropdown text="SOCE Prediction" pointing name="prediction">
                             <DropdownMenu>
                                 <DropdownItem text="Default Prediction" name="prediction" path="prediction" onClick={handleItemClick} />
+                                {/* <DropdownItem text="Trend" name="prediction" path="trend" onClick={handleItemClick} /> */}
                                 <DropdownItem text="Customize Prediction" disabled onClick={handleItemClick} />
                             </DropdownMenu>
                         </Dropdown>
