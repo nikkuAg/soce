@@ -136,20 +136,14 @@ export const FormPrediction = () => {
 
     }
     const roundChange = (e, { value }) => {
-        if (value === '2015') {
-            setroundArray([{ key: '7', text: 'Round 7', value: '7' },])
+        if (year === '2015') {
+            setroundActive([{ key: '7', text: '7', value: '7' }])
         }
-        else if (value === '2016') {
-            setroundArray([{ key: '1', text: 'Round 1', value: '1' }, { key: '6', text: 'Round 6', value: '6' },])
+        else if (year === '2017' || year === '2018' || year === '2019') {
+            setroundActive([{ key: '1', text: '1', value: '1' }, { key: '2', text: '2', value: '2' }, { key: '3', text: '3', value: '3' }, { key: '4', text: '4', value: '4' }, { key: '5', text: '5', value: '5' }, { key: '6', text: '6', value: '6' }, { key: '7', text: '7', value: '7' }])
         }
-        else if (value === '2017' || value === '2018' || value === '2019') {
-            setroundArray([{ key: '1', text: 'Round 1', value: '1' }, { key: '7', text: 'Round 7', value: '7' },])
-        }
-        else if (value === '2020') {
-            setroundArray([{ key: '1', text: 'Round 1', value: '1' }, { key: '2', text: 'Round 2', value: '2' },
-            { key: '3', text: 'Round 3', value: '3' }, { key: '4', text: 'Round 4', value: '4' },
-            { key: '5', text: 'Round 5', value: '5' }, { key: '6', text: 'Round 6', value: '6' },])
-            // { key: 'csab_2020', text: 'CSAB Round 1', value: 'csab_2020' }, { key: 'csab_2020', text: 'CSAB Round 2', value: 'csab_2020' },])
+        else if (year === '2020' || year === '2016') {
+            setroundActive([{ key: '1', text: '1', value: '1' }, { key: '2', text: '2', value: '2' }, { key: '3', text: '3', value: '3' }, { key: '4', text: '4', value: '4' }, { key: '5', text: '5', value: '5' }, { key: '6', text: '6', value: '6' }])
         }
         setround(false)
         sessionStorage.setItem('year', value)

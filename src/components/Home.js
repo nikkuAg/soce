@@ -29,7 +29,7 @@ export const Home = () => {
                         <marquee direction="up" height="250" scrollamount="2">
                             <ul type="square" id="ulText">
                                 {update.map(text => (
-                                    <li key={text.id}>{text.text}</li>
+                                    <li id="updateItem" key={text.id}>{text.text}</li>
                                 ))}
                             </ul>
                         </marquee>

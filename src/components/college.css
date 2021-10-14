@@ -240,9 +240,6 @@ input{
 #myCell4{
     max-width: 15em
 }
-/* #myCell{
-    max-width: 
-} */
 @media (max-width: 765px){
     .mobileRemove{
         display: none;
@@ -257,8 +254,6 @@ input{
     tbody>tr:nth-of-type(odd){
         background-color: #f3fffe;
     }
-    
-
 }
 @media (max-width: 640px){
         .buttonRanks{

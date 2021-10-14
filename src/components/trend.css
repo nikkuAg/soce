@@ -1,0 +1,34 @@
+.ui.form .fields .field{
+    height: fit-content;
+}
+.ui.form>.fields>.field>label{
+    font-size: 1rem;
+    margin-bottom: 0.5rem !important;
+}
+#mySelect{
+    height: fit-content;
+    font-size: 1rem;
+}
+#trend{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 1rem;
+}
+#trendSelect{
+    width: 40%;
+}
+#trendInput{
+    width: 90%;
+}
+#trendForm{
+    display: flex;
+    align-items: center;
+}
+#submitBtn{
+    padding: 1rem;
+}
+#Errordiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
