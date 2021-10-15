@@ -50,7 +50,7 @@ export const Home = () => {
                     </p>
                 </div>
             </div>
-            <div id="content">
+            <div id="content" className="chnages2">
                 <div id="pragraph">
                     <h3 id="individual">
                         Unique features of the website:

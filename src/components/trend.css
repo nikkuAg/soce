@@ -31,6 +31,7 @@
 #trendForm{
     display: flex;
     align-items: center;
+    width: 100%;
     border: 2px solid;
     padding-bottom: 0.5rem;
     background-color: rgba(184, 184, 255, 0.5);
@@ -151,11 +152,33 @@ p{
     display: flex;
     justify-content: center;
 }
+@media (max-width: 1000px){
+    #trendLabel{
+        margin-right: 0rem;
+        align-items: flex-start;
+        text-align: left;
+    }
+}
 @media (max-width: 765px){
     tbody>tr:nth-of-type(even){
         background-color: rgba(184, 184, 255, 0.5);
     }
     tbody>tr:nth-of-type(odd){
         background-color: #f3fffe;
+    }
+    #trend{
+        flex-direction: column;
+    }
+    #trendSelect{
+        width: 80%;
+        margin: 1rem;
+    }
+}
+@media (max-width: 610px){
+    #trendSelect{
+        width: 100%;
+    }
+    #trendForm{
+        flex-direction: column;
     }
 }

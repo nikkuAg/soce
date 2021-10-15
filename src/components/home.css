@@ -188,6 +188,12 @@ li:first-child{
     #pragraph{
         width: fit-content;
     }
+    .changes{
+        width: 100% !important;
+    }
+    .chnages2{
+        flex-direction: column-reverse !important;
+    }
 }
 @media (max-width: 610px){
     .headingFull{
