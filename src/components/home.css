@@ -30,9 +30,16 @@
     justify-content: space-evenly;
     margin: 1.5rem;
 }
-
+#trendD{
+    margin-top:-0.4rem !important;
+    margin-bottom: 0.5rem !important;
+}
 .changes{
     width: 38vw !important;
+}
+#soceTrend{
+    color: black;
+    text-decoration: underline dashed black;
 }
 #updates{
     width: 25vw;
@@ -41,7 +48,7 @@
     padding-top: 1rem;
     height: 100%;
     text-align: center;
-    background-color: rgba(255, 184, 85);
+    background-color: rgb(108, 108, 199, 0.5);
     color: black;
     border-radius: 2rem;
 }

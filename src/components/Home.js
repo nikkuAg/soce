@@ -71,9 +71,9 @@ export const Home = () => {
                 </div>
                 <div id="updates" className="changes">
                     <h3>New SOCE Trend</h3>
-                    <p>IIT Kanpur Electrical 4 years General Gender Neutral.<br />JEE Adv Rank: 920</p>
+                    <p id="trendD">for<br />IIT Kanpur (Electrical 4 years) (General, Gender Neutral).<br />JEE Adv Rank: 920</p>
                     <img src={require("../images/trend.png").default} width="100%" />
-                    <p>More such trend refer to SOCE Prediction-{'>'}Trend</p>
+                    <p>More such trend refer to <a id="soceTrend" href="#/trend" >SOCE Trend</a></p>
                 </div>
             </div>
 
