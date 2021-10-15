@@ -39,7 +39,7 @@
 }
 #soceTrend{
     color: black;
-    text-decoration: underline dashed black;
+    text-decoration: underline solid black;
 }
 #updates{
     width: 25vw;
