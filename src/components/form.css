@@ -1,7 +1,7 @@
 .ui.form, .ui.form.fields{
     font-size: 1.5rem !important;
     margin: 1rem !important;
-    margin-top: 1rem !important;
+    margin-top: 0.5rem !important;
 }
 .ui.form{
     display: flex;
@@ -42,28 +42,39 @@ button{
     background-color: rgb(136, 136, 136) !important;
 }
 
-#contact{
-   width: fit-content;
-   height: fit-content;
-   border: 0.2rem solid;
-   padding: 3rem;
-   background-color: rgb(190, 190, 190);
-   border-radius: 2rem;
-   margin-bottom: 2rem !important;
-}
+
 #card{
     display: flex;
     flex-direction: column;
     border: 0.2rem solid;
     width: fit-content;
-    padding: 2.5rem;
+    padding: 1.5rem;
     font-size: 1.5rem;
-    background-color: rgb(85, 85, 85);
+    background-color: rgb(108, 108, 199);
     color: white;
     border-radius: 2rem;
-    margin: 5rem;
+    margin: 1rem;
     border: 0.2rem solid black;
 }
+#card:first-child{
+    margin-top: 2rem;
+}
+i.instagram, i.github, i.twitter{
+    color: white;
+}
+i.instagram:hover, i.github:hover, i.twitter:hover{
+    color: rgb(0, 0, 0);
+}
+#contact{
+    width: fit-content;
+    height: fit-content;
+    border: 0.2rem solid;
+    padding: 1.5rem;
+    background-color: rgb(108, 108, 199, 0.5);
+    border-radius: 2rem;
+    margin-bottom: 2rem !important;
+    margin-top: 2rem !important;
+ }
 p{
     margin: 0.2rem !important;
 
@@ -84,7 +95,7 @@ p{
     color: white;
 }
 #predictionForm{
-    background-color: rgba(255, 184, 85);
+    background-color: rgba(184, 184, 255, 0.5);
     border: 0.4rem solid black;
     margin: 2rem !important;
     padding: 1rem 4rem !important;

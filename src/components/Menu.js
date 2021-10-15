@@ -64,9 +64,8 @@ export const MenuHeader = (props) => {
                         active={state.activeItem === 'prediction'}>
                         <Dropdown text="SOCE Prediction" pointing name="prediction">
                             <DropdownMenu>
-                                <DropdownItem text="Default Prediction" name="prediction" path="prediction" onClick={handleItemClick} />
-                                {/* <DropdownItem text="Trend" name="prediction" path="trend" onClick={handleItemClick} /> */}
-                                <DropdownItem text="Customize Prediction" disabled onClick={handleItemClick} />
+                                <DropdownItem text="Prediction" name="prediction" path="prediction" onClick={handleItemClick} />
+                                <DropdownItem text="SOCE Trend" name="prediction" path="trend" onClick={handleItemClick} />
                             </DropdownMenu>
                         </Dropdown>
                     </MenuItem>
@@ -130,22 +129,23 @@ export const MenuHeader = (props) => {
                     <MenuItem
                         name='home'
                         active={state.activeItem === 'home'}
+                        path='home'
                         onClick={handleItemClick}
-                        path='home'>
+                    >
                         Home
                     </MenuItem>
                     <MenuItem
                         active={state.activeItem === 'prediction'}>
                         <Dropdown text="SOCE Prediction" pointing name="prediction">
                             <DropdownMenu>
-                                <DropdownItem text="Default Prediction" name="prediction" path="prediction" onClick={handleItemClick} />
-                                {/* <DropdownItem text="Trend" name="prediction" path="trend" onClick={handleItemClick} /> */}
-                                <DropdownItem text="Customize Prediction" disabled onClick={handleItemClick} />
+                                <DropdownItem text="Prediction" name="prediction" path="prediction" onClick={handleItemClick} />
+                                <DropdownItem text="SOCE Trend" name="prediction" path="trend" onClick={handleItemClick} />
                             </DropdownMenu>
                         </Dropdown>
                     </MenuItem>
-                    <MenuItem active={state.activeItem === 'ranks'}>
-                        <Dropdown text="Opening and Closing Ranks" pointing name="ranks" className="mobile prediction" style={{ display: "flex", alignItems: 'center' }}>
+                    <MenuItem
+                        active={state.activeItem === 'ranks'}>
+                        <Dropdown text="Opening and Closing Ranks" pointing name="ranks">
                             <DropdownMenu>
                                 <DropdownItem text="IITs" name="IIT" path="ranks" onClick={handleItemClick} />
                                 <DropdownItem text="IIITs" name="IIIT" path="ranks" onClick={handleItemClick} />
@@ -155,9 +155,8 @@ export const MenuHeader = (props) => {
                         </Dropdown>
                     </MenuItem>
                     <MenuItem
-                        active={state.activeItem === 'matirx'}
-                    >
-                        <Dropdown text="Seat Matrix" pointing className="mobile" style={{ display: 'flex', alignItems: 'center' }}>
+                        active={state.activeItem === 'matrix'}>
+                        <Dropdown text="Seat Matrix" pointing name="matrix">
                             <DropdownMenu>
                                 <DropdownItem text="IITs Seat Matrix" name="IIT" path="seats" onClick={handleItemClick} />
                                 <DropdownItem text="IIITs Seat Matrix" name="IIIT" path="seats" onClick={handleItemClick} />
@@ -168,7 +167,7 @@ export const MenuHeader = (props) => {
                     </MenuItem>
                     <MenuItem
                         active={state.activeItem === 'colleges'}>
-                        <Dropdown text="List of Colleges" pointing className="mobile" style={{ display: 'flex', alignItems: 'center' }}>
+                        <Dropdown text="List of Colleges" pointing name="colleges">
                             <DropdownMenu>
                                 <DropdownItem text="IITs" name="IIT" path="colleges" onClick={handleItemClick} />
                                 <DropdownItem text="IIITs" name="IIIT" path="colleges" onClick={handleItemClick} />

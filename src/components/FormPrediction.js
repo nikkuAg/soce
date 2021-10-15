@@ -25,7 +25,7 @@ const category = [
 ]
 const pool = [
     { key: 'Gender-Neutral', text: 'Gender Neutral', value: 'Gender-Neutral' },
-    { key: 'Female-Only', text: 'Female Only', value: 'Female-Only' },
+    { key: 'Female-Only', text: 'Female Only', value: 'Female-only' },
 
 ]
 const type = [

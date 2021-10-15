@@ -22,6 +22,7 @@ i.icon:not(.extra){
 }
 .ui.menu :not(.active).item:hover{
     color: black !important;
+    background-color: transparent;
 }
 .navigation{
     display: flex;

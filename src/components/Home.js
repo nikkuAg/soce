@@ -69,44 +69,11 @@ export const Home = () => {
                     </ul>
                     <Popup show={popUp} close={setpopUp} />
                 </div>
-                <div id="updates">
-                    <h3>Thanks for your encouraging words</h3>
-                    <marquee direction="up" height="500" scrollamount="6" onMouseOver="this.stop()">
-                        <img src={require("../images/1.PNG").default} width="100%" />
-                        <img src={require("../images/2.PNG").default} width="100%" />
-                        <img src={require("../images/3.PNG").default} width="100%" />
-                        <img src={require("../images/4.PNG").default} width="100%" />
-                        <img src={require("../images/5.PNG").default} width="100%" />
-                        <img src={require("../images/6.PNG").default} width="100%" />
-                        <img src={require("../images/7.PNG").default} width="100%" />
-                        <img src={require("../images/8.PNG").default} width="100%" />
-                        <img src={require("../images/9.PNG").default} width="100%" />
-                        <img src={require("../images/10.PNG").default} width="100%" />
-                        <img src={require("../images/11.PNG").default} width="100%" />
-                        <img src={require("../images/12.PNG").default} width="100%" />
-                        <img src={require("../images/13.PNG").default} width="100%" />
-                        <img src={require("../images/14.PNG").default} width="100%" />
-                        <img src={require("../images/15.PNG").default} width="100%" />
-                        <img src={require("../images/16.PNG").default} width="100%" />
-                        <img src={require("../images/17.PNG").default} width="100%" />
-                        <img src={require("../images/18.PNG").default} width="100%" />
-                        <img src={require("../images/19.PNG").default} width="100%" />
-                        <img src={require("../images/20.PNG").default} width="100%" />
-                        <img src={require("../images/21.PNG").default} width="100%" />
-                        <img src={require("../images/22.PNG").default} width="100%" />
-                        <img src={require("../images/23.PNG").default} width="100%" />
-                        <img src={require("../images/24.PNG").default} width="100%" />
-                        <img src={require("../images/25.PNG").default} width="100%" />
-                        <img src={require("../images/26.PNG").default} width="100%" />
-                        <img src={require("../images/27.PNG").default} width="100%" />
-                        <img src={require("../images/28.PNG").default} width="100%" />
-                        <img src={require("../images/29.PNG").default} width="100%" />
-                        <img src={require("../images/30.PNG").default} width="100%" />
-                        <img src={require("../images/31.PNG").default} width="100%" />
-
-
-
-                    </marquee>
+                <div id="updates" className="changes">
+                    <h3>New SOCE Trend</h3>
+                    <p>IIT Kanpur Electrical 4 years General Gender Neutral.<br />JEE Adv Rank: 920</p>
+                    <img src={require("../images/trend.png").default} width="100%" />
+                    <p>More such trend refer to SOCE Prediction-{'>'}Trend</p>
                 </div>
             </div>
 

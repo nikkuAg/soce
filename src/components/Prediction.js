@@ -125,6 +125,7 @@ export const Prediction = ({ institutes, branches }) => {
             {sessionStorage.getItem('result') === 'true' ? <>
                 <MenuHeader active="prediction" set={false} />
                 <h2 className="pageHeading">SOCE Prediction for <span id="collegeId">{college}s</span> based on <span id="collegeId">{btnActive === 'csab_2020' ? 'CSAB' : btnActive} (Round-{roundBtn}) {option === "opening_rank" ? "Opening Rank" : "Closing Rank"}</span> (with +/- <span id="collegeId">{sessionStorage.getItem('cutOff')}%</span> variations)</h2>
+                <h4 className="pageHeading2">(Quota: <span id="collegeId">{quota}</span>, Category: <span id="collegeId">{category}</span>, Gender: <span id="collegeId">{pool}</span>, Your Rank: <span id="collegeId">{myRank}</span>)</h4>
                 <div id="allbuttons">
                     <Form>
                         <Form.Group className="buttonRanks">
@@ -164,7 +165,7 @@ export const Prediction = ({ institutes, branches }) => {
                                         <Label id="high" className={sessionStorage.getItem('cutOff') !== '0' ? "chnageWidth" : ""}>Very High Probability for getting this branch</Label>
                                     </div>
                                     <Table celled structured id="myTable">
-                                        <Table.Header >
+                                        <Table.Header>
                                             <Table.Row>
                                                 <Table.HeaderCell>
                                                     <div className="searchField">
@@ -185,7 +186,7 @@ export const Prediction = ({ institutes, branches }) => {
                                                 college === 'IIT' ?
                                                     (branch.IIT === 'Y' ?
                                                         <Table.Row key={branch.id}>
-                                                            <Table.Cell id="myCell2">
+                                                            <Table.Cell id="myCell2" className="predColumn">
                                                                 {branch.branch_code}
                                                             </Table.Cell>
                                                             {institutes.map(institute => (
@@ -273,7 +274,7 @@ const predicit = () => {
     for (var x = 0; x < tr.length; x++) {
         var data = parseInt(tr[x].innerHTML);
         if (rank <= Math.round((1 - (cutoff / 100)) * data)) {
-            tr[x].style.backgroundColor = 'green'
+            tr[x].style.backgroundColor = '#07d507'
         }
         else if ((rank > Math.round((1 - (cutoff / 100)) * data)) && (rank <= Math.round(data))) {
             tr[x].style.backgroundColor = 'yellow'

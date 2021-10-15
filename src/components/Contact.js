@@ -36,6 +36,16 @@ export const Contact = () => {
             <div id="contactUs">
                 <div id="intro">
                     <div id="card">
+                        <h2>GoSOCE</h2>
+                        <p>Go for Selection Of Colleges for Engineering</p>
+                        <div>
+                            <p>Social Handles: </p>
+                            <a target="_blank" href="https://www.instagram.com/gosoce.in/"><Icon name="instagram" size="big" className="extra" /></a>
+                            <a target="_blank" href="https://twitter.com/go_soce"><Icon name="twitter" size="big" className="extra" /></a>
+
+                        </div>
+                    </div>
+                    <div id="card">
                         <h2>Divyansh Agarwal</h2>
                         <p>2<sup>nd</sup>&nbsp;&nbsp;year Student, IIT Roorkee</p>
                         <p>Web Developer, SOCE</p>
