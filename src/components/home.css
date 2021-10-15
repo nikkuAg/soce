@@ -30,6 +30,9 @@
     justify-content: space-evenly;
     margin: 1.5rem;
 }
+.first{
+    align-items: center;
+}
 #trendD{
     margin-top:-0.4rem !important;
     margin-bottom: 0.5rem !important;
@@ -67,6 +70,11 @@ li:first-child{
 #pragraph{
     width: 60vw;
     padding: 1rem;
+}
+#pragraphM{
+    width: 90%;
+    padding: 1rem;
+    margin: 1rem;
 }
 #pragraph2{
     width: fit-content;
@@ -157,7 +165,24 @@ li:first-child{
 #video{
     margin-right: 0.8rem;
 }
-
+#homeVideo{
+    display: flex;
+    justify-content: space-between;
+    width: fit-content;
+}
+#frame{
+    margin: 0.5rem;
+}
+@media (max-width: 1120px){
+    #updates{
+        width: 60%
+    }
+    .first{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
 @media (max-width: 1100px){
     .headingFull{
         font-size: 2.5em;
@@ -167,11 +192,16 @@ li:first-child{
     }
 
 }
+@media (max-width: 850px){
+    #homeVideo{
+        flex-direction: column;
+    }
+}
 @media (max-width: 770px) {
     .headingFull{
         font-size: 2em;
     }
-    #frame1{
+    #frame1, #frame{
         display: none;
     }
     #frame2{

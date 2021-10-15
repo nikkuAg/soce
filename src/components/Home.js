@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { Icon, Label } from 'semantic-ui-react'
 import { Footer } from './Footer'
 import './home.css'
 import { MenuHeader } from './Menu'
@@ -22,7 +23,7 @@ export const Home = () => {
         <React.Fragment>
             <MenuHeader active='home' set={false} />
             <h2 className="headingFull"><span className="headingFirst">G</span>o for <span className="headingFirst">S</span>election <span className="headingFirst">O</span>f <span className="headingFirst">C</span>olleges for <span className="headingFirst">E</span>ngineering <span className="fullform">(GoSOCE)</span></h2>
-            <div id="content">
+            <div id="content" className="first">
                 <div id="updates">
                     <h3>Recent Updates</h3>
                     {loading ? <></> :
@@ -35,20 +36,38 @@ export const Home = () => {
                         </marquee>
                     }
                 </div>
-                <div id="pragraph">
-                    <h3 id="individual">
-                        JEE (Mains) and JEE (Advance) Over…
-                    </h3>
-                    <p id="individual">Now it’s time to choose best college and branch according to your rank in the exams… but how?
-                    </p>
-                    <p id="individual"> Here is the solution…
-                    </p>
-                    <p id="individual"> This website has been designed to help the Engineering aspirants and their parents to know about
-                        the previous years’ cut-off Rank for various colleges and branches so that they can take an informed
-                        decision to choose best college and branch according to the rank secured in the exam.For better
-                        understanding click on <a href="#/how_to_use"><em>‘How to use’</em></a>
-                    </p>
+                <div id="homeVideo">
+                    <iframe id="frame" width="400" height="250" src="https://www.youtube.com/embed/AIpJOCHTGWU" title="YouTube video player" frameborder="0" allowFullScreen />
+                    <iframe id="frame" width="400" height="250" src="https://www.youtube.com/embed/mNCT5ZsqGLk" title="YouTube video player" frameborder="0" allowFullScreen />
+                    <iframe id="frame2" width="300" height="150" src="https://www.youtube.com/embed/AIpJOCHTGWU" title="YouTube video player" frameborder="0" allowFullScreen />
+                    <iframe id="frame2" width="300" height="150" src="https://www.youtube.com/embed/mNCT5ZsqGLk" title="YouTube video player" frameborder="0" allowFullScreen />
+                    <a id="frame3" href="https://www.youtube.com/watch?v=AIpJOCHTGWU" target="_blank">
+                        <Label>
+                            <Icon name="youtube" className="extra" />
+                            Play Video
+                        </Label>
+                    </a>
+                    <a id="frame3" href="https://www.youtube.com/watch?v=mNCT5ZsqGLk" target="_blank">
+                        <Label>
+                            <Icon name="youtube" className="extra" />
+                            Play Video
+                        </Label>
+                    </a>
                 </div>
+            </div>
+            <div id="pragraphM">
+                <h3 id="individual">
+                    JEE (Mains) and JEE (Advance) Over…
+                </h3>
+                <p id="individual">Now it’s time to choose best college and branch according to your rank in the exams… but how?
+                </p>
+                <p id="individual"> Here is the solution…
+                </p>
+                <p id="individual"> This website has been designed to help the Engineering aspirants and their parents to know about
+                    the previous years’ cut-off Rank for various colleges and branches so that they can take an informed
+                    decision to choose best college and branch according to the rank secured in the exam.For better
+                    understanding click on <a href="#/how_to_use"><em>‘How to use’</em></a>
+                </p>
             </div>
             <div id="content" className="chnages2">
                 <div id="pragraph">
