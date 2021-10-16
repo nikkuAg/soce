@@ -49,6 +49,7 @@ export const SeatMatrix = ({ institutes, branches }) => {
                 <Button active={btnActive === "2019"} primary onClick={() => getRequest('seat_2019', "2019")} className="btn">JoSAA 2019</Button>
                 <Button active={btnActive === "2020"} primary onClick={() => getRequest('seat_2020', "2020")} className="btn">JoSAA 2020</Button>
                 <Button active={btnActive === "2021"} primary onClick={() => getRequest('seat_2021', "2021")} disabled className="btn">JoSAA 2021</Button>
+                {/* <Button active={btnActive === "2021i"} primary onClick={() => getRequest('seat_2021I', "2021i")} className="btn">Increase/Decrease in Seats in JoSAA 2021</Button> */}
             </div>
             <div className="collegeDetails">
                 {
@@ -101,7 +102,7 @@ export const SeatMatrix = ({ institutes, branches }) => {
                                         </Table.HeaderCell>
                                         <Table.HeaderCell>
                                             <div className="searchField">
-                                                Total Seats
+                                                {btnActive !== '2020i' ? "Total Seats" : "Increase/Decrease Seats"}
                                                 <input type="text" className="mobileRemove" id="seats" placeholder="Search" onKeyUp={search} size={5} />
                                             </div>
                                         </Table.HeaderCell>

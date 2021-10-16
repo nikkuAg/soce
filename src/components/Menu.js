@@ -122,6 +122,7 @@ export const MenuHeader = (props) => {
             </div>
             <div className="navigation">
                 {props.set ? <h2 className="heading" style={{ fontFamily: "'Pacifico', cursive" }} >GoSOCE</h2> : <></>}
+                <marquee style={{ color: "red", margin: "1rem", fontSize: "2rem", }}><p>**Site is under maintenance for updating seat matrix of 2021. So you will not be able to access the site for some time. Sorry for inconvenience.**</p></marquee>
                 <Icon name="align justify" size="big" onClick={displayMenuMobile} className="hamburgerIcon" />
             </div>
             <div className="hamburger">
