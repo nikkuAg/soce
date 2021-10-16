@@ -44,12 +44,12 @@ export const SeatMatrix = ({ institutes, branches }) => {
     return (
         <React.Fragment>
             <MenuHeader active="matrix" set={false} />
-            <h2 className="pageHeading">Seat Matrix of <span id="collegeId">{college}s</span> for Year <span id="collegeId">{btnActive}</span></h2>
+            <h2 className="pageHeading">{btnActive !== "2021i" ? <>Seat Matrix of <span id="collegeId">{college}s</span> for Year <span id="collegeId">{btnActive !== "2021i" ? btnActive : "2021"}</span></> : <>Seats of <span id="collegeId">{college}s</span> Increased/Decreased in JoSAA <span id="collegeId">{btnActive !== "2021i" ? btnActive : "2021"}</span> </>}</h2>
             <div className="buttons">
                 <Button active={btnActive === "2019"} primary onClick={() => getRequest('seat_2019', "2019")} className="btn">JoSAA 2019</Button>
                 <Button active={btnActive === "2020"} primary onClick={() => getRequest('seat_2020', "2020")} className="btn">JoSAA 2020</Button>
-                <Button active={btnActive === "2021"} primary onClick={() => getRequest('seat_2021', "2021")} disabled className="btn">JoSAA 2021</Button>
-                {/* <Button active={btnActive === "2021i"} primary onClick={() => getRequest('seat_2021I', "2021i")} className="btn">Increase/Decrease in Seats in JoSAA 2021</Button> */}
+                <Button active={btnActive === "2021"} primary onClick={() => getRequest('seat_2021', "2021")} className="btn">JoSAA 2021</Button>
+                <Button active={btnActive === "2021i"} primary onClick={() => getRequest('seat_2021I', "2021i")} className="btn">Seats Increased/ Decreased in JoSAA 2021</Button>
             </div>
             <div className="collegeDetails">
                 {
@@ -102,7 +102,7 @@ export const SeatMatrix = ({ institutes, branches }) => {
                                         </Table.HeaderCell>
                                         <Table.HeaderCell>
                                             <div className="searchField">
-                                                {btnActive !== '2020i' ? "Total Seats" : "Increase/Decrease Seats"}
+                                                {btnActive !== '2021i' ? "Total Seats" : "Seats Increased/ Decreased in 2021"}
                                                 <input type="text" className="mobileRemove" id="seats" placeholder="Search" onKeyUp={search} size={5} />
                                             </div>
                                         </Table.HeaderCell>

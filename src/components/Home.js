@@ -37,23 +37,46 @@ export const Home = () => {
                     }
                 </div>
                 <div id="homeVideo">
-                    <iframe id="frame" width="400" height="250" src="https://www.youtube.com/embed/AIpJOCHTGWU" title="YouTube video player" frameborder="0" allowFullScreen />
-                    <iframe id="frame" width="400" height="250" src="https://www.youtube.com/embed/mNCT5ZsqGLk" title="YouTube video player" frameborder="0" allowFullScreen />
-                    <iframe id="frame2" width="300" height="150" src="https://www.youtube.com/embed/AIpJOCHTGWU" title="YouTube video player" frameborder="0" allowFullScreen />
-                    <iframe id="frame2" width="300" height="150" src="https://www.youtube.com/embed/mNCT5ZsqGLk" title="YouTube video player" frameborder="0" allowFullScreen />
-                    <a id="frame3" href="https://www.youtube.com/watch?v=AIpJOCHTGWU" target="_blank">
-                        <Label>
-                            <Icon name="youtube" className="extra" />
-                            Play Video
-                        </Label>
-                    </a>
-                    <a id="frame3" href="https://www.youtube.com/watch?v=mNCT5ZsqGLk" target="_blank">
-                        <Label>
-                            <Icon name="youtube" className="extra" />
-                            Play Video
-                        </Label>
-                    </a>
+                    <div className="videoHelp" id="frame">
+                        <iframe width="400" height="250" src="https://www.youtube.com/embed/AIpJOCHTGWU" title="YouTube video player" frameborder="0" allowFullScreen />
+                        <p>Help Video for SOCE Prediction</p>
+                    </div>
+                    <div className="videoHelp" id="frame">
+                        <iframe width="400" height="250" src="https://www.youtube.com/embed/mNCT5ZsqGLk" title="YouTube video player" frameborder="0" allowFullScreen />
+                        <p>Help Video for SOCE Trend</p>
+                    </div>
+                    <div className="videoHelp" id="frame2">
+                        <iframe width="300" height="150" src="https://www.youtube.com/embed/AIpJOCHTGWU" title="YouTube video player" frameborder="0" allowFullScreen />
+                        <p>Help Video for SOCE Prediction</p>
+                    </div>
+                    <div className="videoHelp" id="frame2">
+                        <iframe width="300" height="150" src="https://www.youtube.com/embed/mNCT5ZsqGLk" title="YouTube video player" frameborder="0" allowFullScreen />
+                        <p>Help Video for SOCE Trend</p>
+                    </div>
+                    <div className="videoHelp" id="frame3">
+                        <a href="https://www.youtube.com/watch?v=AIpJOCHTGWU" target="_blank">
+                            <Label>
+                                <Icon name="youtube" className="extra" />
+                                Play Video
+                            </Label>
+                        </a>
+                        <p>Help Video for SOCE Prediction</p>
+                    </div>
+                    <div className="videoHelp" id="frame3">
+                        <a href="https://www.youtube.com/watch?v=mNCT5ZsqGLk" target="_blank">
+                            <Label>
+                                <Icon name="youtube" className="extra" />
+                                Play Video
+                            </Label>
+                        </a>
+                        <p>Help Video for SOCE Trend</p>
+                    </div>
                 </div>
+            </div>
+            <div id="increaseImg">
+                <p id="heading1">Summary of Seats Increased/Decreased in JoSAA 2021</p>
+                <p id="heading2">(For more details kindly visit 'Seat Matrix' {`->`} 'Seat Increased/Decreased in JoSAA 2021')</p>
+                <img src={require("../images/increase.png").default} width="80%" />
             </div>
             <div id="pragraphM">
                 <h3 id="individual">

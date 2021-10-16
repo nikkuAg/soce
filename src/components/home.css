@@ -173,6 +173,35 @@ li:first-child{
 #frame{
     margin: 0.5rem;
 }
+.videoHelp{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.videoHelp>p{
+    font-size: 1.5rem;
+}
+#increaseImg{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#increaseImg>img{
+    border: 2px solid;
+}
+#increaseImg>p#heading1{
+    font-size: 1.8rem;
+    text-align: center;
+    color: brown;
+    text-decoration: underline solid;
+    font-weight: bold;
+}
+#increaseImg>p#heading2{
+    font-size: 1.3rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
 @media (max-width: 1120px){
     #updates{
         width: 60%
