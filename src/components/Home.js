@@ -76,7 +76,7 @@ export const Home = () => {
             <div id="increaseImg">
                 <p id="heading1">Summary of Seats Increased/Decreased in JoSAA 2021</p>
                 <p id="heading2">(For more details kindly visit 'Seat Matrix' {`->`} 'Seat Increased/Decreased in JoSAA 2021')</p>
-                <img src={require("../images/increase.png").default} width="80%" />
+                <img src={require("../images/increase.png").default} width="100%" />
             </div>
             <div id="pragraphM">
                 <h3 id="individual">

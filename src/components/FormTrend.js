@@ -1127,7 +1127,10 @@ export const FormTrend = (props) => {
                 : <></>
 
             }
-            <Footer />
+            {
+                error ? <></> :
+                    loading ? <></> : <Footer />
+            }
         </>
     )
 }

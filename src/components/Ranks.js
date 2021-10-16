@@ -193,7 +193,10 @@ export const Ranks = ({ institutes, branches }) => {
                 }
 
             </div>
-            <Footer />
+            {
+                error ? <></> :
+                    loading ? <></> : <Footer />
+            }
         </React.Fragment >
     )
 }

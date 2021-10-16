@@ -55,6 +55,9 @@
     color: black;
     border-radius: 2rem;
 }
+#updateItem{
+    color:rgb(255, 255, 255)
+}
 #ulText{
     text-align: justify;
 }
@@ -186,9 +189,18 @@ li:first-child{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: rgb(108, 108, 199, 0.5);
+    color: black;
+    width: 80%;
+    padding: 1rem;
+    border-radius: 2rem;
+    border: 2px solid;
+    margin: auto;
 }
 #increaseImg>img{
     border: 2px solid;
+    border-radius: 2rem;
+    margin-top: 0.5rem;
 }
 #increaseImg>p#heading1{
     font-size: 1.8rem;
@@ -234,7 +246,7 @@ li:first-child{
         display: none;
     }
     #frame2{
-        display: block;
+        display: flex;
     }
     #content{
         flex-direction: column;
@@ -274,7 +286,7 @@ li:first-child{
         display: none;
     }
     #frame3{
-        display: block;
+        display: flex;
     }
     #video{
         border: 0px solid;

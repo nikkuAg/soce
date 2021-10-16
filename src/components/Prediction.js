@@ -258,7 +258,10 @@ export const Prediction = ({ institutes, branches }) => {
                     }
 
                 </div>
-                <Footer />
+                {
+                    error ? <></> :
+                        loading ? <></> : <Footer />
+                }
             </> : <Redirect to="/prediction" />
             }
         </React.Fragment >

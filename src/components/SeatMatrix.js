@@ -12,8 +12,8 @@ export const SeatMatrix = ({ institutes, branches }) => {
     const [seats, setseats] = useState([])
     const [loading, setloading] = useState(true)
     const [error, seterror] = useState(false)
-    const [btnActive, setbtnActive] = useState("2020")
-    const [apiurl, setapiUrl] = useState('https://mysoce.pythonanywhere.com/soce/seat_2020/')
+    const [btnActive, setbtnActive] = useState("2021")
+    const [apiurl, setapiUrl] = useState('https://mysoce.pythonanywhere.com/soce/seat_2021/')
     const { college } = useParams()
     useEffect(() => {
         axios.get(apiurl)
@@ -153,9 +153,11 @@ export const SeatMatrix = ({ institutes, branches }) => {
                                 </Table.Header>
                             </Table>
                 }
-
             </div>
-            <Footer />
+            {
+                error ? <></> :
+                    loading ? <></> : <Footer />
+            }
         </React.Fragment >
     )
 }

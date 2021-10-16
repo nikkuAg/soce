@@ -119,7 +119,10 @@ export const Colleges = () => {
                     </p>
                 </Message>
                 : <></>}
-            <Footer />
+            {
+                error ? <></> :
+                    loading ? <></> : <Footer />
+            }
         </React.Fragment>
     )
 }
