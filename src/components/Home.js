@@ -48,19 +48,19 @@ export const Home = () => {
                     </div>
                     <div id="homeVideo">
                         <div className="videoHelp" id="frame">
-                            <iframe width="400" height="250" src="https://www.youtube.com/embed/AIpJOCHTGWU" title="YouTube video player" frameborder="0" allowFullScreen />
+                            <iframe width="300" height="180" src="https://www.youtube.com/embed/AIpJOCHTGWU" title="YouTube video player" frameborder="0" allowFullScreen />
                             <p>Help Video for SOCE Prediction</p>
                         </div>
                         <div className="videoHelp" id="frame">
-                            <iframe width="400" height="250" src="https://www.youtube.com/embed/mNCT5ZsqGLk" title="YouTube video player" frameborder="0" allowFullScreen />
+                            <iframe width="300" height="180" src="https://www.youtube.com/embed/mNCT5ZsqGLk" title="YouTube video player" frameborder="0" allowFullScreen />
                             <p>Help Video for SOCE Trend</p>
                         </div>
                         <div className="videoHelp" id="frame2">
-                            <iframe width="300" height="150" src="https://www.youtube.com/embed/AIpJOCHTGWU" title="YouTube video player" frameborder="0" allowFullScreen />
+                            <iframe width="250" height="120" src="https://www.youtube.com/embed/AIpJOCHTGWU" title="YouTube video player" frameborder="0" allowFullScreen />
                             <p>Help Video for SOCE Prediction</p>
                         </div>
                         <div className="videoHelp" id="frame2">
-                            <iframe width="300" height="150" src="https://www.youtube.com/embed/mNCT5ZsqGLk" title="YouTube video player" frameborder="0" allowFullScreen />
+                            <iframe width="250" height="150" src="https://www.youtube.com/embed/mNCT5ZsqGLk" title="YouTube video player" frameborder="0" allowFullScreen />
                             <p>Help Video for SOCE Trend</p>
                         </div>
                         <div className="videoHelp" id="frame3">
