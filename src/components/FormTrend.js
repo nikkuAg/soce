@@ -1061,7 +1061,7 @@ export const FormTrend = (props) => {
                     </div>
                     <div id="Errordiv">
                         {error ? <div className='message'>{error}</div> : <></>}
-                        <Form.Button id="submitBtn" disabled={disable} onClick={buttonClick} primary >Submit</Form.Button>
+                        {btn ? <></> : <Form.Button id="submitBtn" disabled={disable} onClick={buttonClick} primary >Submit</Form.Button>}
                     </div>
                 </div>
             </Form>
@@ -1079,7 +1079,7 @@ export const FormTrend = (props) => {
                                             <Button positive onClick={() => predicit(rank)} className="btn round" id="predict">Click to Get Prediction</Button>
                                         </div>
                                         <div id="trendPrediction">
-                                            <Table celled structured id="myTable" className="unstackable">
+                                            <Table celled structured id="myTable1" className="unstackable">
                                                 <Table.Header>
                                                     <Table.Row>
                                                         <Table.HeaderCell>Year</Table.HeaderCell>

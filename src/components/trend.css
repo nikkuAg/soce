@@ -106,7 +106,7 @@ table {
     padding: 0.6rem 1rem !important;
     font-weight: 600;
 }
-#myTable{
+#myTable1{
     margin: 1rem;
 }
 th, td {
@@ -151,6 +151,7 @@ p{
 #trendPrediction{
     display: flex;
     justify-content: center;
+    overflow-x: auto;
 }
 @media (max-width: 1000px){
     #trendLabel{
@@ -172,6 +173,17 @@ p{
     #trendSelect{
         width: 80%;
         margin: 1rem;
+    }
+}
+@media (max-width: 750px){
+    #labelDiv{
+        flex-direction: row;
+    }
+    #trendPrediction{
+        flex-direction: column-reverse;
+    }
+    #myTable1{
+        margin: 1rem 0px;
     }
 }
 @media (max-width: 610px){
