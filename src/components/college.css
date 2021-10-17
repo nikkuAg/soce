@@ -6,9 +6,6 @@
     overflow-x: scroll;
     margin: 2rem;
     margin-top: 0.5rem;
-    text-align: center;
-    display: flex;
-    justify-content: center;
 }
 .listColleges{
     display: flex;
