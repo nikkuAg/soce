@@ -145,6 +145,7 @@ export const Prediction = ({ institutes, branches }) => {
                                 options={roundActive}
                                 placeholder='Change Round'
                                 onChange={(e, { value }) => {
+                                    setroundBtn(value)
                                     getRequest(value)
                                 }}
                             />
@@ -164,7 +165,7 @@ export const Prediction = ({ institutes, branches }) => {
                                         <Label id="probableY" className={sessionStorage.getItem('cutOff') === '0' ? "removeLable" : ""} >Probable to get this branch even if cutoff rank decreases by {sessionStorage.getItem('cutOff')}%</Label>
                                         <Label id="high" className={sessionStorage.getItem('cutOff') !== '0' ? "chnageWidth" : ""}>Very High Probability for getting this branch</Label>
                                     </div>
-                                    <Table celled structured id="myTable">
+                                    <Table celled structured id="myTable" className="unstackable">
                                         <Table.Header>
                                             <Table.Row>
                                                 <Table.HeaderCell>
@@ -203,7 +204,7 @@ export const Prediction = ({ institutes, branches }) => {
                                                     ) : college === 'IIIT' ?
                                                         (branch.IIIT === 'Y' ?
                                                             <Table.Row key={branch.id}>
-                                                                <Table.Cell id="myCell2">
+                                                                <Table.Cell id="myCell2" className="predColumn">
                                                                     {branch.branch_code}
                                                                 </Table.Cell>
                                                                 {institutes.map(institute => (
@@ -220,7 +221,7 @@ export const Prediction = ({ institutes, branches }) => {
                                                         ) : college === 'NIT' ?
                                                             (branch.NIT === 'Y' ?
                                                                 <Table.Row key={branch.id}>
-                                                                    <Table.Cell id="myCell2">
+                                                                    <Table.Cell id="myCell2" className="predColumn">
                                                                         {branch.branch_code}
                                                                     </Table.Cell>
                                                                     {institutes.map(institute => (
@@ -237,7 +238,7 @@ export const Prediction = ({ institutes, branches }) => {
                                                             ) : college === 'GFTI' ?
                                                                 (branch.GFTI === 'Y' ?
                                                                     <Table.Row key={branch.id}>
-                                                                        <Table.Cell id="myCell2">
+                                                                        <Table.Cell id="myCell2" className="predColumn">
                                                                             {branch.branch_code}
                                                                         </Table.Cell>
                                                                         {institutes.map(institute => (
@@ -253,6 +254,7 @@ export const Prediction = ({ institutes, branches }) => {
                                                                     : <React.Fragment key={branch.id}></React.Fragment>
                                                                 ) : <></>))}
                                         </Table.Body>
+
                                     </Table>
                                 </>
                     }

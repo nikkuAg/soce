@@ -55,7 +55,7 @@ export const SeatMatrix = ({ institutes, branches }) => {
                 {
                     error ? <div className='message'>Error in loading the data</div> :
                         loading ? <Loader className="loading" type="BallTriangle" color="black" height={80} width={80} /> :
-                            <Table celled structured id="myTable">
+                            <Table celled structured id="myTable" className="unstackable">
                                 <Table.Header >
                                     <Table.Row>
                                         <Table.HeaderCell >

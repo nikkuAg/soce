@@ -5,6 +5,7 @@ import { Footer } from './Footer'
 import './home.css'
 import { MenuHeader } from './Menu'
 import { Popup } from './Popup'
+import { Timer } from './Timer'
 
 export const Home = () => {
     const [popUp, setpopUp] = useState(false)
@@ -24,54 +25,65 @@ export const Home = () => {
             <MenuHeader active='home' set={false} />
             <h2 className="headingFull"><span className="headingFirst">G</span>o for <span className="headingFirst">S</span>election <span className="headingFirst">O</span>f <span className="headingFirst">C</span>olleges for <span className="headingFirst">E</span>ngineering <span className="fullform">(GoSOCE)</span></h2>
             <div id="content" className="first">
-                <div id="updates">
-                    <h3>Recent Updates</h3>
-                    {loading ? <></> :
-                        <marquee direction="up" height="250" scrollamount="2">
-                            <ul type="square" id="ulText">
-                                {update.map(text => (
-                                    <li id="updateItem" key={text.id}>{text.text}</li>
-                                ))}
-                            </ul>
-                        </marquee>
-                    }
-                </div>
-                <div id="homeVideo">
-                    <div className="videoHelp" id="frame">
-                        <iframe width="400" height="250" src="https://www.youtube.com/embed/AIpJOCHTGWU" title="YouTube video player" frameborder="0" allowFullScreen />
-                        <p>Help Video for SOCE Prediction</p>
+                <div id="myTimer">
+                    <div id="timer2">
+                        <Timer for="filling choice for Mock Round - 1" year={2021} month={9} day={21} hour={17} min={0} sec={0} />
                     </div>
-                    <div className="videoHelp" id="frame">
-                        <iframe width="400" height="250" src="https://www.youtube.com/embed/mNCT5ZsqGLk" title="YouTube video player" frameborder="0" allowFullScreen />
-                        <p>Help Video for SOCE Trend</p>
-                    </div>
-                    <div className="videoHelp" id="frame2">
-                        <iframe width="300" height="150" src="https://www.youtube.com/embed/AIpJOCHTGWU" title="YouTube video player" frameborder="0" allowFullScreen />
-                        <p>Help Video for SOCE Prediction</p>
-                    </div>
-                    <div className="videoHelp" id="frame2">
-                        <iframe width="300" height="150" src="https://www.youtube.com/embed/mNCT5ZsqGLk" title="YouTube video player" frameborder="0" allowFullScreen />
-                        <p>Help Video for SOCE Trend</p>
-                    </div>
-                    <div className="videoHelp" id="frame3">
-                        <a href="https://www.youtube.com/watch?v=AIpJOCHTGWU" target="_blank">
-                            <Label>
-                                <Icon name="youtube" className="extra" />
-                                Play Video
-                            </Label>
-                        </a>
-                        <p>Help Video for SOCE Prediction</p>
-                    </div>
-                    <div className="videoHelp" id="frame3">
-                        <a href="https://www.youtube.com/watch?v=mNCT5ZsqGLk" target="_blank">
-                            <Label>
-                                <Icon name="youtube" className="extra" />
-                                Play Video
-                            </Label>
-                        </a>
-                        <p>Help Video for SOCE Trend</p>
+                    <div id="updates">
+                        <h3>Recent Updates</h3>
+                        {loading ? <></> :
+                            <marquee direction="up" height="250" scrollamount="2">
+                                <ul type="square" id="ulText">
+                                    {update.map(text => (
+                                        <li id="updateItem" key={text.id}>{text.text}</li>
+                                    ))}
+                                </ul>
+                            </marquee>
+                        }
                     </div>
                 </div>
+                <div id="timeLeft">
+                    <div id="timer1">
+                        <Timer for="filling choice for Mock Round - 1" year={2021} month={9} day={21} hour={17} min={0} sec={0} />
+                    </div>
+                    <div id="homeVideo">
+                        <div className="videoHelp" id="frame">
+                            <iframe width="400" height="250" src="https://www.youtube.com/embed/AIpJOCHTGWU" title="YouTube video player" frameborder="0" allowFullScreen />
+                            <p>Help Video for SOCE Prediction</p>
+                        </div>
+                        <div className="videoHelp" id="frame">
+                            <iframe width="400" height="250" src="https://www.youtube.com/embed/mNCT5ZsqGLk" title="YouTube video player" frameborder="0" allowFullScreen />
+                            <p>Help Video for SOCE Trend</p>
+                        </div>
+                        <div className="videoHelp" id="frame2">
+                            <iframe width="300" height="150" src="https://www.youtube.com/embed/AIpJOCHTGWU" title="YouTube video player" frameborder="0" allowFullScreen />
+                            <p>Help Video for SOCE Prediction</p>
+                        </div>
+                        <div className="videoHelp" id="frame2">
+                            <iframe width="300" height="150" src="https://www.youtube.com/embed/mNCT5ZsqGLk" title="YouTube video player" frameborder="0" allowFullScreen />
+                            <p>Help Video for SOCE Trend</p>
+                        </div>
+                        <div className="videoHelp" id="frame3">
+                            <a href="https://www.youtube.com/watch?v=AIpJOCHTGWU" target="_blank">
+                                <Label>
+                                    <Icon name="youtube" className="extra" />
+                                    Play Video
+                                </Label>
+                            </a>
+                            <p>Help Video for SOCE Prediction</p>
+                        </div>
+                        <div className="videoHelp" id="frame3">
+                            <a href="https://www.youtube.com/watch?v=mNCT5ZsqGLk" target="_blank">
+                                <Label>
+                                    <Icon name="youtube" className="extra" />
+                                    Play Video
+                                </Label>
+                            </a>
+                            <p>Help Video for SOCE Trend</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
             <div id="increaseImg">
                 <p id="heading1">Summary of Seats Increased/Decreased in JoSAA 2021</p>

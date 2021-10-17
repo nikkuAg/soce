@@ -79,6 +79,15 @@ h1:first-child{
 i.dropdown.icon{
     display: initial !important;
 }
+#menuBlink{
+    color: rgb(0, 0, 255);
+    animation: blink 1s infinite;
+}
+@keyframes blink {
+    50%{
+        opacity: 0.5;
+    }
+}
 @media (max-width: 640px) {
     .heading{
         margin: 1rem !important;

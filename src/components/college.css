@@ -6,6 +6,9 @@
     overflow-x: scroll;
     margin: 2rem;
     margin-top: 0.5rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 .listColleges{
     display: flex;
@@ -36,7 +39,9 @@ thead>tr>th{
     background-color: rgb(108, 108, 199) !important;
     color: rgb(255, 255, 255) !important;
     border: 0.1em solid black !important;
-    padding: 0.6rem 1rem !important;
+    padding: 0.3rem 0.5rem !important;
+    font-weight: 400 !important;
+    font-size: 1.2rem;
 }
 tbody>tr>td{
     border: 0.1em solid black !important;
@@ -49,8 +54,9 @@ tbody>tr>td{
     background-color: rgb(108, 108, 199) !important;
     color: rgb(255, 255, 255) !important;
     border: 0.1em solid black !important;
-    padding: 0.6rem 1rem !important;
-    font-weight: 600;
+    padding: 0.3rem 0.5rem !important;
+    font-weight: 400;
+    font-size: 1.2rem;
 }
 #website{
     color: brown;
@@ -169,8 +175,6 @@ th, td {
     display: flex;
     flex-direction: column;
 }
-
-
 #prediction{
     flex-direction: column;
 }
@@ -178,9 +182,7 @@ th, td {
     display: flex;
     justify-content: space-around;
 }
-
 #predict{
-    /* margin-right: 4rem !important; */
     font-size: 1.5rem !important;
     border-radius: 0.5rem !important;
 }
@@ -255,19 +257,35 @@ input{
 #myCell4{
     max-width: 15em
 }
-@media (max-width: 765px){
-    .mobileRemove{
-        display: none;
+@media (max-width: 800px){
+    .collegeDetails{
+        display: block;
     }
+    .listColleges{
+        display: block;
+    }
+}
+@media (max-width: 769px){
     #myCell1{
         max-width: 100%;
     }
-
     tbody>tr:nth-of-type(even){
         background-color: rgba(184, 184, 255, 0.5);
     }
     tbody>tr:nth-of-type(odd){
         background-color: #f3fffe;
+    }
+    #myTable{
+        font-size: 0.5rem;
+    }
+    tbody>tr>td{
+        padding: 0px !important;
+        margin: 0px !important;
+        font-size: 1rem !important;
+    }
+    thead>tr>th{
+        padding: 0px !important;
+        margin: 0px !important;
     }
 }
 @media (max-width: 640px){

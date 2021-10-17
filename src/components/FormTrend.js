@@ -1079,7 +1079,7 @@ export const FormTrend = (props) => {
                                             <Button positive onClick={() => predicit(rank)} className="btn round" id="predict">Click to Get Prediction</Button>
                                         </div>
                                         <div id="trendPrediction">
-                                            <Table celled structured id="myTable">
+                                            <Table celled structured id="myTable" className="unstackable">
                                                 <Table.Header>
                                                     <Table.Row>
                                                         <Table.HeaderCell>Year</Table.HeaderCell>
