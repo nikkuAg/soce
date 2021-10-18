@@ -272,7 +272,7 @@ export const Prediction = ({ institutes, branches }) => {
 
 
 const predicit = () => {
-    document.getElementById("labelDiv").style.display = 'block'
+    document.getElementById("labelDiv").style.display = 'flex'
     var cutoff = parseInt(sessionStorage.getItem('cutOff'))
     var tr = document.querySelectorAll("[id='data']");
     var rank = parseInt(sessionStorage.getItem('rank'))

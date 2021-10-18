@@ -15,12 +15,25 @@
     align-items: center;
     margin-top: 1rem;
 }
+#trend1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
 #trendLabel{
     color: rgba(0,0,0,.87);
     font-size: .92857143em;
     font-weight: 700;
     text-transform: none;
     margin-right: -2rem;
+}
+#trendLabel1{
+    color: rgba(0,0,0,.87);
+    font-size: .92857143em;
+    font-weight: 700;
+    text-transform: none;
+    margin-right: 1rem;
 }
 #trendSelect{
     width: 30%;
@@ -76,7 +89,9 @@ thead>tr>th{
     background-color: rgb(108, 108, 199) !important;
     color: rgb(255, 255, 255) !important;
     border: 0.1em solid black !important;
-    padding: 0.6rem 1rem !important;
+    padding: 0.3rem 0.5rem !important;
+    font-weight: 400 !important;
+    font-size: 1.2rem;
 }
 tbody>tr>td{
     border: 0.1em solid black !important;
@@ -103,8 +118,9 @@ table {
     background-color: rgb(108, 108, 199) !important;
     color: rgb(255, 255, 255) !important;
     border: 0.1em solid black !important;
-    padding: 0.6rem 1rem !important;
-    font-weight: 600;
+    padding: 0.3rem 0.5rem !important;
+    font-weight: 400 !important;
+    font-size: 1.2rem;
 }
 #myTable1{
     margin: 1rem;
@@ -144,7 +160,11 @@ p{
     color: black;
     font-weight: bold;
 }
-#labelDiv{
+.searchField{
+    display: flex;
+    flex-direction: column;
+}
+#labelDiv1{
     display: none;
     flex-direction: column;
 }
@@ -152,6 +172,12 @@ p{
     display: flex;
     justify-content: center;
     overflow-x: auto;
+}
+.removeLable{
+    display: none !important;
+}
+.changeWidth{
+    max-width: 50%;
 }
 @media (max-width: 1000px){
     #trendLabel{
@@ -176,7 +202,7 @@ p{
     }
 }
 @media (max-width: 750px){
-    #labelDiv{
+    #labelDiv1{
         flex-direction: row;
     }
     #trendPrediction{

@@ -996,7 +996,7 @@ export const FormTrend = (props) => {
     return (
         <>
             <MenuHeader active="prediction" set={false} />
-            <h2 className="pageHeading">SOCE Trend of <span id="collegeId">last 6 years'</span> Opening/Closing Rank for a Branch of a College</h2>
+            <h2 className="pageHeading">Past Trend of Opening/Closing Ranks for <span id="collegeId">a Particular Branch</span> in <span id="collegeId">an Institute</span></h2>
             <Form>
                 <div id="trendForm">
                     <div id="trendInput">
@@ -1112,7 +1112,7 @@ export const FormTrend = (props) => {
                                                     ))}
                                                 </Table.Body>
                                             </Table>
-                                            <div id="labelDiv">
+                                            <div id="labelDiv1">
                                                 <Label id="low" className={sessionStorage.getItem('cutOff') !== '0' ? "chnageWidth" : ""}>Very Low Probability for getting this branch</Label>
                                                 <Label id="probableO" className={sessionStorage.getItem('cutOff') === '0' ? "removeLable" : ""} >Probable to get this branch if cutoff rank increases by {sessionStorage.getItem('cutOff')}%</Label>
                                                 <Label id="probableY" className={sessionStorage.getItem('cutOff') === '0' ? "removeLable" : ""} >Probable to get this branch even if cutoff rank decreases by {sessionStorage.getItem('cutOff')}%</Label>
@@ -1143,7 +1143,7 @@ const reset = () => {
 }
 
 const predicit = (r) => {
-    document.getElementById("labelDiv").style.display = 'flex'
+    document.getElementById("labelDiv1").style.display = 'flex'
     var cutoff = parseInt(document.getElementById("cutOffV").value)
     var tr = document.querySelectorAll("[id='data']");
     var rank = parseInt(r)

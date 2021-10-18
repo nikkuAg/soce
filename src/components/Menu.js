@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { useHistory } from 'react-router';
-import { Menu, Icon, Dropdown, DropdownMenu, DropdownItem, MenuItem } from 'semantic-ui-react';
+import { Menu, Icon, Dropdown, DropdownMenu, DropdownItem, MenuItem, Divider, DropdownHeader } from 'semantic-ui-react';
 import './style.css';
 
 
@@ -65,7 +65,11 @@ export const MenuHeader = (props) => {
                         <Dropdown text="SOCE Prediction" pointing name="prediction">
                             <DropdownMenu>
                                 <DropdownItem text="Prediction" name="prediction" path="prediction" onClick={handleItemClick} />
-                                <DropdownItem text="SOCE Trend" name="prediction" path="trend" onClick={handleItemClick} />
+                                <Divider />
+                                <DropdownHeader>SOCE Trends <Icon name="caret right" className="extra" /></DropdownHeader>
+                                <DropdownItem text="- One Branch in One Institute" name="prediction" path="trend" onClick={handleItemClick} />
+                                <DropdownItem text="- One Branch in All Institutes" name="prediction" path="college_trend" onClick={handleItemClick} />
+                                <DropdownItem text="- All Branches in One Institute" name="prediction" path="branch_trend" onClick={handleItemClick} />
                             </DropdownMenu>
                         </Dropdown>
                     </MenuItem>
@@ -139,7 +143,11 @@ export const MenuHeader = (props) => {
                         <Dropdown text="SOCE Prediction" pointing name="prediction">
                             <DropdownMenu>
                                 <DropdownItem text="Prediction" name="prediction" path="prediction" onClick={handleItemClick} />
-                                <DropdownItem text="SOCE Trend" name="prediction" path="trend" onClick={handleItemClick} />
+                                <Divider />
+                                <DropdownHeader>SOCE Trends <Icon name="caret right" className="extra" /></DropdownHeader>
+                                <DropdownItem text="- One Branch in One Institute" name="prediction" path="trend" onClick={handleItemClick} />
+                                <DropdownItem text="- One Branch in All Institutes" name="prediction" path="college_trend" onClick={handleItemClick} />
+                                <DropdownItem text="- All Branches in One Institute" name="prediction" path="branch_trend" onClick={handleItemClick} />
                             </DropdownMenu>
                         </Dropdown>
                     </MenuItem>

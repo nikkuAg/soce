@@ -11,6 +11,8 @@ import { Prediction } from './components/Prediction';
 import { Contact } from './components/Contact';
 import { Use } from './components/Use';
 import { FormTrend } from './components/FormTrend';
+import { FormCTrend } from './components/FormCTrend';
+import { FormBTrend } from './components/FormBTrend';
 
 
 
@@ -56,6 +58,8 @@ function App() {
         <Route path="/ranks/:college" component={() => (<Ranks institutes={institutes} branches={branches} />)} />
         <Route path="/prediction" component={() => (<FormPrediction />)} />
         <Route path="/trend" component={() => (<FormTrend institutes={institutes} branches={branches} />)} />
+        <Route path="/branch_trend" component={() => (<FormCTrend institutes={institutes} branches={branches} />)} />
+        <Route path="/college_trend" component={() => (<FormBTrend institutes={institutes} branches={branches} />)} />
         <Route path="/result" component={() => (<Prediction institutes={institutes} branches={branches} college={ins} pool={seat_pool} category={categoryValue} myRank={rank} quota={quotaValue} year={yearValue} round={roundValue} option={option} />)} />
         <Route path="/contact_us" component={Contact} />
         <Route path="/how_to_use" component={Use} />
