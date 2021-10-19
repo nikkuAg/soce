@@ -82,7 +82,7 @@ export const FormCTrend = (props) => {
 
         var data = []
         props.institutes.map(institute => {
-            if (institute.category === value) {
+            if (institute.category === value && institute.current === "Y") {
                 data.push({ label: institute.display_code, value: institute.id })
             }
             return null

@@ -174,7 +174,7 @@ export const Prediction = ({ institutes, branches }) => {
                                                     </div>
                                                 </Table.HeaderCell>
                                                 {institutes.map(institute => (
-                                                    institute.category === college ?
+                                                    institute.category === college && institute.current === "Y" ?
                                                         <Table.HeaderCell id="institute" key={institute.id}>
                                                             {institute.display_code}
                                                         </Table.HeaderCell>
@@ -185,13 +185,13 @@ export const Prediction = ({ institutes, branches }) => {
                                         <Table.Body>
                                             {branches.map(branch => (
                                                 college === 'IIT' ?
-                                                    (branch.IIT === 'Y' ?
+                                                    (branch.IIT === 'Y' || branch.IIT === 'O' ?
                                                         <Table.Row key={branch.id}>
                                                             <Table.Cell id="myCell2" className="predColumn">
                                                                 {branch.branch_code}
                                                             </Table.Cell>
                                                             {institutes.map(institute => (
-                                                                institute.category === college ?
+                                                                institute.category === college && institute.current === "Y" ?
                                                                     ranks.find(o => ((o.branch_code === branch.id) && (o.institute_code === institute.id) && (o.category === category) && (o.seat_pool === pool) && (o.quota === quota))) ?
                                                                         <Table.Cell key={institute.id} id="data">
                                                                             {option === 'opening_rank' ? ranks.find(o => ((o.branch_code === branch.id) && (o.institute_code === institute.id) && (o.category === category) && (o.seat_pool === pool) && (o.quota === quota))).opening_rank : ranks.find(o => ((o.branch_code === branch.id) && (o.institute_code === institute.id) && (o.category === category) && (o.seat_pool === pool) && (o.quota === quota))).closing_rank}
@@ -202,13 +202,13 @@ export const Prediction = ({ institutes, branches }) => {
                                                         </Table.Row>
                                                         : <React.Fragment key={branch.id}></React.Fragment>
                                                     ) : college === 'IIIT' ?
-                                                        (branch.IIIT === 'Y' ?
+                                                        (branch.IIIT === 'Y' || branch.IIIT === 'O' ?
                                                             <Table.Row key={branch.id}>
                                                                 <Table.Cell id="myCell2" className="predColumn">
                                                                     {branch.branch_code}
                                                                 </Table.Cell>
                                                                 {institutes.map(institute => (
-                                                                    institute.category === college ?
+                                                                    institute.category === college && institute.current === "Y" ?
                                                                         ranks.find(o => ((o.branch_code === branch.id) && (o.institute_code === institute.id) && (o.category === category) && (o.seat_pool === pool) && (o.quota === quota))) ?
                                                                             <Table.Cell key={institute.id} id="data">
                                                                                 {option === 'opening_rank' ? ranks.find(o => ((o.branch_code === branch.id) && (o.institute_code === institute.id) && (o.category === category) && (o.seat_pool === pool) && (o.quota === quota))).opening_rank : ranks.find(o => ((o.branch_code === branch.id) && (o.institute_code === institute.id) && (o.category === category) && (o.seat_pool === pool) && (o.quota === quota))).closing_rank}
@@ -219,13 +219,13 @@ export const Prediction = ({ institutes, branches }) => {
                                                             </Table.Row>
                                                             : <React.Fragment key={branch.id}></React.Fragment>
                                                         ) : college === 'NIT' ?
-                                                            (branch.NIT === 'Y' ?
+                                                            (branch.NIT === 'Y' || branch.NIT === 'O' ?
                                                                 <Table.Row key={branch.id}>
                                                                     <Table.Cell id="myCell2" className="predColumn">
                                                                         {branch.branch_code}
                                                                     </Table.Cell>
                                                                     {institutes.map(institute => (
-                                                                        institute.category === college ?
+                                                                        institute.category === college && institute.current === "Y" ?
                                                                             ranks.find(o => ((o.branch_code === branch.id) && (o.institute_code === institute.id) && (o.category === category) && (o.seat_pool === pool) && (o.quota === quota))) ?
                                                                                 <Table.Cell key={institute.id} id="data">
                                                                                     {option === 'opening_rank' ? ranks.find(o => ((o.branch_code === branch.id) && (o.institute_code === institute.id) && (o.category === category) && (o.seat_pool === pool) && (o.quota === quota))).opening_rank : ranks.find(o => ((o.branch_code === branch.id) && (o.institute_code === institute.id) && (o.category === category) && (o.seat_pool === pool) && (o.quota === quota))).closing_rank}
@@ -236,13 +236,13 @@ export const Prediction = ({ institutes, branches }) => {
                                                                 </Table.Row>
                                                                 : <React.Fragment key={branch.id}></React.Fragment>
                                                             ) : college === 'GFTI' ?
-                                                                (branch.GFTI === 'Y' ?
+                                                                (branch.GFTI === 'Y' || branch.GFTI === 'O' ?
                                                                     <Table.Row key={branch.id}>
                                                                         <Table.Cell id="myCell2" className="predColumn">
                                                                             {branch.branch_code}
                                                                         </Table.Cell>
                                                                         {institutes.map(institute => (
-                                                                            institute.category === college ?
+                                                                            institute.category === college && institute.current === "Y" ?
                                                                                 ranks.find(o => ((o.branch_code === branch.id) && (o.institute_code === institute.id) && (o.category === category) && (o.seat_pool === pool) && (o.quota === quota))) ?
                                                                                     <Table.Cell key={institute.id} id="data">
                                                                                         {option === 'opening_rank' ? ranks.find(o => ((o.branch_code === branch.id) && (o.institute_code === institute.id) && (o.category === category) && (o.seat_pool === pool) && (o.quota === quota))).opening_rank : ranks.find(o => ((o.branch_code === branch.id) && (o.institute_code === institute.id) && (o.category === category) && (o.seat_pool === pool) && (o.quota === quota))).closing_rank}
