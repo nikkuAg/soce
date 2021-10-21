@@ -27,7 +27,7 @@ export const Home = () => {
             <div id="content" className="first">
                 <div id="myTimer">
                     <div id="timer2">
-                        <Timer for="filling choice for Mock Round - 1" year={2021} month={9} day={21} hour={17} min={0} sec={0} />
+                        {/* <Timer for="filling choice for Mock Round - 1" year={2021} month={9} day={21} hour={17} min={0} sec={0} /> */}
                     </div>
                     <div id="updates">
                         <h3>Recent Updates</h3>
@@ -44,7 +44,7 @@ export const Home = () => {
                 </div>
                 <div id="timeLeft">
                     <div id="timer1">
-                        <Timer for="filling choice for Mock Round - 1" year={2021} month={9} day={21} hour={17} min={0} sec={0} />
+                        {/* <Timer for="filling choice for Mock Round - 1" year={2021} month={9} day={21} hour={17} min={0} sec={0} /> */}
                     </div>
                     <div id="homeVideo">
                         <div className="videoHelp" id="frame">
