@@ -487,7 +487,6 @@ export const Choices = (props) => {
                             </Table>
                         </div>
                         <br /><br /><br />
-                        <Footer />
                     </>
                 :
                 <></>
