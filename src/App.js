@@ -13,6 +13,7 @@ import { Use } from './components/Use';
 import { FormTrend } from './components/FormTrend';
 import { FormCTrend } from './components/FormCTrend';
 import { FormBTrend } from './components/FormBTrend';
+import { Choices } from './components/Choices';
 
 
 
@@ -63,6 +64,7 @@ function App() {
         <Route path="/result" component={() => (<Prediction institutes={institutes} branches={branches} college={ins} pool={seat_pool} category={categoryValue} myRank={rank} quota={quotaValue} year={yearValue} round={roundValue} option={option} />)} />
         <Route path="/contact_us" component={Contact} />
         <Route path="/how_to_use" component={Use} />
+        <Route path="/choice" component={() => (<Choices institutes={institutes} branches={branches} />)} />
         <Redirect to="/home" />
       </HashRouter>
     </BrowserRouter>

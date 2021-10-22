@@ -43,10 +43,10 @@ export const Timer = (props) => {
     return (
         <div id="timer">
             <h3 id="headingTimer">
-                Hurry Up!!!<br />
-                <span id="timeHead">Time Left for {props.for}</span>
+                New Feature Added!!!<br />
+                <span id="timeHead">Test Your JoSAA Choices before submitting for any Inconsistency</span>
             </h3>
-            <div id="countdown">
+            {/* <div id="countdown">
                 <div id="time">
                     <span>{day}</span>
                     <small>Days</small>
@@ -66,7 +66,7 @@ export const Timer = (props) => {
                     <span>{sec}</span>
                     <small>Seconds</small>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }

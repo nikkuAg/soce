@@ -29,6 +29,40 @@ export const Use = () => {
                 </div>
 
                 <div id="video">
+                    <div className="videoHelp" id="frame">
+                        <iframe width="300" height="180" src="https://www.youtube.com/embed/AIpJOCHTGWU" title="YouTube video player" frameborder="0" allowFullScreen />
+                        <p>Help Video for SOCE Prediction</p>
+                    </div>
+                    <div className="videoHelp" id="frame">
+                        <iframe width="300" height="180" src="https://www.youtube.com/embed/mNCT5ZsqGLk" title="YouTube video player" frameborder="0" allowFullScreen />
+                        <p>Help Video for SOCE Trend</p>
+                    </div>
+                    <div className="videoHelp" id="frame2">
+                        <iframe width="250" height="120" src="https://www.youtube.com/embed/AIpJOCHTGWU" title="YouTube video player" frameborder="0" allowFullScreen />
+                        <p>Help Video for SOCE Prediction</p>
+                    </div>
+                    <div className="videoHelp" id="frame2">
+                        <iframe width="250" height="150" src="https://www.youtube.com/embed/mNCT5ZsqGLk" title="YouTube video player" frameborder="0" allowFullScreen />
+                        <p>Help Video for SOCE Trend</p>
+                    </div>
+                    <div className="videoHelp" id="frame3">
+                        <a href="https://www.youtube.com/watch?v=AIpJOCHTGWU" target="_blank">
+                            <Label>
+                                <Icon name="youtube" className="extra" />
+                                Play Video
+                            </Label>
+                        </a>
+                        <p>Help Video for SOCE Prediction</p>
+                    </div>
+                    <div className="videoHelp" id="frame3">
+                        <a href="https://www.youtube.com/watch?v=mNCT5ZsqGLk" target="_blank">
+                            <Label>
+                                <Icon name="youtube" className="extra" />
+                                Play Video
+                            </Label>
+                        </a>
+                        <p>Help Video for SOCE Trend</p>
+                    </div>
                     <iframe id="frame1" width="500" height="300" src="https://www.youtube.com/embed/muvkLs-zFBQ" title="YouTube video player" frameborder="0" allowFullScreen />
                     <iframe id="frame2" width="300" height="150" src="https://www.youtube.com/embed/muvkLs-zFBQ" title="YouTube video player" frameborder="0" allowFullScreen />
                     <a id="frame3" href="https://www.youtube.com/watch?v=muvkLs-zFBQ" target="_blank">

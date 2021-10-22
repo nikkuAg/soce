@@ -61,6 +61,14 @@ export const MenuHeader = (props) => {
                         Home
                     </MenuItem>
                     <MenuItem
+                        name='choice'
+                        active={state.activeItem === 'choice'}
+                        path='choice'
+                        onClick={handleItemClick}
+                    >
+                        Test Your JoSAA Choices
+                    </MenuItem>
+                    <MenuItem
                         active={state.activeItem === 'prediction'}>
                         <Dropdown text="SOCE Prediction" pointing name="prediction">
                             <DropdownMenu>
@@ -137,6 +145,14 @@ export const MenuHeader = (props) => {
                         onClick={handleItemClick}
                     >
                         Home
+                    </MenuItem>
+                    <MenuItem
+                        name='choice'
+                        active={state.activeItem === 'choice'}
+                        path='choice'
+                        onClick={handleItemClick}
+                    >
+                        Test Your JoSAA Choices
                     </MenuItem>
                     <MenuItem
                         active={state.activeItem === 'prediction'}>

@@ -1,0 +1,55 @@
+#completeForm{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+#choiceForm{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly !important;
+    justify-content: center;
+    width: 100%;
+    border: 2px solid;
+    padding-bottom: 0.5rem;
+    background-color: rgba(184, 184, 255, 0.5);
+    border-radius: 1rem;
+    margin: 0.5rem 0px;
+}
+#choiceInput{
+    max-width: 20%
+}
+#choiceInput1{
+    max-width: 15%
+}
+#choice{
+    height: fit-content;
+    font-size: 1rem;
+}
+#choiceSelect{
+    font-size: 0.8rem;
+}
+#choiceLabel{
+    font-size: 1rem;
+}
+#choiceButton, #choiceButton1{
+    font-size: 1rem !important;
+    border: 2px solid black;
+}
+#choiceError{
+    margin-top: 1rem;
+}
+.choicesFields .fields.equal label{
+    font-size: 1rem;
+    margin-bottom: 0.5rem !important;
+}
+#addToTable{
+    width: 100%;
+    display: none;
+}
+#labelDiv{
+    margin-bottom: 0.5rem;
+}
+#choicePredcit{
+    display: flex;
+    justify-content: end;
+}

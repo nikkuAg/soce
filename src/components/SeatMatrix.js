@@ -106,11 +106,20 @@ export const SeatMatrix = ({ institutes, branches }) => {
                                                 <input type="text" className="mobileRemove" id="seats" placeholder="Search" onKeyUp={search} size={5} />
                                             </div>
                                         </Table.HeaderCell>
+                                        {/* {btnActive === "2021i" ?
+                                            <Table.HeaderCell>
+                                                <div className="searchField">
+                                                    Remarks
+                                                    <input type="text" className="mobileRemove" id="remark" placeholder="Search" onKeyUp={search} size={5} />
+                                                </div>
+                                            </Table.HeaderCell>
+                                            : <></>} */}
                                     </Table.Row>
                                 </Table.Header>
                                 <Table.Body>
                                     {seats.map(seat => (institutes.find(o => o.id === seat.institute_code).category === college ?
                                         <Table.Row key={seat.id}>
+                                            {console.log(seat)}
                                             <Table.Cell id="myCell1">{institutes.find(o => o.id === seat.institute_code).name}</Table.Cell>
                                             <Table.Cell id="myCell2">{branches.find(o => o.id === seat.branch_code).branch_name}</Table.Cell>
                                             <Table.Cell id="myCell3">{branches.find(o => o.id === seat.branch_code).duration}</Table.Cell>
@@ -119,6 +128,7 @@ export const SeatMatrix = ({ institutes, branches }) => {
                                             <Table.Cell>{seat.category}</Table.Cell>
                                             <Table.Cell>{seat.quota}</Table.Cell>
                                             <Table.Cell>{seat.seats}</Table.Cell>
+                                            {/* {btnActive === "2021i" ? <Table.Cell>{seat.remark}</Table.Cell> : <></>} */}
                                         </Table.Row>
                                         : <React.Fragment key={seat.id}></React.Fragment>
                                     ))}
@@ -172,6 +182,7 @@ const search = () => {
     let category = document.getElementById("category").value.toUpperCase()
     let quota = document.getElementById("quota").value.toUpperCase()
     let seats = document.getElementById("seats").value.toUpperCase()
+    let remark = document.getElementById("remark").value.toUpperCase()
 
     let table = document.getElementById('myTable');
     let tr = table.getElementsByTagName('tr');

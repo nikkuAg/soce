@@ -88,7 +88,7 @@ i.dropdown.icon{
         opacity: 0.5;
     }
 }
-@media (max-width: 640px) {
+@media (max-width: 776px) {
     .heading{
         margin: 1rem !important;
     }
@@ -111,7 +111,7 @@ i.dropdown.icon{
     }
 
 }
-@media (max-width: 1100px){
+@media (max-width: 1200px){
     .ui.menu.navBar:not(.vertical){
         font-size: 0.9rem;
     }
@@ -120,7 +120,7 @@ i.dropdown.icon{
     }
 
 }
-@media (max-width: 830px){
+@media (max-width: 986px){
     .ui.menu.navBar:not(.vertical){
         font-size: 0.7rem;
     }

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { MenuHeader } from './Menu'
-import './form.css'
-import './trend.css'
-import { Button, Form, Label, Loader, Table } from 'semantic-ui-react'
-import { Footer } from './Footer'
 import Select from 'react-select'
 import axios from 'axios'
+import Loader from 'react-loader-spinner'
+import { Button, Form, Label, Table } from 'semantic-ui-react'
+import { Footer } from './Footer'
+import './form.css'
+import './trend.css'
 
 const options = [
     { key: 'IIT', text: 'IIT', value: 'IIT' },
