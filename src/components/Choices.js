@@ -361,6 +361,7 @@ export const Choices = (props) => {
                         <Button disabled={disable1} positive id="choiceButton1" onClick={submit}>Submit</Button>
                     </div>
                     <div id="addToTable">
+                        <p>Add Your Choices One by One</p>
                         <div id="choiceForm">
                             <div id="choiceInput">
                                 <label id="choiceLabel">Select Institute Type</label>
@@ -433,7 +434,7 @@ export const Choices = (props) => {
                         <div id="choicePredcit">
                             <Button positive onClick={() => predicit(cutoff, rankM, rankA)} className="btn round" id="predict">Click to Get Prediction</Button>
                         </div>
-                        <div>
+                        <div id="choiceTable">
                             <div id="labelDiv">
                                 <Label id="low" className={sessionStorage.getItem('cutOff') !== '0' ? "chnageWidth" : ""}>Very Low Probability for getting this branch</Label>
                                 <Label id="probableO" className={sessionStorage.getItem('cutOff') === '0' ? "removeLable" : ""} >Probable to get this branch if cutoff rank increases by {sessionStorage.getItem('cutOff')}%</Label>
