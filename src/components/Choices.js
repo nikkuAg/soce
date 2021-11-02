@@ -5,7 +5,6 @@ import Select from 'react-select'
 import axios from 'axios'
 import "./choice.css"
 import { MenuHeader } from './Menu'
-import { Footer } from './Footer'
 
 const category = [
     { key: 'General', text: 'General', value: 'General' },
@@ -29,6 +28,7 @@ const choices = [
     { key: "B", text: "Both", value: "B" }
 ]
 const year = [
+    { key: "2021", text: "JoSAA 2021", value: "2021" },
     { key: "2020", text: "JoSAA 2020", value: "2020" },
     { key: "2019", text: "JoSAA 2019", value: "2019" },
     { key: "2018", text: "JoSAA 2018", value: "2018" },
@@ -159,6 +159,12 @@ export const Choices = (props) => {
         }
         else if (value === '2020' || value === '2016') {
             setroundA([{ key: '1', text: 'Round 1', value: '1' }, { key: '2', text: 'Round 2', value: '2' }, { key: '3', text: 'Round 3', value: '3' }, { key: '4', text: 'Round 4', value: '4' }, { key: '5', text: 'Round 5', value: '5' }, { key: '6', text: 'Round 6', value: '6' }])
+        }
+        // else if (value === '2020' || value === '2016' || value==='2021') {
+        //     setroundA([{ key: '1', text: 'Round 1', value: '1' }, { key: '2', text: 'Round 2', value: '2' }, { key: '3', text: 'Round 3', value: '3' }, { key: '4', text: 'Round 4', value: '4' }, { key: '5', text: 'Round 5', value: '5' }, { key: '6', text: 'Round 6', value: '6' }])
+        // }
+        else if (value === '2021') {
+            setroundA([{ key: '1', text: 'Round 1', value: '1' }])
         }
     }
 

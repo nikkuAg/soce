@@ -300,11 +300,36 @@ export const FormBTrend = (props) => {
         }
     }, [loading1])
 
+    const [y621, sety621] = useState([])
+    const [loading8, setloading8] = useState(true)
+    const api8 = "https://mysoce.pythonanywhere.com/soce/1_2021/"
+    useEffect(() => {
+        if (!loading1) {
+            axios.get(api8)
+                .then(res => {
+                    sety621(res.data)
+                    setloading8(false)
+                })
+                .catch(err => {
+                    seterrorA(true)
+                    if (err.response) {
+                        console.log(err.response.data);
+                        console.log(err.response.status);
+                        console.log(err.response.headers);
+                    } else if (err.request) {
+                        console.log(err.request);
+                    } else {
+                        console.log('Error', err.message);
+                    }
+                })
+        }
+    }, [loading1])
+
     const ranks = {
-        "2015": y715, "2016": y616, "2017": y717, "2018": y718, "2019": y719, "2020": y620
+        "2015": y715, "2016": y616, "2017": y717, "2018": y718, "2019": y719, "2020": y620, "2021": y621,
     }
 
-    const yearArray = ["2020", '2019', '2018', '2017', '2016', '2015']
+    const yearArray = ["2021", "2020", '2019', '2018', '2017', '2016', '2015']
 
     return (
         <>
@@ -373,7 +398,7 @@ export const FormBTrend = (props) => {
                     {
                         errorA ? <div className='message'>Error in loading the data</div> :
                             <>
-                                {(loading2 || loading3 || loading4 || loading5 || loading6 || loading7) ?
+                                {(loading2 || loading3 || loading4 || loading5 || loading6 || loading7 || loading8) ?
                                     <><br /><br /><Loader className="loading" type="BallTriangle" color="black" height={80} width={80} /></>
                                     :
                                     <>
@@ -393,7 +418,7 @@ export const FormBTrend = (props) => {
                                                         </Table.HeaderCell>
                                                         {yearArray.map(r => (
                                                             <Table.HeaderCell>
-                                                                JoSAA {r} : Round {(r === "2020" || r === "2016") ? "6" : "7"}
+                                                                JoSAA {r} : Round {(r === "2020" || r === "2016") ? "6" : r === "2021" ? "1" : "7"}
                                                             </Table.HeaderCell>
                                                         ))}
                                                     </Table.Row>

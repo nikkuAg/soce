@@ -182,7 +182,6 @@ const search = () => {
     let category = document.getElementById("category").value.toUpperCase()
     let quota = document.getElementById("quota").value.toUpperCase()
     let seats = document.getElementById("seats").value.toUpperCase()
-    let remark = document.getElementById("remark").value.toUpperCase()
 
     let table = document.getElementById('myTable');
     let tr = table.getElementsByTagName('tr');

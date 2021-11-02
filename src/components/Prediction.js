@@ -17,6 +17,7 @@ export const Prediction = ({ institutes, branches }) => {
         { key: "2018", text: "JoSAA 2018", value: "2018" },
         { key: "2019", text: "JoSAA 2019", value: "2019" },
         { key: "2020", text: "JoSAA 2020", value: "2020" },
+        { key: "2021", text: "JoSAA 2021", value: "2021" },
     ]
 
 
@@ -92,16 +93,22 @@ export const Prediction = ({ institutes, branches }) => {
         sessionStorage.setItem('year', x)
         setyearA(x)
         getData()
-        if (year === '2015') {
+        if (x === '2015') {
             setroundActive([{ key: '7', text: '7', value: '7' }])
         }
-        else if (year === '2017' || year === '2018' || year === '2019') {
+        else if (x === '2017' || x === '2018' || x === '2019') {
             setroundActive([{ key: '1', text: '1', value: '1' }, { key: '2', text: '2', value: '2' }, { key: '3', text: '3', value: '3' }, { key: '4', text: '4', value: '4' }, { key: '5', text: '5', value: '5' }, { key: '6', text: '6', value: '6' }, { key: '7', text: '7', value: '7' }])
         }
-        else if (year === '2020' || year === '2016') {
+        else if (x === '2020' || x === '2016') {
             setroundActive([{ key: '1', text: '1', value: '1' }, { key: '2', text: '2', value: '2' }, { key: '3', text: '3', value: '3' }, { key: '4', text: '4', value: '4' }, { key: '5', text: '5', value: '5' }, { key: '6', text: '6', value: '6' }])
         }
-        else if (year === 'csab_2020') {
+        else if (x === '2021') {
+            setroundActive([{ key: '1', text: '1', value: '1' }])
+        }
+        // else if (x === '2020' || x === '2016' || x === '2021) {
+        //     setroundActive([{ key: '1', text: '1', value: '1' }, { key: '2', text: '2', value: '2' }, { key: '3', text: '3', value: '3' }, { key: '4', text: '4', value: '4' }, { key: '5', text: '5', value: '5' }, { key: '6', text: '6', value: '6' }])
+        // }
+        else if (x === 'csab_2020') {
             setroundActive([{ key: '1', text: '1', value: '1' }, { key: '2', text: '2', value: '2' }])
         }
     }

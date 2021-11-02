@@ -43,8 +43,8 @@ export const Timer = (props) => {
     return (
         <div id="timer">
             <h3 id="headingTimer">
-                New Feature Added!!!<br />
-                <span id="timeHead">Test Your JoSAA Choices before submitting for any Inconsistency</span>
+                New Update!!!<br />
+                <span id="timeHead">Opening & Closing Ranks of JoSAA 2021 Round 1 Seat Allotment updated!! </span>
             </h3>
             {/* <div id="countdown">
                 <div id="time">

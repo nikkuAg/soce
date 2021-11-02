@@ -17,17 +17,18 @@ export const Ranks = ({ institutes, branches }) => {
         { key: "2018", text: "JoSAA 2018", value: "2018" },
         { key: "2019", text: "JoSAA 2019", value: "2019" },
         { key: "2020", text: "JoSAA 2020", value: "2020" },
+        { key: "2021", text: "JoSAA 2021", value: "2021" },
     ]
 
 
     const [ranks, setranks] = useState([])
     const [loading, setloading] = useState(true)
     const [error, seterror] = useState(false)
-    const [btnActive, setbtnActive] = useState("2020")
-    const [yearA, setyearA] = useState("2020")
+    const [btnActive, setbtnActive] = useState("2021")
+    const [yearA, setyearA] = useState("2021")
     const [roundActive, setroundActive] = useState(['1', '2', '3', '4', '5', '6'])
     const [roundBtn, setroundBtn] = useState("1")
-    const [apiurl, setapiUrl] = useState('https://mysoce.pythonanywhere.com/soce/1_2020/')
+    const [apiurl, setapiUrl] = useState('https://mysoce.pythonanywhere.com/soce/1_2021/')
     const { college } = useParams()
     useEffect(() => {
         axios.get(apiurl)
@@ -60,6 +61,12 @@ export const Ranks = ({ institutes, branches }) => {
         else if (year === '2020' || year === '2016') {
             setroundActive([{ key: '1', text: '1', value: '1' }, { key: '2', text: '2', value: '2' }, { key: '3', text: '3', value: '3' }, { key: '4', text: '4', value: '4' }, { key: '5', text: '5', value: '5' }, { key: '6', text: '6', value: '6' }])
         }
+        else if (year === '2021') {
+            setroundActive([{ key: '1', text: '1', value: '1' }])
+        }
+        // else if (year === '2020' || year === '2016' || year === '2021) {
+        //     setroundActive([{ key: '1', text: '1', value: '1' }, { key: '2', text: '2', value: '2' }, { key: '3', text: '3', value: '3' }, { key: '4', text: '4', value: '4' }, { key: '5', text: '5', value: '5' }, { key: '6', text: '6', value: '6' }])
+        // }
         else if (year === 'csab_2020') {
             setroundActive([{ key: '1', text: '1', value: '1' }, { key: '2', text: '2', value: '2' }])
         }
