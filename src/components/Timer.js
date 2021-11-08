@@ -44,7 +44,7 @@ export const Timer = (props) => {
         <div id="timer">
             <h3 id="headingTimer">
                 New Update!!!<br />
-                <span id="timeHead">Opening & Closing Ranks of JoSAA 2021 Round 1 Seat Allotment updated!! </span>
+                <span id="timeHead">Opening & Closing Ranks of JoSAA 2021 <span style={{ color: "red" }}>Round 2</span> Seat Allotment updated!! </span>
             </h3>
             {/* <div id="countdown">
                 <div id="time">

@@ -146,8 +146,8 @@ export const FormPrediction = () => {
         else if (value === '2020' || value === '2016') {
             setroundArray([{ key: '1', text: 'Round 1', value: '1' }, { key: '2', text: 'Round 2', value: '2' }, { key: '3', text: 'Round 3', value: '3' }, { key: '4', text: 'Round 4', value: '4' }, { key: '5', text: 'Round 5', value: '5' }, { key: '6', text: 'Round 6', value: '6' }])
         }
-        else if (year === '2021') {
-            setroundArray([{ key: '1', text: '1', value: '1' }])
+        else if (value === '2021') {
+            setroundArray([{ key: '1', text: 'Round 1', value: '1' }, { key: '2', text: 'Round 2', value: '2' }])
         }
         // else if (year === '2020' || year === '2016' || year === '2021) {
         //     setroundArray([{ key: '1', text: '1', value: '1' }, { key: '2', text: '2', value: '2' }, { key: '3', text: '3', value: '3' }, { key: '4', text: '4', value: '4' }, { key: '5', text: '5', value: '5' }, { key: '6', text: '6', value: '6' }])
