@@ -278,34 +278,9 @@ export const FormCTrend = (props) => {
                 })
         }
     }, [loading1])
-
-    // const [y621, sety621] = useState([])
-    // const [loading8, setloading8] = useState(true)
-    // const api8 = "https://mysoce.pythonanywhere.com/soce/6_2021/"
-    // useEffect(() => {
-    //     if (!loading1) {
-    //         axios.get(api8)
-    //             .then(res => {
-    //                 sety621(res.data)
-    //                 setloading8(false)
-    //             })
-    //             .catch(err => {
-    //                 seterrorA(true)
-    //                 if (err.response) {
-    //                     console.log(err.response.data);
-    //                     console.log(err.response.status);
-    //                     console.log(err.response.headers);
-    //                 } else if (err.request) {
-    //                     console.log(err.request);
-    //                 } else {
-    //                     console.log('Error', err.message);
-    //                 }
-    //             })
-    //     }
-    // }, [loading1])
     const [y621, sety621] = useState([])
     const [loading8, setloading8] = useState(true)
-    const api8 = "https://mysoce.pythonanywhere.com/soce/2_2021/"
+    const api8 = "https://mysoce.pythonanywhere.com/soce/4_2021/"
     useEffect(() => {
         if (!loading1) {
             axios.get(api8)
@@ -421,7 +396,7 @@ export const FormCTrend = (props) => {
                                                         </Table.HeaderCell>
                                                         {yearArray.map(r => (
                                                             <Table.HeaderCell>
-                                                                JoSAA {r} : Round {(r === "2020" || r === "2016") ? "6" : r === "2021" ? "2" : "7"}
+                                                                JoSAA {r} : Round {(r === "2020" || r === "2016") ? "6" : r === "2021" ? "4" : "7"}
                                                             </Table.HeaderCell>
                                                         ))}
                                                     </Table.Row>
