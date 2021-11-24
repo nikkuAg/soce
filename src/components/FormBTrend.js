@@ -302,7 +302,7 @@ export const FormBTrend = (props) => {
 
     const [y621, sety621] = useState([])
     const [loading8, setloading8] = useState(true)
-    const api8 = "https://mysoce.pythonanywhere.com/soce/4_2021/"
+    const api8 = "https://mysoce.pythonanywhere.com/soce/6_2021/"
     useEffect(() => {
         if (!loading1) {
             axios.get(api8)
@@ -418,7 +418,7 @@ export const FormBTrend = (props) => {
                                                         </Table.HeaderCell>
                                                         {yearArray.map(r => (
                                                             <Table.HeaderCell>
-                                                                JoSAA {r} : Round {(r === "2020" || r === "2016") ? "6" : r === "2021" ? "4" : "7"}
+                                                                JoSAA {r} : Round {(r === "2020" || r === "2016" || r === "2021") ? "6" : "7"}
                                                             </Table.HeaderCell>
                                                         ))}
                                                     </Table.Row>

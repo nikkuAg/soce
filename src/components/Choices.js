@@ -157,15 +157,10 @@ export const Choices = (props) => {
         else if (value === '2017' || value === '2018' || value === '2019') {
             setroundA([{ key: '1', text: 'Round 1', value: '1' }, { key: '2', text: 'Round 2', value: '2' }, { key: '3', text: 'Round 3', value: '3' }, { key: '4', text: 'Round 4', value: '4' }, { key: '5', text: 'Round 5', value: '5' }, { key: '6', text: 'Round 6', value: '6' }, { key: '7', text: 'Round 7', value: '7' }])
         }
-        else if (value === '2020' || value === '2016') {
+        else if (value === '2020' || value === '2016' || value === '2021') {
             setroundA([{ key: '1', text: 'Round 1', value: '1' }, { key: '2', text: 'Round 2', value: '2' }, { key: '3', text: 'Round 3', value: '3' }, { key: '4', text: 'Round 4', value: '4' }, { key: '5', text: 'Round 5', value: '5' }, { key: '6', text: 'Round 6', value: '6' }])
         }
-        // else if (value === '2020' || value === '2016' || value==='2021') {
-        //     setroundA([{ key: '1', text: 'Round 1', value: '1' }, { key: '2', text: 'Round 2', value: '2' }, { key: '3', text: 'Round 3', value: '3' }, { key: '4', text: 'Round 4', value: '4' }, { key: '5', text: 'Round 5', value: '5' }, { key: '6', text: 'Round 6', value: '6' }])
-        // }
-        else if (value === '2021') {
-            setroundA([{ key: '1', text: 'Round 1', value: '1' }, { key: '2', text: 'Round 2', value: '2' }, { key: '3', text: 'Round 3', value: '3' }, { key: '4', text: 'Round 4', value: '4' }])
-        }
+
     }
 
     const insSelect = (e) => {

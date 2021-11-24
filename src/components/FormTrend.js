@@ -1066,54 +1066,54 @@ export const FormTrend = (props) => {
                 })
         }
     }, [loading1])
-    // const [y521, sety521] = useState([])
-    // const [loading39, setloading39] = useState(true)
-    // const api38 = "https://mysoce.pythonanywhere.com/soce/5_2021/"
-    // useEffect(() => {
-    //     if (!loading1) {
-    //         axios.get(api38)
-    //             .then(res => {
-    //                 sety521(res.data)
-    //                 setloading39(false)
-    //             })
-    //             .catch(err => {
-    //                 seterrorA(true)
-    //                 if (err.response) {
-    //                     console.log(err.response.data);
-    //                     console.log(err.response.status);
-    //                     console.log(err.response.headers);
-    //                 } else if (err.request) {
-    //                     console.log(err.request);
-    //                 } else {
-    //                     console.log('Error', err.message);
-    //                 }
-    //             })
-    //     }
-    // }, [loading1])
-    // const [y621, sety621] = useState([])
-    // const [loading40, setloading40] = useState(true)
-    // const api39 = "https://mysoce.pythonanywhere.com/soce/6_2021/"
-    // useEffect(() => {
-    //     if (!loading1) {
-    //         axios.get(api39)
-    //             .then(res => {
-    //                 sety621(res.data)
-    //                 setloading40(false)
-    //             })
-    //             .catch(err => {
-    //                 seterrorA(true)
-    //                 if (err.response) {
-    //                     console.log(err.response.data);
-    //                     console.log(err.response.status);
-    //                     console.log(err.response.headers);
-    //                 } else if (err.request) {
-    //                     console.log(err.request);
-    //                 } else {
-    //                     console.log('Error', err.message);
-    //                 }
-    //             })
-    //     }
-    // }, [loading1])
+    const [y521, sety521] = useState([])
+    const [loading39, setloading39] = useState(true)
+    const api38 = "https://mysoce.pythonanywhere.com/soce/5_2021/"
+    useEffect(() => {
+        if (!loading1) {
+            axios.get(api38)
+                .then(res => {
+                    sety521(res.data)
+                    setloading39(false)
+                })
+                .catch(err => {
+                    seterrorA(true)
+                    if (err.response) {
+                        console.log(err.response.data);
+                        console.log(err.response.status);
+                        console.log(err.response.headers);
+                    } else if (err.request) {
+                        console.log(err.request);
+                    } else {
+                        console.log('Error', err.message);
+                    }
+                })
+        }
+    }, [loading1])
+    const [y621, sety621] = useState([])
+    const [loading40, setloading40] = useState(true)
+    const api39 = "https://mysoce.pythonanywhere.com/soce/6_2021/"
+    useEffect(() => {
+        if (!loading1) {
+            axios.get(api39)
+                .then(res => {
+                    sety621(res.data)
+                    setloading40(false)
+                })
+                .catch(err => {
+                    seterrorA(true)
+                    if (err.response) {
+                        console.log(err.response.data);
+                        console.log(err.response.status);
+                        console.log(err.response.headers);
+                    } else if (err.request) {
+                        console.log(err.request);
+                    } else {
+                        console.log('Error', err.message);
+                    }
+                })
+        }
+    }, [loading1])
 
 
     const ranks = {
@@ -1122,7 +1122,7 @@ export const FormTrend = (props) => {
         "1_2017": y117, "2_2017": y217, "3_2017": y317, "4_2017": y417, "5_2017": y517, "6_2017": y617, "7_2017": y717,
         "1_2018": y118, "2_2018": y218, "3_2018": y318, "4_2018": y418, "5_2018": y518, "6_2018": y618, "7_2018": y718,
         "1_2019": y119, "2_2019": y219, "3_2019": y319, "4_2019": y419, "5_2019": y519, "6_2019": y619, "7_2019": y719,
-        "1_2021": y121, "2_2021": y221, "3_2021": y321, "4_2021": y421, //"5_2021": y521, "6_2021": y621,
+        "1_2021": y121, "2_2021": y221, "3_2021": y321, "4_2021": y421, "5_2021": y521, "6_2021": y621,
     }
 
     const yearArray = ["2021", "2020", '2019', '2018', '2017', '2016', '2015']
@@ -1205,7 +1205,7 @@ export const FormTrend = (props) => {
                     {
                         errorA ? <div className='message'>Error in loading the data</div> :
                             <>
-                                {(loading0 || loading2 || loading3 || loading4 || loading5 || loading6 || loading7 || loading8 || loading9 || loading10 || loading11 || loading12 || loading13 || loading14 || loading15 || loading16 || loading17 || loading18 || loading19 || loading20 || loading21 || loading22 || loading23 || loading24 || loading25 || loading26 || loading27 || loading28 || loading29 || loading30 || loading31 || loading32 || loading33 || loading34 || loading35 || loading36 || loading37 || loading38 /*|| loading39 || loading40  */) ?
+                                {(loading0 || loading2 || loading3 || loading4 || loading5 || loading6 || loading7 || loading8 || loading9 || loading10 || loading11 || loading12 || loading13 || loading14 || loading15 || loading16 || loading17 || loading18 || loading19 || loading20 || loading21 || loading22 || loading23 || loading24 || loading25 || loading26 || loading27 || loading28 || loading29 || loading30 || loading31 || loading32 || loading33 || loading34 || loading35 || loading36 || loading37 || loading38 || loading39 || loading40) ?
                                     <><br /><br /><Loader className="loading" type="BallTriangle" color="black" height={80} width={80} /></>
                                     :
                                     <>
@@ -1234,13 +1234,13 @@ export const FormTrend = (props) => {
                                                                 </Table.Cell>
                                                                 {roundArray.map(r => (
                                                                     <Table.Cell id="data">
-                                                                        {(y === '2020') || (y === '2016') /*|| (y === "2021")*/ ?
+                                                                        {(y === '2020') || (y === '2016') || (y === "2021") ?
                                                                             r === '7' ? '-' : <>{ranks[r + '_' + y].find(o => ((o.branch_code === parseInt(trendBr)) && (o.institute_code === parseInt(trendIns)) && (o.quota === quotaValue) && (o.category === categoryValue) && (o.seat_pool === seat_pool))) === undefined ? '-' : <><p>{ranks[r + '_' + y].find(o => ((o.branch_code === parseInt(trendBr)) && (o.institute_code === parseInt(trendIns)) && (o.quota === quotaValue) && (o.category === categoryValue) && (o.seat_pool === seat_pool))).opening_rank}</p><p>to</p><p>{ranks[r + '_' + y].find(o => ((o.branch_code === parseInt(trendBr)) && (o.institute_code === parseInt(trendIns)) && (o.quota === quotaValue) && (o.category === categoryValue) && (o.seat_pool === seat_pool))).closing_rank}</p></>}</>
-                                                                            : (y === '2021') ?
-                                                                                r !== '1' && r !== '2' && r !== '3' && r !== '4' /* && r !== '5' */ ? '-' : <>{ranks[r + '_' + y].find(o => ((o.branch_code === parseInt(trendBr)) && (o.institute_code === parseInt(trendIns)) && (o.quota === quotaValue) && (o.category === categoryValue) && (o.seat_pool === seat_pool))) === undefined ? '-' : <><p>{ranks[r + '_' + y].find(o => ((o.branch_code === parseInt(trendBr)) && (o.institute_code === parseInt(trendIns)) && (o.quota === quotaValue) && (o.category === categoryValue) && (o.seat_pool === seat_pool))).opening_rank}</p><p>to</p><p>{ranks[r + '_' + y].find(o => ((o.branch_code === parseInt(trendBr)) && (o.institute_code === parseInt(trendIns)) && (o.quota === quotaValue) && (o.category === categoryValue) && (o.seat_pool === seat_pool))).closing_rank}</p></>}</>
-                                                                                :
-                                                                                (y === '2015') ? (r !== '7') ? '-' : <>{ranks[r + '_' + y].find(o => ((o.branch_code === parseInt(trendBr)) && (o.institute_code === parseInt(trendIns)) && (o.quota === quotaValue) && (o.category === categoryValue) && (o.seat_pool === seat_pool))) === undefined ? '-' : <><p>{ranks[r + '_' + y].find(o => ((o.branch_code === parseInt(trendBr)) && (o.institute_code === parseInt(trendIns)) && (o.quota === quotaValue) && (o.category === categoryValue) && (o.seat_pool === seat_pool))).opening_rank}</p><p>to</p><p>{ranks[r + '_' + y].find(o => ((o.branch_code === parseInt(trendBr)) && (o.institute_code === parseInt(trendIns)) && (o.quota === quotaValue) && (o.category === categoryValue) && (o.seat_pool === seat_pool))).closing_rank}</p></>}</>
-                                                                                    : <>{ranks[r + '_' + y].find(o => ((o.branch_code === parseInt(trendBr)) && (o.institute_code === parseInt(trendIns)) && (o.quota === quotaValue) && (o.category === categoryValue) && (o.seat_pool === seat_pool))) === undefined ? '-' : <><p>{ranks[r + '_' + y].find(o => ((o.branch_code === parseInt(trendBr)) && (o.institute_code === parseInt(trendIns)) && (o.quota === quotaValue) && (o.category === categoryValue) && (o.seat_pool === seat_pool))).opening_rank}</p><p>to</p><p>{ranks[r + '_' + y].find(o => ((o.branch_code === parseInt(trendBr)) && (o.institute_code === parseInt(trendIns)) && (o.quota === quotaValue) && (o.category === categoryValue) && (o.seat_pool === seat_pool))).closing_rank}</p></>}</>
+                                                                            : /* (y === '2021') ?
+                                                                                r !== '1' && r !== '2' && r !== '3' && r !== '4' && r !== '5' && r !== '6' ? '-' : <>{ranks[r + '_' + y].find(o => ((o.branch_code === parseInt(trendBr)) && (o.institute_code === parseInt(trendIns)) && (o.quota === quotaValue) && (o.category === categoryValue) && (o.seat_pool === seat_pool))) === undefined ? '-' : <><p>{ranks[r + '_' + y].find(o => ((o.branch_code === parseInt(trendBr)) && (o.institute_code === parseInt(trendIns)) && (o.quota === quotaValue) && (o.category === categoryValue) && (o.seat_pool === seat_pool))).opening_rank}</p><p>to</p><p>{ranks[r + '_' + y].find(o => ((o.branch_code === parseInt(trendBr)) && (o.institute_code === parseInt(trendIns)) && (o.quota === quotaValue) && (o.category === categoryValue) && (o.seat_pool === seat_pool))).closing_rank}</p></>}</>
+                                                                                :*/
+                                                                            (y === '2015') ? (r !== '7') ? '-' : <>{ranks[r + '_' + y].find(o => ((o.branch_code === parseInt(trendBr)) && (o.institute_code === parseInt(trendIns)) && (o.quota === quotaValue) && (o.category === categoryValue) && (o.seat_pool === seat_pool))) === undefined ? '-' : <><p>{ranks[r + '_' + y].find(o => ((o.branch_code === parseInt(trendBr)) && (o.institute_code === parseInt(trendIns)) && (o.quota === quotaValue) && (o.category === categoryValue) && (o.seat_pool === seat_pool))).opening_rank}</p><p>to</p><p>{ranks[r + '_' + y].find(o => ((o.branch_code === parseInt(trendBr)) && (o.institute_code === parseInt(trendIns)) && (o.quota === quotaValue) && (o.category === categoryValue) && (o.seat_pool === seat_pool))).closing_rank}</p></>}</>
+                                                                                : <>{ranks[r + '_' + y].find(o => ((o.branch_code === parseInt(trendBr)) && (o.institute_code === parseInt(trendIns)) && (o.quota === quotaValue) && (o.category === categoryValue) && (o.seat_pool === seat_pool))) === undefined ? '-' : <><p>{ranks[r + '_' + y].find(o => ((o.branch_code === parseInt(trendBr)) && (o.institute_code === parseInt(trendIns)) && (o.quota === quotaValue) && (o.category === categoryValue) && (o.seat_pool === seat_pool))).opening_rank}</p><p>to</p><p>{ranks[r + '_' + y].find(o => ((o.branch_code === parseInt(trendBr)) && (o.institute_code === parseInt(trendIns)) && (o.quota === quotaValue) && (o.category === categoryValue) && (o.seat_pool === seat_pool))).closing_rank}</p></>}</>
                                                                         }
                                                                     </Table.Cell>
                                                                 ))}
