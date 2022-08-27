@@ -224,9 +224,8 @@ li:first-child{
     display: none;
 }
 #myTimer{
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-around;
+    font-size: 2rem;
+    margin: 4rem;
 }
 @media (max-width: 1120px){
     .first #updates{
