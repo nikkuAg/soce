@@ -7,13 +7,19 @@ export const Home = () => {
 		<React.Fragment>
 			<MenuHeader active='home' set={false} />
 			<h2 className='headingFull'>
-				<span className='headingFirst'>R</span>ank
-				<span className='headingFirst'>M</span>atrix
+				<span className='headingFirst'>G</span>o for{" "}
+				<span className='headingFirst'>S</span>election{" "}
+				<span className='headingFirst'>O</span>f{" "}
+				<span className='headingFirst'>C</span>olleges for{" "}
+				<span className='headingFirst'>E</span>ngineering{" "}
+				<span className='fullform'>(GoSOCE)</span>
 			</h2>
 			<div id='content' className='first'>
 				<div id='myTimer'>
-					We have redesigned this webiste and shifted to a new domain. Please
-					refer{"  "}
+					We have updated this website to a newer version for a better user
+					experience. Also, this website is now available in a more trusted
+					environment provided by IIT Roorkee. Please visit the new website Rank
+					Matrix on the following domain{" "}
 					<a href='https://rankmatrix.iitr.ac.in'>
 						https://rankmatrix.iitr.ac.in
 					</a>
